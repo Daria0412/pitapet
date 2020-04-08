@@ -1,0 +1,113 @@
+@font-face { font-family: 'S-CoreDream-3Light'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff'); font-weight: normal; font-style: normal; }
+body { font-family: 'S-CoreDream-3Light'; font-size: 15pt; }
+* { box-sizing: border-box }
+
+input[type=text], input[type=password]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  font-family: 'S-CoreDream-3Light';
+  font-size: 13pt;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+  font-family: 'S-CoreDream-3Light';
+  font-size: 13pt;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+button {
+    background-color: #F69012;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    font-family: 'S-CoreDream-3Light';
+    font-size: 18pt;
+  }
+  
+  button:hover {
+    opacity:1;
+  }
+  
+  .signupbtn {
+    float: left;
+    width: 100%;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+
+  .radioContainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15pt;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .radioContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+
+  .radioContainer:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  .radioContainer input:checked ~ .checkmark {
+    background-color: #F69012;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .radioContainer input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .radioContainer .checkmark:after {
+    top: 9px;
+   left: 9px;
+   width: 8px;
+   height: 8px;
+   border-radius: 50%;
+   background: white;
+}
+  @media screen and (max-width: 300px) {
+    .signupbtn {
+       width: 100%;
+    }
+  }
