@@ -6,7 +6,10 @@
     </head>
     <body style="overflow-y:hidden">
         <!-- <image src="{% static 'img/main.jpg' %}" width="100%"></image> -->
-        
+        {% load static %}
+        <form class="form" method="POST" action="{% url 'worklist' %}">{% csrf_token %}
+            <input type = submit value = "산책">
+        </form> 
     </body>
     
 </html>

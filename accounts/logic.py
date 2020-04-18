@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponse, JsonResponse
 from .models import *
+from django.views.decorators.csrf import csrf_exempt,csrf_protect
+
 
 
 class Sign:
@@ -14,7 +16,7 @@ class Sign:
         year = request.POST['year']
         month = request.POST['month']
         day = request.POST['day']
-        birth ="{}-{}-{} 00:00:00".format(year,month,day)
+        birth ="{}년 {}월 {}일".format(year,month,day)
         sex = request.POST['sex']
         animal = request.POST['animal']
         print(request.POST['addr_city'])
@@ -38,8 +40,25 @@ class Sign:
                     member_id = id
                     result = 'success'
         Sign.save_session(request, member_id, result)
-        return render(request, 'accounts/logout.html')
+        return render(request, 'accounts/index.html')
 
     def save_session(request, member_id, result):
         request.session['member_id'] = member_id
         request.session['result'] = result
+        print(result)
+        print(request.session['member_id'])
+
+
+    @csrf_exempt
+    def show_list(request):
+        id = request.session['member_id']
+        this_member = User.objects.filter(member_id = id)
+        addr_gu = None
+        addr_city = None
+        if this_member is not None:
+            for member in this_member:
+                addr_city = member.addr_city
+                addr_gu = member.addr_gu
+        profile_members = User.objects.filter(profile = 1, addr_gu = addr_gu, addr_city = addr_city)
+        return render(request, "accounts/board.html",{"users":profile_members})
+                                                                                          

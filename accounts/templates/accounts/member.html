@@ -23,16 +23,16 @@
           <li><a href="#0"> New Account </a></li>
         </ul>
       <div id="login">
-        <form class="form" method="POST" action="{% url 'signup' %}">
+        <form class="form" method="POST" action="{% url 'signin' %}">
           {% csrf_token %}
           <p class="fieldset">
             <label class="image-replace id" for="member_id"> ID </label>
-            <input class="full-width has-padding has-border" id="member_id" type="text" placeholder="ID" required>
+            <input class="full-width has-padding has-border" name = "member_id" id="member_id" type="text" placeholder="ID" required>
             <!-- <span class="error-message"> ID 가 존재하지 않습니다. 다시 한 번 확인해 주세요. </span> -->
           </p>
           <p class="fieldset">
             <label class="image-replace password" for="pwd"> Password </label>
-            <input class="full-width has-padding has-border" id="pwd" type="password" placeholder="Password" required>
+            <input class="full-width has-padding has-border" id="pwd" name="pwd" type="password" placeholder="Password" required>
             <a href="#0" class="hide-password"> Show </a>
             <!-- <span class="error-message"> 비밀번호가 맞지 않습니다. 다시 한 번 확인해 주세요. </span> -->
           </p>
@@ -48,26 +48,26 @@
     </div>
 
     <div id="signup">
-      <form class="form" method="POST" action="login.html">
+      <form class="form" method="POST" action="{% url 'signup' %}">
         <p class="fieldset">
           <label class="image-replace id" for="member_id"> ID </label>
-          <input class="full-width has-padding has-border" id="member_id" type="text" placeholder="ID" required>
+          <input class="full-width has-padding has-border" name = "member_id" id="member_id" type="text" placeholder="ID" required>
           <!-- <span class="error-message"> 이미 존재하는 아이디입니다. 다시 한 번 입력해 주세요 </span> -->
         </p>
         <p class="fieldset">
           <label class="image-replace password" for="pwd"> Password </label>
 
-          <input class="full-width has-padding has-border" id="pwd" type="password" placeholder="Password" required>
+          <input class="full-width has-padding has-border" name = "pwd" id="pwd" type="password" placeholder="Password" required>
           <a href="#0" class="hide-password"> Show </a>
         </p>
         <p class="fieldset">
           <label class="image-replace password" for="repeatPwd"> Confirm Password </label>
-          <input class="full-width has-padding has-border" id="repeatPwd" type="password" placeholder="Confirm Password" required>
+          <input class="full-width has-padding has-border" name = "repeatPwd" id="repeatPwd" type="password" placeholder="Confirm Password" required>
           <span class="error-message"> 비밀번호가 일치하지 않습니다. 다시 한 번 입력해 주세요. </span>
         </p>
         <p class="fieldset">
           <label class="image-replace name" for="name"> Name </label>
-          <input class="full-width has-padding has-border" id="name" type="text" placeholder="Name" required>
+          <input class="full-width has-padding has-border" name = "name" id="name" type="text" placeholder="Name" required>
         </p>
         <p class="fieldset">
           <label class="image-replace birth" for="birth"> Date Of Birth </label>
@@ -92,12 +92,12 @@
         </p>
         <p class="fieldset">
           <label class="image-replace animal" for="animal"> Animal </label>
-          <input class="full-width has-padding has-border" id="animal" type="text" placeholder="kinds Of Pets" required>
+          <input class="full-width has-padding has-border" name = "animal" id="animal" type="text" placeholder="kinds Of Pets" required>
         </p>
         <p class="fieldset">
           <label class="image-replace address" for="address"> Address </label>
           <label class="dropdown">
-            <select onchange="addressChange(this)">
+            <select id="add_city" name="addr_city" onchange="addressChange(this)">
                 <option> 시를 선택해 주세요 </option>
                 <option value="seoul"> 서울특별시 </option>
                 <option value="busan"> 부산광역시 </option>
@@ -119,28 +119,28 @@
             </select>
           </label>
           <label class="dropdown">
-            <select id="address">
+            <select id="addr_gu" name="addr_gu" name="addr_gu">
               <option> 군이나 도를 선택해 주세요 </option>
             </select>
           </label>
         </p>
         <p class="fieldset">
           <label class="container2">
-            <input type="radio" name="sex" value="man" alt="man" checked > Man
+            <input type="radio" name="sex" id="sex" value="man" alt="man" checked > Man
             <span class="checkmark"></span>
           </label>
           <label class="container2">
-            <input type="radio" name="sex" value="women" alt="women"> Women
+            <input type="radio" name="sex" id="sex" value="women" alt="women"> Women
             <span class="checkmark"></span>
           </label>
         </p>
         <p class="fieldset">
           <label class="container2">
-            <input type="radio" name="profile" value="공개" alt="공개" checked > Public
+            <input type="radio" name="profile" id="profile" value="공개" alt="공개" checked > Public
             <span class="checkmark"></span>
           </label>
           <label class="container2">
-            <input type="radio" name="profile" value="비공개" alt="비공개"> Private
+            <input type="radio" name="profile" id="profile" value="비공개" alt="비공개"> Private
             <span class="checkmark"></span>
           </label>
         </p>

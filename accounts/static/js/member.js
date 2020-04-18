@@ -197,7 +197,7 @@ function addressChange(e){
                               "산청군", "의령군", "창녕군", "하동군", "함안군", "함양군", "합천군"];
   var address_jeju=["군이나 도를 선택해 주세요", "제주시", "서귀포시"];
 
-  var target=document.getElementById("address");
+  var target=document.getElementById("addr_gu");
 
   if(e.value == "seoul") var d = address_seoul;
   else if(e.value == "busan") var d = address_busan;

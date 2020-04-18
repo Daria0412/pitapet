@@ -27,3 +27,6 @@ def logout(request):
 
 def member(request):
     return render(request, 'accounts/member.html')
+
+def worklist(request):
+    return Sign.show_list(request)
