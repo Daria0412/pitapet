@@ -24,3 +24,6 @@ def logout(request):
     if request.method == "POST": 
         del request.session['member_id'] 
     return render(request, 'accounts/logout.html')
+
+def member(request):
+    return render(request, 'accounts/member.html')
