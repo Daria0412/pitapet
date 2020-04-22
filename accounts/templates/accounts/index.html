@@ -1,15 +1,64 @@
 <html>
-    <head>
-        <title> Pit A Pet </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% load static %}
-    </head>
-    <body style="overflow-y:hidden">
-        <!-- <image src="{% static 'img/main.jpg' %}" width="100%"></image> -->
-        {% load static %}
-        <form class="form" method="POST" action="{% url 'worklist' %}">{% csrf_token %}
-            <input type = submit value = "산책">
-        </form> 
-    </body>
-    
+  <head>
+    <title> Pit A Pet </title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- CSS -->
+    <link href="../../static/css/index.css" rel="stylesheet" media="screen">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Bootstrap 3-->
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	  <!-- FAVICON -->
+    <link rel="shortcut icon" href="../../static/img/favicon.png" type="image/x-icon">
+    <!-- JAVASCRIPT -->
+    <script src="../../static/js/jquery.js"></script>
+    <script src="../../static/js/bootstrap.min.js"></script>
+    <script src="../../static/js/animatescroll.js"></script>
+    <script src="../../static/js/index.js"></script>
+    <script src="../../static/js/retina.min.js"></script>
+  </head>
+  <body>
+	{% load static %}
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only"> Toggle navigation </span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+        <a class="navbar-brand" href="#"><img src="../../static/img/logo.png"></a>
+      </div>
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li><a onclick="$('.detail').animatescroll({padding:31});"> 서비스 소개 </a></li>
+          <li><a onclick="$('.contents').animatescroll({padding:31});"> 서비스 내용 </a></li>
+          <li><a onclick="$('.walkmate').animatescroll({padding:31});" href="{% url 'worklist' %}"> 산책 메이트 </a></li>{% csrf_token %}
+          <li><a onclick="$('.social').animatescroll({padding:31});" href="{% url 'member' %}"><img src="../../static/img/signup-button.png" onmouseover="this.src='../../static/img/signup-hover.png';" onmouseout="this.src='../../static/img/signup-button.png';"/></a></li>{% csrf_token %}
+          <li><a onclick="$('.chat').animatescroll({padding:31});" href="chat.html"><img src="../../static/img/chat-button.png" onmouseover="this.src='../../static/img/chat-hover.png';" onmouseout="this.src='../../static/img/chat-button.png';"/></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <header>
+    <div class="container">
+      <div class="right"><img id="girl" src="../../static/img/girl.png"></div>
+      <div class="left"><img id="contents" src="../../static/img/contents.png"></div>
+      <div class="bottom"><img id="dates" src="../../static/img/date.png"></div>
+    </div>
+  </header>
+
+  <section class="detail">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8"><img src="../../static/img/about.png"></div>
+        <div class="col-md-offset-2 about-contents"><img src="../../static/img/about-contents.png"></div>
+      </div>
+    </div>
+  </section>
+  </body>
 </html>
