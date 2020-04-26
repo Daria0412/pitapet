@@ -9,26 +9,24 @@ jQuery(document).ready(function ($) {
   $forgot_password_link = $form_login.find('.form-bottom-message a'),
   $back_to_login_link = $form_forgot_password.find('.form-bottom-message a'),
   $main_nav = $('.main-nav');
-
   var password =  $form_signup.find("#pwd").val();
   var repeatPassword = $form_signup.find("#repeatPwd").val();
 
-  //open modal
-  $main_nav.on('click', function (event) {
+ //open modal
+ $main_nav.on('click', function (event) {
 
-    if ($(event.target).is($main_nav)) {
-      // on mobile open the submenu
-      $(this).children('ul').toggleClass('is-visible');
-    } else {
-      // on mobile close submenu
-      $main_nav.children('ul').removeClass('is-visible');
-      //show modal layer
-      $form_modal.addClass('is-visible');
-      //show the selected form
-      $(event.target).is('.signup') ? signup_selected() : login_selected();
-    }
-
-  });
+  if ($(event.target).is($main_nav)) {
+    // on mobile open the submenu
+    $(this).children('ul').toggleClass('is-visible');
+  } else {
+    // on mobile close submenu
+    $main_nav.children('ul').removeClass('is-visible');
+    //show modal layer
+    $form_modal.addClass('is-visible');
+    //show the selected form
+    $(event.target).is('.signup') ? signup_selected() : login_selected();
+  }
+});
 
   //close modal
   $('.user-modal').on('click', function (event) {

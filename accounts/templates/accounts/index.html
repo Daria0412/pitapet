@@ -36,6 +36,7 @@
         <ul class="nav navbar-nav">
           <li><a onclick="$('.detail').animatescroll({padding:31});"> 서비스 소개 </a></li>
           <li><a onclick="$('.contents').animatescroll({padding:31});"> 서비스 내용 </a></li>
+          <li><a onclick="$('.team').animatescroll({padding:31});"> 팀원 소개 </a></li>
           <li><a onclick="$('.walkmate').animatescroll({padding:31});" href="{% url 'worklist' %}"> 산책 메이트 </a></li>{% csrf_token %}
           <li><a onclick="$('.social').animatescroll({padding:31});" href="{% url 'member' %}"><img src="../../static/img/signup-button.png" onmouseover="this.src='../../static/img/signup-hover.png';" onmouseout="this.src='../../static/img/signup-button.png';"/></a></li>{% csrf_token %}
           <li><a onclick="$('.chat').animatescroll({padding:31});" href="chat.html"><img src="../../static/img/chat-button.png" onmouseover="this.src='../../static/img/chat-hover.png';" onmouseout="this.src='../../static/img/chat-button.png';"/></a></li>
@@ -55,10 +56,61 @@
   <section class="detail">
     <div class="container">
       <div class="row">
-        <div class="col-md-offset-2 col-md-8"><img src="../../static/img/about.png"></div>
-        <div class="col-md-offset-2 about-contents"><img src="../../static/img/about-contents.png"></div>
+		<div class="col-md-offset-2 col-md-8">
+			<h1> about </h1>
+			<h2> 핏어팻이란? </h2>
+			<h3> 반려동물을 기르는 사람들에게 도움이 되는 정보와  
+					산책 메이트를 구할 수 있는 서비스를 제공하는 
+					챗봇 프로그램으로, 장소에 구애받지 않고 언제 어디서나 
+					반려동물에 관한 정보를 쉽게 얻고자 하였습니다. </h3>
+		</div>
+	   </div>
+    </div>
+  </section>
+
+  <section class="contents">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="carousel-example-generic-2" class="carousel slide">
+            <div class="carousel-inner">
+            <div class="item active">
+                <div class="row">
+                  <div class="col-sm-12 col-md-offset-1 col-md-6">
+                    <h1> 핏어팻을 통해 <b>반려동물</b>에 관한 정보를 쉽고 간편하게 얻어 보세요! </h1><br>
+                    <p> 반려동물에 관한 궁금증을 핏어팻과 대화하며<br> 해결할 수 있습니다.  </p>
+                  </div>
+                  <div class="col-sm-12 col-md-5">
+                    <div class="app-screenshot">
+                      <img src="../../static/img/screen/app-1.png" class="img-responsive" alt="App Screen 1">
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="item">
+              <div class="row">
+                <div class="col-sm-12 col-md-offset-1 col-md-6">
+                  <h1> 핏어팻을 통해 24 시간 운영하는 <b>동물병원</b>을 알아 보세요! </h1><br>
+                  <p> 집 근처에서 24 시간 운영하는 동물병원의 <br> 위치를 핏어팻 하나로 알 수 있습니다. </p>
+                </div>
+                <div class="col-sm-12 col-md-5">
+                  <div class="app-screenshot">
+                    <img src="../../static/img/screen/app-2.png" class="img-responsive" alt="App Screen 2">
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic-2" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic-2" data-slide-to="1"></li>
+            </ol>		
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+
   </body>
 </html>

@@ -1,3 +1,4 @@
+@font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
 body {
     font-family: 'Noto Sans KR', sans-serif;
 }
@@ -88,7 +89,7 @@ header {
 	height: 960px;
 	background-size: cover;
 	background-repeat: no-repeat;
-	background: url('../img/background.png');
+	background: url('../img/background-main.png');
 	color: white;
 }
 
@@ -117,28 +118,28 @@ header {
 }
 
 @-webkit-keyframes girl {
-0% {
--webkit-transform: rotateY(-30deg) translateY(-70px) skewY(30deg);
-transform: rotateY(-30deg) translateY(-70px) skewY(30deg);
-opacity: 0;
-}
-100% {
--webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
-transform: rotateY(0deg) translateY(0) skewY(0deg);
-opacity: 1;
-}
-}
-@keyframes girl {
-0% {
--webkit-transform: rotateY(-30deg) translateY(-50px) skewY(30deg);
-transform: rotateY(-30deg) translateY(-50px) skewY(30deg);
-opacity: 0;
-}
-100% {
--webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
-transform: rotateY(0deg) translateY(0) skewY(0deg);
-opacity: 1;
-}
+	0% {
+	-webkit-transform: rotateY(-30deg) translateY(-70px) skewY(30deg);
+	transform: rotateY(-30deg) translateY(-70px) skewY(30deg);
+	opacity: 0;
+	}
+	100% {
+	-webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
+	transform: rotateY(0deg) translateY(0) skewY(0deg);
+	opacity: 1;
+	}
+	}
+	@keyframes girl {
+	0% {
+	-webkit-transform: rotateY(-30deg) translateY(-50px) skewY(30deg);
+	transform: rotateY(-30deg) translateY(-50px) skewY(30deg);
+	opacity: 0;
+	}
+	100% {
+	-webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
+	transform: rotateY(0deg) translateY(0) skewY(0deg);
+	opacity: 1;
+	}
 }
 
 #dates {
@@ -147,35 +148,150 @@ opacity: 1;
 }
 
 @-webkit-keyframes dates {
-0% {
--webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
-    transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
-opacity: 0;
-}
-100% {
--webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
-    transform: rotateY(0deg) translateY(0) skewY(0deg);
-opacity: 1;
-}
-}
-@keyframes dates {
-0% {
--webkit-transform: rotateY(30deg) translateY(-70px) skewY(-30deg);
-    transform: rotateY(30deg) translateY(-70px) skewY(-30deg);
-opacity: 0;
-}
-100% {
--webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
-    transform: rotateY(0deg) translateY(0) skewY(0deg);
-opacity: 1;
-}
+	0% {
+	-webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
+		transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
+	opacity: 0;
+	}
+	100% {
+	-webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
+		transform: rotateY(0deg) translateY(0) skewY(0deg);
+	opacity: 1;
+	}
+	}
+	@keyframes dates {
+	0% {
+	-webkit-transform: rotateY(30deg) translateY(-70px) skewY(-30deg);
+		transform: rotateY(30deg) translateY(-70px) skewY(-30deg);
+	opacity: 0;
+	}
+	100% {
+	-webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
+		transform: rotateY(0deg) translateY(0) skewY(0deg);
+	opacity: 1;
+	}
 }
 
-.detail{
+.detail {
 	overflow: hidden;
 	padding: 100px 0px 100px 0px;
     min-height: 1080px;
-    background: url("../img/background2.png");
+    background: url("../img/background-detail.png");
     max-width: 100%;
     height: auto !important;
 }
+
+.detail h1 {
+	text-transform: uppercase;
+	font-weight: 300;
+	font-family: 'yg-jalnan';
+	font-size: 5.8em;
+	color: #282828;
+}
+
+.detail h2 {
+	font-weight: 300;
+	font-family: 'yg-jalnan';
+	font-size: 3.2em;
+	color: #ffffff;
+}
+
+.detail h3 {
+	font-weight: 300;
+	font-size: 2.3em;
+	line-height: 40pt;
+}
+
+.contents {
+	overflow: hidden;
+	padding: 50px 0px 0px 0px;
+	min-height: 500px;
+	background: url("../img/background-contents.png");
+}
+
+.contents .title{
+	margin-bottom: 80px;
+	text-align: center;
+	
+}
+
+.contents .features .row{
+	margin-bottom: 40px;
+}
+
+.contents .carousel h1{
+	font-size: 3.8em;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.contents .carousel h1, .contents p{
+	text-align: left;
+	font-weight: 300;
+}
+
+.contents p{
+	color: #3D3D3D;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 2.0em;
+	text-align: left;
+}
+
+.contents .carousel-control{
+	background: none;
+}
+
+.contents .app-screenshot{
+	overflow: hidden;
+	overflow: hidden;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 50px;
+	width: 320px;
+	height: 450px;
+	background: url('../img/iphone-front.png') no-repeat;
+	background-size: 100%;
+}
+
+.contents .app-screenshot img{
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 4px;
+	width: 275px;
+}
+
+.contents .carousel-indicators {
+	position: relative;
+	bottom: 0;
+	left: 0;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding: 5px;
+	padding-bottom: 8px;
+	width: 100%;
+	border-top: 1px solid #FFD014;
+	background: #FFD014;
+}
+
+.contents .carousel-indicators .active {
+	width: 45px;
+	height: 5px;
+	border: none;
+	border-radius: 0px;
+}
+
+.contents .carousel-indicators li {
+	display: inline-block;
+	margin: 1px;
+	width: 45px;
+	height: 5px;
+	border: none;
+	border-radius: 0px;
+	background: #FFFFFF;
+	text-indent: -999px;
+	cursor: pointer;
+}
+
+.contents .carousel-indicators .active {
+	background: #FF9116;	
+}
+
