@@ -12,29 +12,33 @@ jQuery(document).ready(function ($) {
   var password =  $form_signup.find("#pwd").val();
   var repeatPassword = $form_signup.find("#repeatPwd").val();
 
- //open modal
- $main_nav.on('click', function (event) {
+//  //open modal
+//  $main_nav.on('click', function (event) {
 
-  if ($(event.target).is($main_nav)) {
-    // on mobile open the submenu
-    $(this).children('ul').toggleClass('is-visible');
-  } else {
-    // on mobile close submenu
-    $main_nav.children('ul').removeClass('is-visible');
-    //show modal layer
-    $form_modal.addClass('is-visible');
-    //show the selected form
-    $(event.target).is('.signup') ? signup_selected() : login_selected();
-  }
-});
+//   if ($(event.target).is($main_nav)) {
+//     // on mobile open the submenu
+//     $(this).children('ul').toggleClass('is-visible');
+//   } else {
+//     // on mobile close submenu
+//     $main_nav.children('ul').removeClass('is-visible');
+//     //show modal layer
+//     $form_modal.addClass('is-visible');
+//     //show the selected form
+//     $(event.target).is('.signup') ? signup_selected() : login_selected();
+//   }
 
-  //close modal
-  $('.user-modal').on('click', function (event) {
-    if ($(event.target).is($form_modal) || $(event.target).is('.close-form')) {
-      $form_modal.removeClass('is-visible');
-    }
-  });
-  //close modal when clicking the esc keyboard button
+// });
+
+$form_modal.addClass('is-visible');
+//show the selected form
+login_selected();
+
+
+  // $('.user-modal').on('click', function (event) {
+  //   if ($(event.target).is($form_modal) || $(event.target).is('.close-form')) {
+  //     $form_modal.removeClass('is-visible');
+  //   }
+  // });
   $(document).keyup(function (event) {
     if (event.which == '27') {
       $form_modal.removeClass('is-visible');

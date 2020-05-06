@@ -37,6 +37,7 @@ button {
 	visibility: visible!important;
 }
 
+/* NAVIGATION */
 nav.navbar{
 	position: fixed;
 	top: -100%;
@@ -84,6 +85,7 @@ nav.navbar.fixed-to-top{
 	display: inline;
 }
 
+/* HEADER */
 header {
 	padding: 150px 0px 0px 1000px;
 	height: 960px;
@@ -172,6 +174,7 @@ header {
 	}
 }
 
+/* DETAIL */
 .detail {
 	overflow: hidden;
 	padding: 100px 0px 100px 0px;
@@ -202,6 +205,7 @@ header {
 	line-height: 40pt;
 }
 
+/* CONTENTS */
 .contents {
 	overflow: hidden;
 	padding: 50px 0px 0px 0px;
@@ -294,4 +298,261 @@ header {
 .contents .carousel-indicators .active {
 	background: #FF9116;	
 }
+
+/* TEAM */
+section.special {
+	text-align: center;
+}
+
+section.special article {
+	text-align: left;
+}
+
+section.team {
+	padding: 6em 0;
+}
+
+section.team header1 {
+	margin-bottom: 4em;
+}
+
+section.team header1 h2 {
+	font-size: 2.75em;
+	margin: 0 0 .5em 0;
+}
+
+section.team header1 p {
+	font-size: 1em;
+}
+
+section.team article header1 {
+	margin: 0;
+}
+
+section.team.style1 {
+	background: url('../img/background-team.png');
+}
+
+section.team.style1 header1 h1 {
+	font-weight: 300;
+	font-family: 'yg-jalnan';
+	font-size: 4.0em;
+	color: #282828;
+}
+
+section.team.style1 header1 p {
+	color: #2B2B2B;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 100;
+	font-size: 1.5em;
+}
+
+section.team.style1 h3 {
+	font-weight: 300;
+	font-family: 'yg-jalnan';
+	font-size: 2.0em;
+	color: #282828;
+}
+
+section.team.style1 p {
+	color: #2B2B2B;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 100;
+	font-size: 1.3em;
+}
+
+@media screen and (max-width: 980px) {
+	section.team {
+		padding: 2em 0;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	section.team header1 {
+		margin-bottom: 2em;
+	}
+	section.team header1 h2 {
+		font-size: 2em;
+	}
+	section.team header1 p {
+		font-size: .9em;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	section.team {
+		text-align: center;
+	}
+	section.team article {
+		text-align: center;
+	}
+}
+
+header1 p {
+	color: #bbb;
+	position: relative;
+	margin: 0 0 1.5em 0;
+}
+
+header1 h2 + p {
+	font-size: 1.25em;
+	margin-top: -1em;
+}
+
+header1 h3 + p {
+	font-size: 1.1em;
+	margin-top: -0.8em;
+}
+
+header1 h4 + p,
+header1 h5 + p,
+header1 h6 + p {
+	font-size: 0.9em;
+	margin-top: -0.6em;
+}
+
+.flex {
+	display: -ms-flexbox;
+	-ms-flex-wrap: wrap;
+	-ms-flex-pack: justify;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	-moz-flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-moz-justify-content: space-between;
+	-webkit-justify-content: space-between;
+	-ms-justify-content: space-between;
+	justify-content: space-between;
+}
+
+.flex.flex-4 .box {
+	width: 21%;
+}
+
+@media screen and (max-width: 980px) {
+	.flex.flex-4 .box {
+		width: 47%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.flex.flex-4 .box {
+		width: 100%;
+	}
+}
+
+.box {
+	border: solid 3px #FFD014;
+	margin-bottom: 2em;
+	padding: 2.0em;
+}
+
+.box > :last-child,
+.box > :last-child > :last-child,
+.box > :last-child > :last-child > :last-child {
+	margin-bottom: 0;
+}
+
+.box.alt {
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+}
+
+.box.person {
+	border: solid 4px #FFD014;
+	border-radius: 25px;
+	padding: 3em 1.5em;
+	background-color: #FFF9DE;
+}
+
+.box.person h3 {
+	margin: 0;
+}
+
+.box.person .image {
+	margin-bottom: 1em;
+}
+
+.box.person .image img {
+	max-width: 100%;
+}
+
+.image {
+	border-radius: 0;
+	border: 0;
+	display: inline-block;
+	position: relative;
+}
+
+.image img {
+	border-radius: 0;
+	display: block;
+}
+
+.image.left, .image.right {
+	max-width: 80%;
+}
+
+.image.left img, .image.right img {
+	width: 100%;
+}
+
+.image.round img {
+	border-radius: 100%;
+}
+
+.image.left {
+	float: left;
+	padding: 0 1.5em 1em 0;
+	top: 0.25em;
+}
+
+.image.right {
+	float: right;
+	padding: 0 0 1em 1.5em;
+	top: 0.25em;
+}
+
+.image.fit {
+	display: block;
+	margin: 0 0 2em 0;
+	width: 100%;
+}
+
+.image.fit img {
+	width: 100%;
+}
+
+.image.main {
+	display: block;
+	margin: 0 0 3em 0;
+	width: 100%;
+}
+
+.image.main img {
+	width: 100%;
+}
+
+.inner {
+	max-width: 75em;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 1280px) {
+	.inner {
+		max-width: 90%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.inner {
+		max-width: 85%;
+	}
+}
+
 

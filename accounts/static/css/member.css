@@ -15,53 +15,6 @@ body {
   overflow: hidden;
 }
 
-.main-nav {
-  width: 90%;
-    max-width: 240px;
-    margin: 0 auto;
-  height: 100%;
-  cursor: pointer;
-  font-size: 15pt
-}
-
-.main-nav ul {
-    position: absolute;
-    width: 100%;
-    top: 40%;
-    margin: 0;
-    padding: 0;
-}
-
-.main-nav li {
-    list-style: none;
-    float: left;
-}
-
-.main-nav a {
-  display: block;
-  height: 50px;
-    margin: 10px;
-    padding: 2px 25px;
-    text-decoration: none;
-    border-radius: 30px;
-  line-height: 45px;
-  color: #FFF;
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
-}
-
-.main-nav li:nth-child(1) a {
-    background: #ffa040;
-    border: 2px solid #fff;
-}
-.main-nav li:nth-child(1) a:hover {
-    background: #fff;
-    color: #ffa040;
-}
-
-
 .user-modal {
   position: fixed;
   top: 0;
