@@ -39,8 +39,9 @@
           <li><a onclick="$('.detail').animatescroll({padding:31});"> 서비스 소개 </a></li>
           <li><a onclick="$('.contents').animatescroll({padding:31});"> 서비스 내용 </a></li>
           <li><a onclick="$('.team').animatescroll({padding:31});"> 팀원 소개 </a></li>
-          <li><a onclick="$('.walkmate').animatescroll({padding:31});" href="{% url 'worklist' %}"> 산책 메이트 </a></li>{% csrf_token %}
-          <li><a onclick="$('.social').animatescroll({padding:31});" href="{% url 'member' %}"><img src="../../static/img/signup-button.png" onmouseover="this.src='../../static/img/signup-hover.png';" onmouseout="this.src='../../static/img/signup-button.png';"/></a></li>{% csrf_token %}
+          <li><a onclick="$('.walkmate').animatescroll({padding:31});" href="{% url 'worklist' %}"> 산책 메이트 </a></li> {% csrf_token %}
+          <li><a onclick="$('.mypage').animatescroll({padding:31});" href="{% url 'mypage' %}"> 마이 페이지 </a></li> {% csrf_token %}
+          <li><a onclick="$('.social').animatescroll({padding:31});" href="{% url 'member' %}"><img src="../../static/img/signin-button.png" onmouseover="this.src='../../static/img/signin-hover.png';" onmouseout="this.src='../../static/img/signin-button.png';"/></a></li>{% csrf_token %}
           <li><a onclick="$('.chat').animatescroll({padding:31});" href="chat.html"><img src="../../static/img/chat-button.png" onmouseover="this.src='../../static/img/chat-hover.png';" onmouseout="this.src='../../static/img/chat-button.png';"/></a></li>
         </ul>
       </div>

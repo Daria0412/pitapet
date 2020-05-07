@@ -556,14 +556,12 @@ label.dropdown:after {
   font-weight: 100;
 }
 
-/* Hide the browser's default radio button */
 .container2 input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
-/* Create a custom radio button */
 .checkmark {
   position: absolute;
   top: 0;
@@ -577,29 +575,24 @@ label.dropdown:after {
   font-weight: 100;
 }
 
-/* On mouse-over, add a grey background color */
 .container2:hover input ~ .checkmark {
   background-color: #D8D8D8;
 }
 
-/* When the radio button is checked, add a blue background */
 .container2 input:checked ~ .checkmark {
   background-color: #F7C800;
 }
 
-/* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the indicator (dot/circle) when checked */
 .container2 input:checked ~ .checkmark:after {
   display: block;
 }
 
-/* Style the indicator (dot/circle) */
 .container2 .checkmark:after {
  	top: 9px;
 	left: 9px;
@@ -607,4 +600,98 @@ label.dropdown:after {
 	height: 18px;
 	border-radius: 50%;
 	background: white;
+}
+
+/* File */
+.where {
+  display: block;
+  margin: 25px 10px;
+  color: #000;
+  text-decoration: none;
+  font-size: 15pt;
+} 
+
+.filebox input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip:rect(0,0,0,0);
+  border: 0;
+}
+
+.filebox label {
+	display: inline-block;
+	padding: .2em .75em;
+	color: #999;
+	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #fdfdfd;
+	cursor: pointer;
+	border: 1px solid #ebebeb;
+	border-bottom-color: #e2e2e2;
+  border-radius: .25em;
+}
+
+/* named upload */
+.filebox .upload-name {
+	display: inline-block;
+	padding: .5em .75em;
+	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #f5f5f5;
+  border: 1px solid #ebebeb;
+  border-bottom-color: #e2e2e2;
+  border-radius: .25em;
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 15pt;
+}
+
+/* imaged preview */
+.filebox .upload-display {
+	margin-bottom: 5px;
+}
+
+@media(min-width: 768px) {
+	.filebox .upload-display {
+		display: inline-block;
+		margin-right: 5px;
+		margin-bottom: 0;
+	}
+}
+
+.filebox .upload-thumb-wrap {
+	display: inline-block;
+	width: 65px;
+	padding: 2px;
+	vertical-align: middle;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+  background-color: #fff;
+}
+
+.filebox .upload-display img {
+	display: block;
+	max-width: 100%;
+	width: 100% \9;
+	height: auto;
+}
+
+.filebox.bs3-primary label {
+  color: #fff;
+  background-color: #FFE375;
+  border-color: #FFE375;
+  font-family: 'yg-jalnan';  
+  font-weight: normal; font-style: normal;
+  font-size: 17pt;
+}
+
+.filebox.bs3-primary label:hover, .filebox.bs3-primary label:focus {
+  background-color: #F7C800;
 }

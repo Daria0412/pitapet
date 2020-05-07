@@ -245,4 +245,3 @@ jQuery.fn.putCursorAtEnd = function () {
     }
   });
 };
-
