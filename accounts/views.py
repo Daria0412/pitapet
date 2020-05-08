@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.decorators.csrf import csrf_exempt,csrf_protect
 from .logic import *
 from django.contrib.auth.decorators import login_required
@@ -23,9 +23,8 @@ def signin(request):
     return render(request, 'accounts/signin.html')
 
 def logout(request):
-    if request.method == "POST": 
-        del request.session['member_id'] 
-    return render(request, 'accounts/logout.html')
+    request.session.clear()
+    return redirect('index')
 
 def member(request):
     return render(request, 'accounts/member.html')
