@@ -9,12 +9,15 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
             <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
             <link rel="stylesheet" href="{% static 'css/board.css' %}">
+            <!-- Fonts -->
+            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
             <!-- JAVASCRIPT -->
             <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
             <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
             <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script>
     </head>
     <body translate="no">
+     
         <div class="wrapper">
             <div class="background">
                 <img src="{% static 'img/background-member.png' %}" alt="">
@@ -22,6 +25,7 @@
             <div class="item-bg"></div>
             <div class="news-slider">
                 <div class="news-slider__wrp swiper-wrapper">
+                  {%for user in users%}
                     <div class="news-slider__item swiper-slide">
                         <a href="#" class="news__item">
                             <div class="news-date">
@@ -29,7 +33,7 @@
                                 <span class="news-date__txt"> {{user.birth}}</span>
                             </div>
                             <div class="news__title">
-                                Pet : <span>{{user.animal}} </span>
+                                Pet : <span> {{user.animal}} </span>
                             </div>
                             <p class="news__txt">
                                 {{user.name}}
@@ -39,6 +43,7 @@
                             </div>
                         </a>
                     </div>
+                    {%endfor%}
                 </div>
                 <div class="news-slider__ctr">
                     <div class="news-slider__arrows">
@@ -70,44 +75,44 @@
             </defs>
         </svg>
         <script id="rendered-js" type="text/javascript"> 
-        var bg = document.querySelector('.item-bg');
-var items = document.querySelectorAll('.news__item');
-var item = document.querySelector('.news__item');
+            var bg = document.querySelector('.item-bg');
+            var items = document.querySelectorAll('.news__item');
+            var item = document.querySelector('.news__item');
 
-function cLog(content) {
-  console.log(content);
-}
+            function cLog(content) {
+              console.log(content);
+            }
 
-if ($(window).width() > 800) {
-  $(document).on("mouseover", ".news__item", function (_event, _element) {
+            if ($(window).width() > 800) {
+              $(document).on("mouseover", ".news__item", function (_event, _element) {
 
-    var newsItem = document.querySelectorAll('.news__item');
-    newsItem.forEach(function (element, index) {
-      element.addEventListener('mouseover', function () {
-        var x = this.getBoundingClientRect().left;
-        var y = this.getBoundingClientRect().top;
-        var width = this.getBoundingClientRect().width;
-        var height = this.getBoundingClientRect().height;
+              var newsItem = document.querySelectorAll('.news__item');
+              newsItem.forEach(function (element, index) {
+                element.addEventListener('mouseover', function () {
+                  var x = this.getBoundingClientRect().left;
+                  var y = this.getBoundingClientRect().top;
+                  var width = this.getBoundingClientRect().width;
+                  var height = this.getBoundingClientRect().height;
 
-        $('.item-bg').addClass('active');
-        $('.news__item').removeClass('active');
-        // $('.news__item').removeClass('active');
+              $('.item-bg').addClass('active');
+              $('.news__item').removeClass('active');
+              // $('.news__item').removeClass('active');
 
 
-        bg.style.width = width + 'px';
-        bg.style.height = height + 'px';
-        bg.style.transform = 'translateX(' + x + 'px ) translateY(' + y + 'px)';
-      });
+              bg.style.width = width + 'px';
+              bg.style.height = height + 'px';
+              bg.style.transform = 'translateX(' + x + 'px ) translateY(' + y + 'px)';
+            });
 
-      element.addEventListener('mouseleave', function () {
-        $('.item-bg').removeClass('active');
-        $('.news__item').removeClass('active');
-      });
+            element.addEventListener('mouseleave', function () {
+              $('.item-bg').removeClass('active');
+              $('.news__item').removeClass('active');
+            });
 
-    });
+          });
 
-  });
-}
+        });
+      }
 
 
 var swiper = new Swiper('.news-slider', {
