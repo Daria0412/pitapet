@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      {% load static %}
         <meta charset="UTF-8">
             <title> Pit A Pet </title>
             <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
             <!-- CSS -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
             <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
-            <link rel="stylesheet" href="../../static/css/board.css">
+            <link rel="stylesheet" href="{% static 'css/board.css' %}">
             <!-- JAVASCRIPT -->
             <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
             <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
@@ -16,7 +17,7 @@
     <body translate="no">
         <div class="wrapper">
             <div class="background">
-                <img src="../../static/img/background-member.png" alt="">
+                <img src="{% static 'img/background-member.png' %}" alt="">
             </div>
             <div class="item-bg"></div>
             <div class="news-slider">
