@@ -23,3 +23,14 @@ class User(models.Model):
 
     def __str__(self):
         return self.id
+
+
+class Image(models.Model):
+    member_id = models.CharField(db_column='member_id',primary_key=True,max_length=200,blank=False)
+    img_url = models.CharField(db_column='img_url',max_length=200,blank=False)
+    class Meta:
+        managed = False
+        db_table = 'pit_img'
+
+    def publish(self):
+        self.save()

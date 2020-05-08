@@ -17,6 +17,12 @@
     <script src="../../static/js/animatescroll.js"></script>
     <script src="../../static/js/index.js"></script>
     <script src="../../static/js/retina.min.js"></script>
+    <script>
+      if ('{{request.session.member_id}}'!=null){
+        // document.all("logout").innerHTML=“첫번째 방법”;
+        document.all("logout").innerHTML="{{request.session.member_id}}";
+      }
+    </script>
   </head>
   <body>
   {% load static %}
@@ -41,8 +47,8 @@
           <li><a onclick="$('.team').animatescroll({padding:31});"> 팀원 소개 </a></li>
           <li><a onclick="$('.walkmate').animatescroll({padding:31});" href="{% url 'worklist' %}"> 산책 메이트 </a></li> {% csrf_token %}
           <li><a onclick="$('.mypage').animatescroll({padding:31});" href="{% url 'mypage' %}"> 마이 페이지 </a></li> {% csrf_token %}
-          <li><a onclick="$('.social').animatescroll({padding:31});" href="{% url 'member' %}"><img src="../../static/img/signin-button.png" onmouseover="this.src='../../static/img/signin-hover.png';" onmouseout="this.src='../../static/img/signin-button.png';"/></a></li>{% csrf_token %}
           <li><a onclick="$('.chat').animatescroll({padding:31});" href="chat.html"><img src="../../static/img/chat-button.png" onmouseover="this.src='../../static/img/chat-hover.png';" onmouseout="this.src='../../static/img/chat-button.png';"/></a></li>
+          <li><a onclick="$('.social').animatescroll({padding:31});" href="{% url 'member' %}"><img src="../../static/img/signin-button.png" onmouseover="this.src='../../static/img/signin-hover.png';" onmouseout="this.src='../../static/img/signin-button.png';"/></a></li>{% csrf_token %}
         </ul>
       </div>
     </div>

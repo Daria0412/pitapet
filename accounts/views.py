@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt,csrf_protect
 from .logic import *
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 
 def index(request):
     return render(request, 'accounts/index.html')
@@ -10,8 +12,8 @@ def index(request):
 def signup(request):
     if request.method == "POST":
         print(Sign.signup(request))
-        return render(request, 'accounts/test.html')
-    return render(request, 'accounts/signup.html')
+        return render(request, 'accounts/member.html')
+    return render(request, 'accounts/member.html')
 
 #@login_required
 @csrf_exempt
@@ -30,3 +32,7 @@ def member(request):
 
 def worklist(request):
     return Sign.show_list(request)
+
+def mypage(request):
+    return render(request, 'accounts/mypage.html')
+

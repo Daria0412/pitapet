@@ -15,6 +15,8 @@
     <!-- FAVICON -->
     <link rel="shortcut icon" href="../../static/img/favicon.png" type="image/x-icon">
     <title> Pit A Pet </title>
+    <script>
+    if ('{{result}}' =="fail"){alert('로그인에 실패하셨습니다')} </script>
   </head>
   <body translate="no">
 
@@ -150,11 +152,12 @@
           <input type="checkbox" id="accept-terms">
           <label for="accept-terms">I agree to the <a class="accept-terms" href="#0">Terms</a></label>
         </p> -->
-        <div class="filebox bs3-primary preview-image">
+        <!-- <div class="filebox bs3-primary preview-image">
           <input class="upload-name" value="파일 선택" disabled="disabled" style="width: 300px;">
           <label for="imgFile"> 업로드 </label>
-          <input type="file" name="imgFile" id="imgFile" class="upload-hidden" accept="image/gif, image/jpeg, image/png">
-        </div>
+          <input type="file" name="imgFile" id="imgFile" class="upload-hidden" accept="image/jpg,image/gif, image/jpeg, image/png">
+        </div> -->
+        <input type="file" name="myfile">
       
     <p class="fieldset">
       <input class="full-width has-padding" type="submit" value="회원가입">
