@@ -38,6 +38,11 @@
                             </div>
                             <p class="news__txt">
                                 {{user.name}}
+                                <form action = "{% url 'chatroom'%}" method="post">
+                                  {% csrf_token %}
+                                  <input type = "hidden" name = person value = "{{user.member_id}}">
+                                  <input type = "submit" value = "채팅하기">
+                                </form>
                             </p>
                             <div class="news__img">
                                 <img src="{{user.img_url}}" alt="news">

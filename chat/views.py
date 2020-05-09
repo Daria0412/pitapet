@@ -12,9 +12,13 @@ def room(request, room_name):
         'room_name_json': mark_safe(json.dumps(room_name))
     })
 
-def test(request):
-    return Chat_logic.show_list(request,"test1")
+# def test(request):
+#     return Chat_logic.show_list_test(request,"test1")
 
-def mkroom(request):
-    room_id = str((Chat_logic.mkroom(request)))
+# def mkroom(request):
+#     room_id = str((Chat_logic.mkroom_test(request)))
+#     return redirect("/chat/"+room_id+"/")
+
+def chatroom(request):
+    room_id = str((Chat_logic.chatroom(request)))
     return redirect("/chat/"+room_id+"/")
