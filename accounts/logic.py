@@ -12,7 +12,7 @@ class Sign:
         pass
     
     def signup(request): #회원가입
-        print(Sign.simple_upload(request))
+        url = Sign.simple_upload(request)
         member_id = request.POST['member_id']
         name = request.POST['name']
         pwd = request.POST['pwd']
@@ -28,7 +28,7 @@ class Sign:
         profile = 0
         if request.POST['profile'] == "공개" :
             profile = 1
-        user = User.objects.create(member_id = member_id, name = name, pwd = pwd, birth = birth,sex =sex,animal=animal,addr_city=addr_city,addr_gu=addr_gu,profile=profile )
+        user = User.objects.create(member_id = member_id, name = name, pwd = pwd, birth = birth,sex =sex,animal=animal,addr_city=addr_city,addr_gu=addr_gu,profile=profile,img_url = url )
         
         return 'add user okay'
 
@@ -75,6 +75,5 @@ class Sign:
             fs = FileSystemStorage()
             filename = fs.save(myfile.name, myfile)
             uploaded_file_url = fs.url(filename)
-            Image.objects.create(member_id = member_id, img_url=uploaded_file_url)
-        return redirect('member')
+        return uploaded_file_url
                                                                                           

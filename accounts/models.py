@@ -13,6 +13,7 @@ class User(models.Model):
     addr_city = models.CharField(db_column='addr_city',max_length=150,blank=False)
     addr_gu = models.CharField(db_column='addr_gu',max_length=100,blank=False)
     profile = models.IntegerField(db_column='profile',blank=False)
+    img_url = models.CharField(db_column='img_url',max_length=100,blank=False)
 
     class Meta:
         managed = False
@@ -23,14 +24,3 @@ class User(models.Model):
 
     def __str__(self):
         return self.id
-
-
-class Image(models.Model):
-    member_id = models.CharField(db_column='member_id',primary_key=True,max_length=200,blank=False)
-    img_url = models.CharField(db_column='img_url',max_length=200,blank=False)
-    class Meta:
-        managed = False
-        db_table = 'pit_img'
-
-    def publish(self):
-        self.save()

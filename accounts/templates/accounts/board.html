@@ -26,6 +26,7 @@
             <div class="news-slider">
                 <div class="news-slider__wrp swiper-wrapper">
                   {%for user in users%}
+                  {%if request.session.member_id != user.member_id%}
                     <div class="news-slider__item swiper-slide">
                         <a href="#" class="news__item">
                             <div class="news-date">
@@ -39,10 +40,11 @@
                                 {{user.name}}
                             </p>
                             <div class="news__img">
-                                <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1537132205/news-slider/item-2.jpg" alt="news">
+                                <img src="{{user.img_url}}" alt="news">
                             </div>
                         </a>
                     </div>
+                    {%endif%}
                     {%endfor%}
                 </div>
                 <div class="news-slider__ctr">
