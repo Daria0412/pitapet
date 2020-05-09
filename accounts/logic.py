@@ -69,5 +69,12 @@ class Sign:
         return render(request, "accounts/board.html",{"users":profile_members})
     
     def simple_upload(request):
-        return "fail"
+        if request.method == 'POST' and request.FILES['imgFile']:
+            member_id = request.POST['member_id']
+            myfile = request.FILES['imgFile']
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name, myfile)
+            uploaded_file_url = fs.url(filename)
+            Image.objects.create(member_id = member_id, img_url=uploaded_file_url)
+        return redirect('member')
                                                                                           

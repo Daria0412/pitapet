@@ -27,7 +27,7 @@
           <li><a href="#0"> 회원가입 </a></li>
         </ul>
       <div id="login">
-        <form class="form" method="POST" action="{% url 'signin' %}" enctype="multipart/form-data">
+        <form class="form" method="POST" action="{% url 'signin' %}">
           {% csrf_token %}
           <p class="fieldset">
             <label class="image-replace id" for="member_id"> ID </label>
@@ -52,7 +52,8 @@
     </div>
 
     <div id="signup">
-      <form class="form" method="POST" action="{% url 'signup' %}">
+      <form class="form" method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
+        {% csrf_token %}
         <p class="fieldset">
           <label class="image-replace id" for="member_id"> ID </label>
           <input class="full-width has-padding has-border" name = "member_id" id="member_id" type="text" placeholder="ID" required>
@@ -152,13 +153,11 @@
           <input type="checkbox" id="accept-terms">
           <label for="accept-terms">I agree to the <a class="accept-terms" href="#0">Terms</a></label>
         </p> -->
-        <!-- <div class="filebox bs3-primary preview-image">
+        <div class="filebox bs3-primary preview-image">
           <input class="upload-name" value="파일 선택" disabled="disabled" style="width: 300px;">
           <label for="imgFile"> 업로드 </label>
           <input type="file" name="imgFile" id="imgFile" class="upload-hidden" accept="image/jpg,image/gif, image/jpeg, image/png">
-        </div> -->
-        <input type="file" name="myfile">
-      
+        </div>
     <p class="fieldset">
       <input class="full-width has-padding" type="submit" value="회원가입">
     </p>
