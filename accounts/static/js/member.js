@@ -245,3 +245,51 @@ jQuery.fn.putCursorAtEnd = function () {
     }
   });
 };
+
+/* 아이디 중복 확인 */
+function checkID() {
+  var id = document.getElementById("member_id");
+
+}
+
+
+/* 비밀번호 확인 */
+$(function(){ 
+  $("input").keyup(function(){ 
+    var pwd1=$("#pwd").val(); 
+    var pwd2=$("#repeatPwd").val(); 
+    if(pwd1 != "" || pwd2 != ""){ 
+      if(pwd1 != pwd2) {
+          $form_signup.find('input[type="password"]').toggleClass('error-message').next('span').toggleClass('is-visible');
+      } else {
+        $form_signup.find('input[type="password"]').toggleClass('success-message').next('span').toggleClass('is-visible');
+      }
+    }
+  })
+});
+
+/* 회원가입 유효성 체크 */
+function checkAll(){ 
+  var id = document.getElementById("member_id");
+  var pwd = document.getElementById("pwd");
+
+  if(id.value == ""){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+      footer: '<a href>Why do I have this issue?</a>'
+    });
+    return false;
+  }
+
+  if(pwd.value == ""){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+      footer: '<a href>Why do I have this issue?</a>'
+    });
+    return false;
+  }
+};
