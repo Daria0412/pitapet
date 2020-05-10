@@ -6,7 +6,11 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
 def index(request):
+    if len(request.session.keys()) > 0:
+        return render(request, 'accounts/index.html',{'img_url':Sign.get_img(request)})
     return render(request, 'accounts/index.html')
+    
+    
 
 @csrf_exempt
 def signup(request):
@@ -30,9 +34,14 @@ def member(request):
     return render(request, 'accounts/member.html')
 
 def worklist(request):
-    return Sign.show_list(request)
+    if len(request.session.keys()) > 0:
+        return Sign.show_list(request)
+    return redirect('member')
 
 def mypage(request):
-    return render(request, 'accounts/mypage.html')
+    if len(request.session.keys()) > 0:
+        return render(request, 'accounts/mypage.html')
+    return redirect('member')
 
-\
+def test(request):
+    return render(request, 'accounts/test.html')

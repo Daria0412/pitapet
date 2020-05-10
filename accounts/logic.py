@@ -76,4 +76,11 @@ class Sign:
             filename = fs.save(myfile.name, myfile)
             uploaded_file_url = fs.url(filename)
         return uploaded_file_url
+
+    def get_img(request):
+        member_id = request.session['member_id']
+        members = User.objects.filter(member_id = member_id)
+        for member in members:
+            img_url = member.img_url 
+        return img_url
                                                                                           
