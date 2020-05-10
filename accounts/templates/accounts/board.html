@@ -26,6 +26,7 @@
             <div class="news-slider">
                 <div class="news-slider__wrp swiper-wrapper">
                   {%for user in users%}
+                  {%if request.session.member_id != user.member_id%}
                     <div class="news-slider__item swiper-slide">
                         <a href="#" class="news__item">
                             <div class="news-date">
@@ -37,12 +38,18 @@
                             </div>
                             <p class="news__txt">
                                 {{user.name}}
+                                <form action = "{% url 'chatroom'%}" method="post">
+                                  {% csrf_token %}
+                                  <input type = "hidden" name = person value = "{{user.member_id}}">
+                                  <input type = "submit" value = "채팅하기">
+                                </form>
                             </p>
                             <div class="news__img">
-                                <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1537132205/news-slider/item-2.jpg" alt="news">
+                                <img src="{{user.img_url}}" alt="news">
                             </div>
                         </a>
                     </div>
+                    {%endif%}
                     {%endfor%}
                 </div>
                 <div class="news-slider__ctr">

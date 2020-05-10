@@ -35,3 +35,4 @@ def worklist(request):
 def mypage(request):
     return render(request, 'accounts/mypage.html')
 
+\
