@@ -11,28 +11,4 @@
 `board.html` | 산책 메이트 페이지 |
 `mypage.html` | 마이 페이지 |
 
-### 2. 데이터베이스 구조
 
-#### table chat
-```
-create table chat (
-	room_id int not null auto_increment primary key,
-	person1 varchar(10) not null,
-	person2 varchar(10) not null
-);
-```
-#### table pit_user
-```
-create table pit_user (
-  member_id varchar(20) not null primary key,
-  pwd varchar(20) not null,
-  name varchar(10) not null,
-  birth varchar(40) not null,
-  sex varchar(6) not null,
-  animal varchar(30) not null,
-  addr_city varchar(30) not null,
-  addr_gu varchar(30) not null,
-  profile boolean not null,
-  img_url varchar(200) default null
-);
-```
