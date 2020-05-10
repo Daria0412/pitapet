@@ -45,7 +45,7 @@
           <li><a onclick="$('.mypage').animatescroll({padding:31});" href="{% url 'mypage' %}"> 마이 페이지 </a></li> {% csrf_token %}
           <li><a onclick="$('.chat').animatescroll({padding:31});" href="chat.html"><img src="{% static 'img/chat-button.png' %}" onmouseover="this.src='../../static/img/chat-hover.png';" onmouseout="this.src='../../static/img/chat-button.png';"/></a></li>
           {% if request.session.member_id != null %}    
-          <li><img src="{% static 'img/person4.png' %}" width="30px" style='padding-top: 10px;'></li>      
+          <li><img src="{{img_url}}" width="30px" style='padding-top: 10px;'></li>      
           <li><a href="#">{{request.session.member_id}}님</a></li>
           <li><a href="{% url 'logout' %}">로그아웃</a></li>
           {% else %}
