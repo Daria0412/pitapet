@@ -109,9 +109,7 @@ login_selected();
       alert(password + " " + repeatPassword);
     });
    }
-  
-  //IE9 placeholder fallback
-  //credits http://www.hagenburger.net/BLOG/HTML5-Input-Placeholder-Fix-With-jQuery.html
+
   if (!Modernizr.input.placeholder) {
     $('[placeholder]').focus(function () {
       var input = $(this);
@@ -229,7 +227,6 @@ function addressChange(e){
   }
 }
 
-//credits https://css-tricks.com/snippets/jquery/move-cursor-to-end-of-textarea-or-input/
 jQuery.fn.putCursorAtEnd = function () {
   return this.each(function () {
     // If this function exists...
@@ -252,7 +249,6 @@ function checkID() {
 
 }
 
-
 /* 비밀번호 확인 */
 $(function(){ 
   $("input").keyup(function(){ 
@@ -268,28 +264,107 @@ $(function(){
   })
 });
 
-/* 회원가입 유효성 체크 */
-function checkAll(){ 
+/* 로그인 유효성 체크 */
+function check(){ 
   var id = document.getElementById("member_id");
   var pwd = document.getElementById("pwd");
 
   if(id.value == ""){
     Swal.fire({
       icon: 'error',
-      title: 'Oops...',
-      text: 'Something went wrong!',
-      footer: '<a href>Why do I have this issue?</a>'
+      title: '아이디 오류',
+      text: '아이디를 입력해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
     });
+    id.focus();
     return false;
   }
 
   if(pwd.value == ""){
     Swal.fire({
       icon: 'error',
-      title: 'Oops...',
-      text: 'Something went wrong!',
-      footer: '<a href>Why do I have this issue?</a>'
+      title: '비밀번호 오류',
+      text: '비밀번호를 입력해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
     });
+    pwd.focus();
+    return false;
+  }
+};
+
+/* 회원가입 유효성 검사 */
+function checkAll(){ 
+  var sign = document.signup;
+
+  if (sign.member_id.value == ""){
+    Swal.fire({
+      icon: 'error',
+      title: '아이디 오류',
+      text: '아이디를 입력해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
+    });
+    setTimeout(function(){
+      sign.member_id.focus();
+    }, 0);
+    return false;
+  }
+
+  if(sign.pwd.value == ""){
+    Swal.fire({
+      icon: 'error',
+      title: '비밀번호 오류',
+      text: '비밀번호를 입력해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
+    });
+    setTimeout(function(){
+      sign.pwd.focus();
+    }, 0);
+    return false;
+  }
+
+  if(sign.repeatPwd.value == ""){
+    Swal.fire({
+      icon: 'error',
+      title: '비밀번호 재확인 오류',
+      text: '비밀번호 재확인을 입력해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
+    });
+    setTimeout(function(){
+      sign.repeatPwd.focus();
+    }, 0);
+    return false;
+  }
+
+  if(sign.name.value == ""){
+    Swal.fire({
+      icon: 'error',
+      title: '성함 오류',
+      text: '성함을 입력해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
+    });
+    setTimeout(function(){
+      sign.name.focus();
+    }, 0);
+    return false;
+  }
+
+  if(sign.year.value == 'none'){
+    Swal.fire({
+      icon: 'error',
+      title: '생년월일 오류',
+      text: '생년월일 중 년도을 입력해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
+    });
+    setTimeout(function(){
+      sign.year.options[0].focus();
+    }, 0);
     return false;
   }
 };

@@ -7,7 +7,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="../../static/js/member.js"></script>
     <script src='https://code.jquery.com/jquery-1.11.3.min.js '></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="../../static/css/member.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -32,12 +32,12 @@
           {% csrf_token %}
           <p class="fieldset">
             <label class="image-replace id" for="member_id"> ID </label>
-            <input class="full-width has-padding has-border" name = "member_id" id="member_id" type="text" placeholder="ID" required>
+            <input class="full-width has-padding has-border" name = "member_id" id="member_id" type="text" placeholder="ID">
             <!-- <span class="error-message"> ID 가 존재하지 않습니다. 다시 한 번 확인해 주세요. </span> -->
           </p>
           <p class="fieldset">
             <label class="image-replace password" for="pwd"> Password </label>
-            <input class="full-width has-padding has-border" id="pwd" name="pwd" type="password" placeholder="Password" required>
+            <input class="full-width has-padding has-border" id="pwd" name="pwd" type="password" placeholder="Password"> 
             <a href="#0" class="hide-password"> Show </a>
             <!-- <span class="error-message"> 비밀번호가 맞지 않습니다. 다시 한 번 확인해 주세요. </span> -->
           </p>
@@ -46,34 +46,34 @@
             <label for="remember-me"> Remember me </label>
           </p>
         <p class="fieldset">
-          <input class="full-width" type="submit" value="로그인">
+          <input class="full-width" type="submit" value="로그인" onclick="return check();">
         </p>
       </form>
     <!-- <p class="form-bottom-message"><a href="#0"> 비밀번호를 잊어버리셨나요? </a></p> -->
     </div>
 
     <div id="signup">
-      <form class="form" method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
+      <form name="signup" class="form" method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
         {% csrf_token %}
         <p class="fieldset">
           <label class="image-replace id" for="member_id"> ID </label>
-          <input class="has-padding has-border" name = "member_id" id="member_id" type="text" placeholder="ID" required>
+          <input class="has-padding has-border" name = "member_id" id="member_id" type="text" placeholder="ID">
           <input class="checkID" name="checkID" id="checkID" type="button" value="중복 확인" onclick="return checkID();">
           <span class="error-message"> 이미 존재하는 아이디입니다. 다시 한 번 입력해 주세요 </span>
         </p>
         <p class="fieldset">
           <label class="image-replace password" for="pwd"> Password </label>
-          <input class="full-width has-padding has-border" name = "pwd" id="pwd" type="password" placeholder="Password" required>
+          <input class="full-width has-padding has-border" name = "pwd" id="pwd" type="password" placeholder="Password">
           <a href="#0" class="hide-password"> Show </a>
         </p>
         <p class="fieldset">
           <label class="image-replace password" for="repeatPwd"> Confirm Password </label>
-          <input class="full-width has-padding has-border" name = "repeatPwd" id="repeatPwd" type="password" placeholder="Confirm Password" required>
+          <input class="full-width has-padding has-border" name = "repeatPwd" id="repeatPwd" type="password" placeholder="Confirm Password">
           <span class="error-message"> 비밀번호가 일치하지 않습니다. 다시 한 번 입력해 주세요. </span>
         </p>
         <p class="fieldset">
           <label class="image-replace name" for="name"> Name </label>
-          <input class="full-width has-padding has-border" name = "name" id="name" type="text" placeholder="Name" required>
+          <input class="full-width has-padding has-border" name = "name" id="name" type="text" placeholder="Name">
         </p>
         <p class="fieldset">
           <label class="image-replace birth" for="birth"> Date Of Birth </label>
@@ -98,7 +98,7 @@
         </p>
         <p class="fieldset">
           <label class="image-replace animal" for="animal"> Animal </label>
-          <input class="full-width has-padding has-border" name = "animal" id="animal" type="text" placeholder="kinds Of Pets" required>
+          <input class="full-width has-padding has-border" name = "animal" id="animal" type="text" placeholder="kinds Of Pets">
         </p>
         <p class="fieldset">
           <label class="image-replace address" for="address"> Address </label>
