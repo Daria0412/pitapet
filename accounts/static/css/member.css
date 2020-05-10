@@ -1,11 +1,6 @@
 
 @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
 
-.Swal.fire {
-  font-family: 'yg-jalnan';
-  font-weight: normal; font-style: normal;
-}
-
 *, *:after, *:before {
   box-sizing: border-box;
 }
@@ -19,6 +14,11 @@ body {
   background: url("../img/background-member.png");
   overflow: hidden;
 }
+
+html {
+  box-sizing: border-box;
+}
+
 
 .user-modal {
   position: fixed;
@@ -356,7 +356,7 @@ body {
   .form input.has-padding {
     padding: 16px 20px 16px 50px;
   }
-  
+
   .form input[type=submit] {
     padding: 16px 0;
   }
@@ -369,7 +369,6 @@ body {
   line-height: 1.4;
   text-align: center;
   font-family: 'Noto Sans KR', sans-serif; 
-  font-size: 20pt;
   font-weight: 300;
 }
 
@@ -555,66 +554,59 @@ label.dropdown:after {
 }
 
 /* Radio Box */
-.container2 {
-  display: inline-block;
+.radio {
+  display: -webkit-box;
+  display: flex;
+  cursor: pointer;
   position: relative;
-  padding-left: 50px;
-  padding-right: 10px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  overflow: hidden;
+  margin-bottom: 0.375em;
+}
+
+.radio input {
+  position: absolute;
+  left: -9999px;
+}
+
+.radio input:checked + span {
+  background-color: #FFF7D3;
+}
+
+.radio input:checked + span:before {
+  box-shadow: inset 0 0 0 0.4375em #FFE375;
+}
+
+.radio span {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  padding: 0.375em 2em 0.375em 0.375em;
+  border-radius: 25px;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
   font-family: 'Noto Sans KR', sans-serif; 
   font-size: 15pt;
   font-weight: 100;
 }
 
-.container2 input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
+.radio span:hover {
+  background-color: #FFE375;
 }
 
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 35px;
-  width: 35px;
-  background-color: #F2F2F2;
-  border-radius: 50%;
-  font-family: 'Noto Sans KR', sans-serif; 
-  font-size: 15pt;
-  font-weight: 100;
-}
-
-.container2:hover input ~ .checkmark {
-  background-color: #D8D8D8;
-}
-
-.container2 input:checked ~ .checkmark {
-  background-color: #F7C800;
-}
-
-.checkmark:after {
+.radio span:before {
+  display: -webkit-box;
+  display: flex;
+  flex-shrink: 0;
   content: "";
-  position: absolute;
-  display: none;
-}
-
-.container2 input:checked ~ .checkmark:after {
-  display: block;
-}
-
-.container2 .checkmark:after {
- 	top: 9px;
-	left: 9px;
-	width: 18px;
-	height: 18px;
-	border-radius: 50%;
-	background: white;
+  background-color: #fff;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 25px;
+  margin-right: 0.375em;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+  box-shadow: inset 0 0 0 0.125em #FFE375;
 }
 
 /* File */
@@ -710,3 +702,4 @@ label.dropdown:after {
 .filebox.bs3-primary label:hover, .filebox.bs3-primary label:focus {
   background-color: #F7C800;
 }
+

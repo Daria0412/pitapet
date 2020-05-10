@@ -354,17 +354,61 @@ function checkAll(){
     return false;
   }
 
-  if(sign.year.value == 'none'){
+  if(sign.animal.value == ""){
     Swal.fire({
       icon: 'error',
-      title: '생년월일 오류',
-      text: '생년월일 중 년도을 입력해 주세요.',
+      title: '애완동물 오류',
+      text: '키우고 계시는 애완동물을 입력해 주세요.',
       confirmButtonColor: '#F7C800',
       confirmButtonText: '돌아가기'
     });
     setTimeout(function(){
-      sign.year.options[0].focus();
+      sign.animal.focus();
     }, 0);
     return false;
+  }
+
+  /* 셀렉트 박스 유효성 검사 */
+  if(sign.year.value == ""){
+    Swal.fire({
+      icon: 'error',
+      title: '생년월일 오류',
+      text: '태어나신 년도를 입력해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
+    });
+    return false;
+  }
+  
+  /* 이미지 업로드 유효성 검사 */
+  var imgFile = $('#imgFile').val();
+  var maxSize = 5 * 1024 * 1024;
+  var fileSize;
+
+if($('#imgFile').val() == "") {
+  Swal.fire({
+    icon: 'error',
+    title: '이미지 업로드 오류',
+    text: '프로필로 설정하실 이미지를 업로드 해 주세요.',
+    confirmButtonColor: '#F7C800',
+    confirmButtonText: '돌아가기'
+  });
+  $("#imgFile").focus();
+    return false;
+}
+
+if(imgFile != "" && imageFile != null) {
+	fileSize = document.getElementById("isFile").files[0].size;
+    
+  if(fileSize = maxSize) {
+    Swal.fire({
+      icon: 'error',
+      title: '이미지 업로드 오류',
+      text: '이미지 사이즈는 5MB 까지만 가능합니다. 다시 업로드 해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
+    });
+        return false;
+    }
   }
 };
