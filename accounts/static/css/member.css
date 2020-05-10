@@ -210,6 +210,32 @@ body {
   outline: none;
 }
 
+.form input.checkID {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+    color: #fff;
+  background-color: #FFE375;
+  border-color: #FFE375;
+  font-family: 'yg-jalnan';  
+  font-weight: normal; font-style: normal;
+  font-size: 17pt;
+  border: 0;
+  outline: 0;
+	display: inline-block;
+	line-height: normal;
+	vertical-align: middle;
+	cursor: pointer;
+  border-radius: .25em;
+  padding: 11px 20px 11px 20px;
+}
+
+.form input.checkID:focus {
+    background-color: #F7C800;
+}
+
 .form input.has-error {
   border: 1px solid #d76666;
 }
@@ -325,6 +351,7 @@ body {
   .form input.has-padding {
     padding: 16px 20px 16px 50px;
   }
+  
   .form input[type=submit] {
     padding: 16px 0;
   }
@@ -411,28 +438,7 @@ body {
   }
 }
 
-.close-form {
-  /* form X button on top right */
-  display: block;
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  right: 0;
-  top: -40px;
-  background: url("../img/icon-close.svg") no-repeat center center;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: 'Noto Sans KR', sans-serif; 
-  font-weight: 300; font-size: 20pt;
-}
-@media only screen and (min-width: 1170px) {
-  .close-form {
-    display: none;
-  }
-}
-
-.accept-terms {
+/* .accept-terms {
 	color: #F7C800;
 	text-decoration: none;
 	padding: 0 1px 1px 2px;
@@ -450,7 +456,7 @@ body {
 	        animation: borderslide-2px .5s;
 	padding-bottom: 2px;
 	border-bottom: 1px solid rgba(246, 71, 71, 1);
-}
+} */
 
 #login, #signup, #reset-password {
   display: none;
@@ -490,6 +496,7 @@ label.dropdown select:-moz-focusring {
 label.dropdown select::-ms-expand {
 	display: none;
 }
+
 label.dropdown:before {
 	content: '';
 	right: 5px;
@@ -502,6 +509,7 @@ label.dropdown:before {
   display: block;
   border-radius: 0.25em;
 }
+
 label.dropdown { position: relative; }
 label.dropdown:after {
 	content: '>';
@@ -521,6 +529,7 @@ label.dropdown:after {
   text-indent: 14px;
   
 }
+
 @media screen {
 	label.dropdown:after {
 		width: 38px;
@@ -528,6 +537,7 @@ label.dropdown:after {
         right: 0;
 	}
 }
+
 @media screen and (min--moz-device-pixel-ratio:0) {
 	label.dropdown select { padding-right: 40px; }
 	label.dropdown:before { right: 6px; }
