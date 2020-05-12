@@ -128,6 +128,14 @@ html {
   font-weight: 100;
 }
 
+.fieldset {
+  position: relative;
+  margin: 1.4em 0;
+  font-family: 'Noto Sans KR', sans-serif; 
+  font-size: 15pt;
+  font-weight: 100;
+}
+
 .form .fieldset:first-child {
   margin-top: 0;
   font-family: 'Noto Sans KR', sans-serif; 

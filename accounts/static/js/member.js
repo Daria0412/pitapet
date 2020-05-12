@@ -244,25 +244,6 @@ jQuery.fn.putCursorAtEnd = function () {
 };
 
 /* 아이디 중복 확인 */
-function checkID() {
-  var id = document.getElementById("member_id");
-
-}
-
-/* 비밀번호 확인 */
-$(function(){ 
-  $("input").keyup(function(){ 
-    var pwd1=$("#pwd").val(); 
-    var pwd2=$("#repeatPwd").val(); 
-    if(pwd1 != "" || pwd2 != ""){ 
-      if(pwd1 != pwd2) {
-          $form_signup.find('input[type="password"]').toggleClass('error-message').next('span').toggleClass('is-visible');
-      } else {
-        $form_signup.find('input[type="password"]').toggleClass('success-message').next('span').toggleClass('is-visible');
-      }
-    }
-  })
-});
 
 /* 로그인 유효성 체크 */
 function check(){ 
@@ -337,6 +318,18 @@ function checkAll(){
     setTimeout(function(){
       sign.repeatPwd.focus();
     }, 0);
+    return false;
+  }
+
+  /* 비밀번호 일치 */
+  if(sign.pwd.value != sign.repeatPwd.value){
+    Swal.fire({
+      icon: 'error',
+      title: '비밀번호 재확인 오류',
+      text: '비밀번호 재확인을 입력해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
+    });
     return false;
   }
 
