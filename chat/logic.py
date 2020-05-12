@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse
 from .models import *
 from django.views.decorators.csrf import csrf_exempt,csrf_protect
 from django.conf import settings
@@ -21,6 +21,20 @@ class Chat_logic:
             print(rooms)
             for room in rooms:
                 room_id = room.room_id
-            return room_id
+                return room_id
+            return render(request,"fail.html")
 
+    def dbconnect(request):
+        if request.method == 'POST' and request.session['member_id']:
+            room_id = request.POST['room_id']
+            writer = request.session['member_id']
+            message=request.POST['message']
+            print(room_id, writer)
+            Message.objects.create(room_id = room_id, writer=writer, message=message)
+            return room_id
+        return "false"
+    
+    def show_messages(room_id):
+        messages = Message.objects.filter(room_id = room_id).order_by("sent_at")
+        return messages
  

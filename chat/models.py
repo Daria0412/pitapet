@@ -35,3 +35,20 @@ class Chat(models.Model):
 
     def publish(self):
         self.save()
+
+
+class Message(models.Model):
+    message_num = models.AutoField(db_column='message_num',primary_key=True,max_length=200,blank=False)
+    room_id = models.CharField(db_column='room_id',max_length=200,blank=False)
+    writer = models.CharField(db_column='writer',max_length=200,blank=False)
+    message = models.CharField(db_column='message',max_length=200,blank=False)
+    sent_at = models.DateTimeField(db_column='sent_at',auto_now_add=True)
+    class Meta:
+        managed = False
+        db_table = 'message'
+
+    def publish(self):
+        self.save()
+
+    def __str__(self):
+        return self.message
