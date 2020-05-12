@@ -23,3 +23,6 @@ def dbconnect(request):
 
 def test(request):
     return render(request, 'chat/fail.html', {})
+
+def check_id(request):
+    return Sign.check_id(request)
