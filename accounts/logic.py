@@ -86,7 +86,8 @@ class Sign:
 
     def check_id(request):
         member_id = request.POST['member_id']
-        if User.objects.filter(member_id=member_id):
-            print(member_id)
-            return member_id
-        return 'fail'                                                        
+        users = User.objects.filter(member_id = member_id)
+        for user in users:
+            if user.member_id!=None:
+                return "fail"
+        return member_id
