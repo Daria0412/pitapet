@@ -29,7 +29,8 @@ class Chat_logic:
             room_id = request.POST['room_id']
             writer = request.session['member_id']
             message=request.POST['message']
-            print(room_id, writer)
+            #hi = request.POST['hi']
+            print(room_id, message)
             Message.objects.create(room_id = room_id, writer=writer, message=message)
             return room_id
         return "false"
