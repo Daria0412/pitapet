@@ -19,6 +19,13 @@ html {
   box-sizing: border-box;
 }
 
+h1, .h1,
+h2, .h2 {
+  font-size: 2.5rem;
+  font-family: 'yg-jalnan';
+  font-weight: normal; font-style: normal;
+  color: #282828;
+}
 
 .user-modal {
   position: fixed;

@@ -71,7 +71,7 @@ nav.navbar.fixed-to-top{
 }
 
 .navbar-default .navbar-nav>li {
-	display: inline;
+	display: inline-block;
 }
 
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus{
@@ -87,91 +87,65 @@ nav.navbar.fixed-to-top{
 
 /* HEADER */
 header {
-	padding: 150px 0px 0px 1000px;
+	padding: 150px 0px 0px 0px;
 	height: 960px;
+	background: url('../img/background-main.png');
+	background-color: white!important;
 	background-size: cover;
 	background-repeat: no-repeat;
-	background: url('../img/background-main.png');
 	color: white;
 }
 
-.left {
-    position: absolute;
-    top: 200px;
-    left: 300px;
+header h1 {
+	text-transform: uppercase;
+	font-weight: 300;
+	font-family: 'yg-jalnan';
+	font-size: 5.8em;
+	color: #282828;
+	text-align: center;
 }
 
-.right {
-    float: left;
-    position: relative;
-	margin: 0 200px;
-	bottom: 50px;
+header p.lead{
+	font-size: 36px;
 }
 
-.bottom {
-    position: absolute;
-    top: 700px;
-    left: 200px;
+
+header .carousel-iphone{
+	margin-right: auto;
+	margin-left: auto;
+	width: 375px;
+	height: 667px;
+	background: url('../img/iphone-front.png') no-repeat;
+	background-size: 100%;
 }
 
-#girl {
-    -webkit-animation: girl 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: girl 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+header .carousel {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 95px 0px 0px 4px;
+	width: 282px;
 }
 
-@-webkit-keyframes girl {
-	0% {
-	-webkit-transform: rotateY(-30deg) translateY(-70px) skewY(30deg);
-	transform: rotateY(-30deg) translateY(-70px) skewY(30deg);
-	opacity: 0;
-	}
-	100% {
-	-webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
-	transform: rotateY(0deg) translateY(0) skewY(0deg);
-	opacity: 1;
-	}
-	}
-	@keyframes girl {
-	0% {
-	-webkit-transform: rotateY(-30deg) translateY(-50px) skewY(30deg);
-	transform: rotateY(-30deg) translateY(-50px) skewY(30deg);
-	opacity: 0;
-	}
-	100% {
-	-webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
-	transform: rotateY(0deg) translateY(0) skewY(0deg);
-	opacity: 1;
-	}
+header .carousel-indicators .active {
+	width: 15px;
+	height: 15px;
+	background: #444444;
 }
 
-#dates {
-    -webkit-animation: dates 1.0s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            animation: dates 1.0s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+header .carousel-indicators {
+	bottom: -63px;
 }
 
-@-webkit-keyframes dates {
-	0% {
-	-webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
-		transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
-	opacity: 0;
-	}
-	100% {
-	-webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
-		transform: rotateY(0deg) translateY(0) skewY(0deg);
-	opacity: 1;
-	}
-	}
-	@keyframes dates {
-	0% {
-	-webkit-transform: rotateY(30deg) translateY(-70px) skewY(-30deg);
-		transform: rotateY(30deg) translateY(-70px) skewY(-30deg);
-	opacity: 0;
-	}
-	100% {
-	-webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
-		transform: rotateY(0deg) translateY(0) skewY(0deg);
-	opacity: 1;
-	}
+header .carousel-indicators li {
+	display: inline-block;
+	margin: 1px;
+	width: 15px;
+	height: 15px;
+	border: 1px solid #666666;
+	border-radius: 10px;
+	text-indent: -999px;
+	cursor: pointer;
 }
 
 /* DETAIL */
@@ -554,5 +528,3 @@ header1 h6 + p {
 		max-width: 85%;
 	}
 }
-
-

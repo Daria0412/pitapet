@@ -362,17 +362,79 @@ function checkAll(){
   }
 
   /* 셀렉트 박스 유효성 검사 */
-  if(sign.year.value == ""){
+
+  var cityIdx = $("#add_city option").index( $("#add_city option:selected") );
+  console.log(cityIdx);
+
+  if(cityIdx < 1){
     Swal.fire({
       icon: 'error',
-      title: '생년월일 오류',
-      text: '태어나신 년도를 입력해 주세요.',
+      title: '사는 지역 오류',
+      text: '사는 지역을 선택해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
+    });
+    return false;
+  }
+
+  var guIdx = $("#addr_gu option").index( $("#addr_gu option:selected") );
+  console.log(guIdx);
+
+  if(guIdx < 1){
+    Swal.fire({
+      icon: 'error',
+      title: '사는 군이나 도 오류',
+      text: '사는 군이나 도를 선택해 주세요.',
       confirmButtonColor: '#F7C800',
       confirmButtonText: '돌아가기'
     });
     return false;
   }
   
+  var yearIdx = $("#year option").index( $("#addr_gu option:selected") );
+  console.log(yearIdx);
+
+  if(yearIdx < 1){
+    Swal.fire({
+      icon: 'error',
+      title: '생년월일 오류',
+      text: '태어나신 년도를 선택해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
+    });
+    return false;
+  }
+
+  var monthIdx = $("#month option").index( $("#month option:selected") );
+  console.log(monthIdx);
+
+  if(monthIdx < 1){
+    Swal.fire({
+      icon: 'error',
+      title: '생년월일 오류',
+      text: '태어나신 월을 선택해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
+    });
+    return false;
+  }
+
+  var dayIdx = $("#day option").index( $("#day option:selected") );
+  console.log(dayIdx);
+
+  if(dayIdx < 1){
+    Swal.fire({
+      icon: 'error',
+      title: '생년월일 오류',
+      text: '태어나신 날을 선택해 주세요.',
+      confirmButtonColor: '#F7C800',
+      confirmButtonText: '돌아가기'
+    });
+    return false;
+  }
+
+
+
   /* 이미지 업로드 유효성 검사 */
   var imgFile = $('#imgFile').val();
   var maxSize = 5 * 1024 * 1024;
@@ -388,20 +450,5 @@ if($('#imgFile').val() == "") {
   });
   $("#imgFile").focus();
     return false;
-}
-
-if(imgFile != "" && imageFile != null) {
-	fileSize = document.getElementById("isFile").files[0].size;
-    
-  if(fileSize = maxSize) {
-    Swal.fire({
-      icon: 'error',
-      title: '이미지 업로드 오류',
-      text: '이미지 사이즈는 5MB 까지만 가능합니다. 다시 업로드 해 주세요.',
-      confirmButtonColor: '#F7C800',
-      confirmButtonText: '돌아가기'
-    });
-        return false;
-    }
   }
 };
