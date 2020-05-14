@@ -20,6 +20,7 @@
       if ('{{result}}' =="fail"){
         alert('로그인에 실패하셨습니다')
       } 
+
       </script>
   </head>
   <body translate="no">
@@ -57,13 +58,11 @@
 
     <div id="signup">
       <form name="signup" class="form" method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
-        {% csrf_token %}
+        
         <p class="fieldset">
           <label class="image-replace id" for="member_id"> ID </label>
-          <input class="has-padding has-border" name = "member_id" id="member_id" type="text" placeholder="ID" 
-          onclick = "window.open('check/', '_blank', 'width=500px, height= 500px, toolbars=no, scrollbars=no'); return false;" readonly>
-          <input class="checkID" name="checkID" id="checkID" type="button" value="중복 확인" onclick="return checkID();">
-          <!-- <span class="error-message"> 이미 존재하는 아이디입니다. 다시 한 번 입력해 주세요 </span> -->
+          <input class="has-padding has-border" name = "member_id" id="member_id" type="text" placeholder="ID">
+          <input class="checkID" name="checkID" id="checkID" type="button" value="중복 확인" onclick = "checkID();">
         </p>
         <p class="fieldset">
           <label class="image-replace password" for="pwd"> Password </label>
@@ -170,6 +169,12 @@
 </div>
     <!-- File Upload -->
     <script>
+      document.querySelector('#checkID').onclick = function(e) {
+        window.name = "parentForm";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+        var openWin = window.open("check/","childForm", 'width=500px, height= 500px, toolbars=no, scrollbars=no'); 
+        openWin.document.test.value = "값 입력";
+        };
       $(document).ready(function () {
         var fileTarget = $('.filebox .upload-hidden');
         fileTarget.on('change', function () {

@@ -90,4 +90,4 @@ class Sign:
         for user in users:
             if user.member_id!=None:
                 return "fail"
-        return member_id
+        return "success"

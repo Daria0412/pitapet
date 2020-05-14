@@ -48,6 +48,6 @@ def test(request):
     
 def check_id(request):
     if request.method=='POST':
-        return render(request,'',{'result':Sign.check_id(request)})
+        return render(request,'accounts/checkID.html',{'member_id':request.POST['member_id'],'result':Sign.check_id(request)})
     return render(request, 'accounts/checkID.html')
     
