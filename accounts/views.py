@@ -40,7 +40,7 @@ def worklist(request):
 
 def mypage(request):
     if len(request.session.keys()) > 0:
-        return render(request, 'accounts/mypage.html')
+        return render(request, 'accounts/mypage.html',{'users':Sign.return_user(request)})
     return redirect('member')
 
 def test(request):

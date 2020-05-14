@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title> Pit A Pet </title>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../../static/css/mypage.css" rel="stylesheet" />
+        <!-- FAVICON -->
+        <link rel="shortcut icon" href="../../static/img/favicon.png" type="image/x-icon">
+        <!-- Star Icon -->
+        <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img  src="../../static/img/logo-after.png"></a>
+                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" font-color="#2B2B2B"> Menu <i class="fas fa-bars"></i></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about"> 마이 페이지 </a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html"> 핏어팻 </a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {%for user in users%}
+        <!-- Header -->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <div class="image round">
+                    <img class="masthead-avatar mb-5 profile-circle" src={{user.img_url}} alt=""/>
+                </div>
+                <h1 class="masthead-heading text-uppercase mb-0"> {{user.name}} </h1>
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+
+                <form name="update" id="update" class="update" method="POST" action="index.html" enctype="multipart/form-data">    
+                    <p class="masthead-subheading font-weight-light mb-0"> {{user.name}} 님의 프로필을 여기에서 편집할 수 있습니다. </p><br><br>
+                    <div class="filebox bs3-primary preview-image">
+                        <input class="upload-name" value="파일 선택" disabled="disabled" style="width: 300px;">&nbsp;
+                        <label for="imgFile"> 업로드 </label>
+                        <input type="file" name="imgFile" id="imgFile" class="upload-hidden" accept="image/jpg,image/gif, image/jpeg, image/png">
+                    </div>
+            </div>
+        </header>
+       
+        <!-- 개인정보 편집 -->
+        <section class="page-section" id="about">
+            <div class="container">
+                <h2 class="page-section-heading text-center text-secondary mb-0"> 개인정보 편집 </h2>
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- 폼 -->
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                            <!-- ID -->
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label> ID </label>
+                                    <input class="form-control" id="member_id" name="member_id" type="text" placeholder="{{user.member_id}}" readonly />
+                                </div>
+                            </div>
+                            
+                            <!-- PASSWORD -->
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label> Password </label>
+                                    <input class="form-control" id="pwd" name="pwd" type="password" placeholder="Password"/>
+                                </div>
+                            </div>
+
+                            <!-- Name -->
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label> Name </label><input class="form-control" id="name" name="name" type="text" placeholder="Name" value = "{{user.name}}"/>
+                                </div>
+                            </div>
+
+                            <!-- Animal -->
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label> Animal </label><input class="form-control" id="animal" name="animal" type="text" placeholder="Kinds Of Pets" value = "{{user.animal}}"/>
+                                </div>
+                            </div>
+                            
+                            <!-- Birth -->
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label> Birth </label><input class="form-control" type="text" placeholder="Birth" value = "{{user.birth}}" readonly/>
+                                </div>
+                            </div>
+
+                            <!-- 사는 곳 -->
+                            <div class="control-group">
+                                <br><br>
+                                <label class="dropdown">
+                                    <select id="add_city" name="addr_city" onchange="addressChange(this)">
+                                        <option> 시를 선택해 주세요 </option>
+                                        <option value="seoul"> 서울특별시 </option>
+                                        <option value="busan"> 부산광역시 </option>
+                                        <option value="daegu"> 대구광역시 </option>
+                                        <option value="incheon"> 인천광역시 </option>
+                                        <option value="gwangju"> 광주광역시 </option>
+                                        <option value="daejeon"> 대전광역시 </option>
+                                        <option value="ulsan"> 울산광역시 </option>
+                                        <option value="gyeonggi"> 경기도 </option>
+                                        <option value="gangwon"> 강원도 </option>
+                                        <option value="chungcheongBugdo"> 충청북도 </option>
+                                        <option value="chungcheongNamdo"> 충청남도 </option>
+                                        <option value="sejong"> 세종특별자치시 </option>
+                                        <option value="jeonlaBugdo"> 전라북도 </option>
+                                        <option value="jeonlaNamdo"> 전라남도 </option>
+                                        <option value="gyeongsangBugdo"> 경상북도 </option>
+                                        <option value="gyeongsangNamdo"> 경상남도 </option>
+                                        <option value="jeju"> 제주특별자치시 </option>
+                                    </select>
+                                    </label>
+                                    <label class="dropdown">
+                                    <select id="addr_gu" name="addr_gu" name="addr_gu">
+                                        <option> 군이나 도를 선택해 주세요 </option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <div class="control-group">
+                                <hr><br>
+                                <label class="radio">
+                                    <input type="radio" name="sex" id="sex" value="man" alt="man" checked>
+                                    <span> Man </span> &nbsp;&nbsp;
+                                <label class="radio">
+                                    <input type="radio" name="sex" id="sex" value="women" alt="women">
+                                    <span> Women </span>
+                                </label>
+                            </div>
+                        
+                            <div class="control-group">
+                                <hr><br>
+                                <label class="radio">
+                                    <input type="radio" name="profile" id="profile" value="공개" alt="공개" checked >
+                                    <span> Public </span> &nbsp;&nbsp;
+                                <label class="radio">
+                                    <input type="radio" name="profile" id="profile" value="비공개" alt="비공개">
+                                    <span> Private </span>
+                                </label>
+                            </div>
+                            <!--
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Message</label>
+                                    <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required" ></textarea>
+                                </div>
+                            </div> -->
+                            <br><br>
+                                <div class="form-group">
+                                    <input class="submitButton" name="submitButton" id="submitButton" type="submit" value="변경하기" onclick="sexChecked(); return checkAll();">
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {%endfor%}
+        <div class="scroll-to-top d-lg-none position-fixed">
+            <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+        <!-- BOOTSTRAP -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <!-- JAVASCRIPT -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="../../static/js/jqBootstrapValidation.js"></script>
+        <script src="../../static/js/mypage.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    </body>
+</html>

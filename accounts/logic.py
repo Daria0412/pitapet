@@ -91,3 +91,8 @@ class Sign:
             if user.member_id!=None:
                 return "fail"
         return "success"
+
+    def return_user(request):
+        member_id = request.session['member_id']
+        users = User.objects.filter(member_id = member_id)
+        return users
