@@ -40,6 +40,8 @@ def worklist(request):
 
 def mypage(request):
     if len(request.session.keys()) > 0:
+        if request.method == 'POST':
+            return render(request, 'accounts/mypage.html',{'users':Sign.update_user(request),'result':'okay'})
         return render(request, 'accounts/mypage.html',{'users':Sign.return_user(request)})
     return redirect('member')
 

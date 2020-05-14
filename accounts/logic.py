@@ -96,3 +96,22 @@ class Sign:
         member_id = request.session['member_id']
         users = User.objects.filter(member_id = member_id)
         return users
+
+    def update_user(request):
+        member_id = request.session['member_id']
+        pwd = request.POST['pwd']
+        name = request.POST['name']
+        animal = request.POST['animal']
+        addr_city = request.POST['addr_city']
+        addr_gu = request.POST['addr_gu']
+        profile = request.POST['profile']
+        profile = 0
+        if request.POST['profile'] == "공개" :
+            profile = 1
+        img_url = Sign.simple_upload(request)
+        if img_url != None:
+            User.objects.filter(member_id = member_id).update(pwd = pwd, name = name, animal= animal, addr_city = addr_city, addr_gu=addr_gu, profile=profile, img_url= img_url)
+        else : 
+            User.objects.filter(member_id = member_id).update(pwd = pwd, name = name, animal= animal, addr_city = addr_city, addr_gu=addr_gu, profile=profile)
+        users = User.objects.filter(member_id = member_id)
+        return users

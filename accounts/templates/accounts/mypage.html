@@ -14,6 +14,13 @@
         <link rel="shortcut icon" href="../../static/img/favicon.png" type="image/x-icon">
         <!-- Star Icon -->
         <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- SCRIPT -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            if("{{result}}"=="okay"){
+                alert("회원정보 수정이 완료되었습니다.");
+            }
+        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -24,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about"> 마이 페이지 </a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html"> 핏어팻 </a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'index' %}"> 핏어팻 </a></li>
                     </ul>
                 </div>
             </div>
@@ -43,7 +50,9 @@
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <form name="update" id="update" class="update" method="POST" action="index.html" enctype="multipart/form-data">    
+
+                <form name="update" id="update" class="update" method="POST" action="{% url 'mypage'%}" enctype="multipart/form-data">  
+                    {% csrf_token %}  
                     <p class="masthead-subheading font-weight-light mb-0"> {{user.name}} 님의 프로필을 여기에서 편집할 수 있습니다. </p><br><br>
                     <div class="filebox bs3-primary preview-image">
                         <input class="upload-name" value="파일 선택" disabled="disabled" style="width: 300px;">&nbsp;
@@ -127,16 +136,6 @@
                                     </select>
                                 </label>
                             </div>
-                            <script>
-                                console.log('{{user.sex}}');
-                                if ('{{user.sex}}' == 'man'){
-                                    $("#women").attr("disabled");
-                                    $("#man").removeAttr("disabled");
-                                } else {
-                                    $("#women").removeattr("disabled");
-                                    $("#man").attr("disabled");
-                                }
-                            </script>
                             <div class="control-group">
                                 <hr><br>
                                 <label class="radio">
@@ -146,6 +145,17 @@
                                     <input type="radio" name="sex" id="sex" value="women" alt="women">
                                     <span> Women </span>
                                 </label>
+                                <script>
+                                    console.log('{{user.sex}}');
+                                    
+                                    if ('{{user.sex}}' == 'man'){
+                                        $("input[name='sex'][value='man']").attr('checked', 'checked');
+                                        $("input[name='sex'][value='women']").attr('disabled', 'disabled');
+                                    } else {
+                                        $("input[name='sex'][value='women']").attr('checked', 'checked');
+                                        $("input[name='sex'][value='man']").attr('disabled', 'disabled');
+                                    }
+                                </script>
                             </div>
                             <div class="control-group">
                                 <hr><br>
@@ -178,7 +188,6 @@
             <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
         </div>
         <!-- BOOTSTRAP -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
         <!-- JAVASCRIPT -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
