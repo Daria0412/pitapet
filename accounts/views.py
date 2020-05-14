@@ -45,6 +45,12 @@ def mypage(request):
 
 def test(request):
     return render(request, 'accounts/test.html')
+
+def test2(request):
+    if request.method=='POST':
+        return render(request,'accounts/test2.html',{'member_id':request.POST['member_id'],'result':Sign.check_id(request)})
+    return render(request, 'accounts/test2.html')
+    
     
 def check_id(request):
     if request.method=='POST':

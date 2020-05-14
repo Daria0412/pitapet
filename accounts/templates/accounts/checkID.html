@@ -18,31 +18,33 @@
     <!-- CSS -->
     <link href="{% static 'css/checkID.css' %}" rel="stylesheet" media="screen">
     <script>
-      {%if result == 'success'%}
-      alert("{{member_id}}는 사용 가능한 아이디입니다.");
-      opener.document.getElementById("member_id").value = "{{member_id}}";
-      {%endif%}
-      {%if result == 'fail' %}
-      alert("{{member_id}}는 사용 불가한 아이디입니다.");
-      {%endif%}
-        document.addEventListener("touchstart", function(){}, true);
-        // document.getElementById("member_id").value = window.opener.document.getElementById("member_id").value;
-        // document.getElementById("test").value = window.opener.document.getElementById("member_id").value;
+        {%if result == 'success'%}
+          alert("{{member_id}}는 사용 가능한 아이디입니다.");
+          window.close();
+          {%endif%}
+          {%if result == 'fail' %}
+          alert("{{member_id}}는 사용 불가한 아이디입니다.");
+          {%endif%}
     </script>
+    <script type="text/javascript">
+        function sendToParent(){
+          var txt = document.getElementById("member_id").value;
+          opener.document.getElementById("member_id").value = txt;
+          f1.submit();
+        }
+      </script>
 </head>
-    <body translate="no" style="overflow-y: hidden; overflow-x: hidden;">
-      {% load static %}
+    <body translate="no" style="overflow-y: hidden; overflow-x: hidden;" onload="window.resizeTo(500,500)" onresize="window.resizeTo(500,500)">
         <section class="container">
             <h1 class="title">
                 <span> 로그인 </span>
                 <span> 중복 확인 </span>
             </h1>
-            <textarea id = "test"></textarea>
-            <form class="search-container" action="{% url 'check_id'%}" method = "post">
+            <form class="search-container" name = f1 action="{% url 'check_id'%}" method = "post">
               {% csrf_token %}
                 <input id="member_id" name="member_id" type="text" class="search-box"/>
                 <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label><br><br><br>
-                <input class="checkID" name="checkID" id="checkID" type="submit" value="중복 확인">
+                <input class="checkID" name="checkID" id="checkID" type="button" onclick="sendToParent();" value="중복확인">
             </form>
         </section>
     </body>

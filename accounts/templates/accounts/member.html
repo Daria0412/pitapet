@@ -22,6 +22,20 @@
       } 
 
       </script>
+      <script type="text/javascript">
+        // 자식창 window 객체를 저장할 변수
+        var windowObj;
+        function openChildWindow(){
+   
+          // 새창에 대한 세팅(옵션)
+          var settings ='toolbar=0,directories=0,status=no,menubar=0,scrollbars=auto,resizable=no,height=200,width=200,left=0,top=0';
+          // 자식창을 열고 자식창의 window 객체를 windowObj 변수에 저장
+          windowObj = window.open("check/","자식창",settings);
+   
+          // 자식창의 childText라는 id를 가진 태그 요소의 값에 부모창의 값을 넣음
+          windowObj.document.getElementById("member_id").value = document.getElementById('member_id').value;
+        }
+      </script>
   </head>
   <body translate="no">
 
@@ -62,7 +76,7 @@
         <p class="fieldset">
           <label class="image-replace id" for="member_id"> ID </label>
           <input class="has-padding has-border" name = "member_id" id="member_id" type="text" placeholder="ID">
-          <input class="checkID" name="checkID" id="checkID" type="button" value="중복 확인" onclick = "checkID();">
+          <input class="checkID" name="checkID" id="checkID" type="button" value="중복 확인" onclick="javascript:openChildWindow();">
         </p>
         <p class="fieldset">
           <label class="image-replace password" for="pwd"> Password </label>
@@ -169,12 +183,7 @@
 </div>
     <!-- File Upload -->
     <script>
-      document.querySelector('#checkID').onclick = function(e) {
-        window.name = "parentForm";
-            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-        var openWin = window.open("check/","childForm", 'width=500px, height= 500px, toolbars=no, scrollbars=no'); 
-        openWin.document.test.value = "값 입력";
-        };
+
       $(document).ready(function () {
         var fileTarget = $('.filebox .upload-hidden');
         fileTarget.on('change', function () {
