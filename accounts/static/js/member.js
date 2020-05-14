@@ -433,8 +433,6 @@ function checkAll(){
     return false;
   }
 
-
-
   /* 이미지 업로드 유효성 검사 */
   var imgFile = $('#imgFile').val();
   var maxSize = 5 * 1024 * 1024;
