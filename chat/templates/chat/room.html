@@ -9,13 +9,9 @@
 <body>
     <textarea id="chat-log" cols="100" rows="20">
         {%for message in messages%}
-        {%if message.writer == request.session.member_id%}
-        나 : 
-        {%else%}
-        {{message.wrtier}} : 
+        {%if message.writer == request.session.member_id%}나 : {{message.message}} 
+        {%else%}{{message.writer}} : {{message.message}} 
         {%endif%}
-        {{message.message}} --> {{message.sent_at}}
-        <br>
         {%endfor%}
     </textarea><br/>
     <form name = f1 id=f1 action="{%url 'dbconnect'%}" method = POST>
@@ -56,7 +52,7 @@
         var messageInputDom = document.querySelector('#chat-message-input');
         var message = messageInputDom.value;
         chatSocket.send(JSON.stringify({
-            'message': message
+            'message':message
         }));
 
         messageInputDom.value = '';

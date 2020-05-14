@@ -144,23 +144,23 @@ function addressChange(e){
 
   var target=document.getElementById("addr_gu");
 
-  if(e.value == "seoul") var d = address_seoul;
-  else if(e.value == "busan") var d = address_busan;
-  else if(e.value == "daegu") var d = address_daegu;
-  else if(e.value == "incheon") var d = address_incheon;
-  else if(e.value == "gwangju") var d = address_gwangju;
-  else if(e.value == "daejeon") var d = address_daejeon;
-  else if(e.value == "ulsan") var d = address_ulsan;
-  else if(e.value == "gyeonggi") var d = address_gyeonggi;
-  else if(e.value == "gangwon") var d = address_gangwon;
-  else if(e.value == "chungcheongBugdo") var d = address_chungcheongBugdo;
-  else if(e.value == "chungcheongNamdo") var d = address_chungcheongNamdo;
-  else if(e.value == "sejong") var d = address_sejong;
-  else if(e.value == "jeonlaBugdo") var d = address_jeonlaBugdo;
-  else if(e.value == "jeonlaNamdo") var d = address_jeonlaNamdo;
-  else if(e.value == "gyeongsangBugdo") var d = address_gyeongsangBugdo;
-  else if(e.value == "gyeongsangNamdo") var d = address_gyeongsangNamdo;
-  else if(e.value == "jeju") var d = address_jeju;
+  if(e.value == "서울특별시") var d = address_seoul;
+  else if(e.value == "부산광역시") var d = address_busan;
+  else if(e.value == "대구광역시") var d = address_daegu;
+  else if(e.value == "인천광역시") var d = address_incheon;
+  else if(e.value == "광주광역시") var d = address_gwangju;
+  else if(e.value == "대전광역시") var d = address_daejeon;
+  else if(e.value == "울산광역시") var d = address_ulsan;
+  else if(e.value == "경기도") var d = address_gyeonggi;
+  else if(e.value == "강원도") var d = address_gangwon;
+  else if(e.value == "충청북도") var d = address_chungcheongBugdo;
+  else if(e.value == "충청남도") var d = address_chungcheongNamdo;
+  else if(e.value == "세종특별자치시") var d = address_sejong;
+  else if(e.value == "전라북도") var d = address_jeonlaBugdo;
+  else if(e.value == "전라남도") var d = address_jeonlaNamdo;
+  else if(e.value == "경상북도") var d = address_gyeongsangBugdo;
+  else if(e.value == "경상남도") var d = address_gyeongsangNamdo;
+  else if(e.value == "제주특별자치시") var d = address_jeju;
 
   target.options.length = 0;
 

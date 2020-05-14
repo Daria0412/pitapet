@@ -83,4 +83,16 @@ class Sign:
         for member in members:
             img_url = member.img_url 
         return img_url
-                                                                                          
+
+    def check_id(request):
+        member_id = request.POST['member_id']
+        users = User.objects.filter(member_id = member_id)
+        for user in users:
+            if user.member_id!=None:
+                return "fail"
+        return "success"
+
+    def return_user(request):
+        member_id = request.session['member_id']
+        users = User.objects.filter(member_id = member_id)
+        return users
