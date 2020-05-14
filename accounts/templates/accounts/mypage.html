@@ -14,6 +14,11 @@
         <link rel="shortcut icon" href="../../static/img/favicon.png" type="image/x-icon">
         <!-- Star Icon -->
         <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
+        <script>
+            if("{{result}}"=="okay"){
+                alert("회원정보 수정이 완료되었습니다.");
+            }
+        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -43,7 +48,8 @@
                     <div class="divider-custom-line"></div>
                 </div>
 
-                <form name="update" id="update" class="update" method="POST" action="index.html" enctype="multipart/form-data">    
+                <form name="update" id="update" class="update" method="POST" action="{% url 'mypage'%}" enctype="multipart/form-data">  
+                    {% csrf_token %}  
                     <p class="masthead-subheading font-weight-light mb-0"> {{user.name}} 님의 프로필을 여기에서 편집할 수 있습니다. </p><br><br>
                     <div class="filebox bs3-primary preview-image">
                         <input class="upload-name" value="파일 선택" disabled="disabled" style="width: 300px;">&nbsp;
