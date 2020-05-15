@@ -57,6 +57,7 @@ class Chat_logic:
         for room in rooms:
             q.add(Q(room_id=room), q.OR)
         messages =  Message.objects.filter(q).order_by('-message_num')
+        #messages = Message.objects.raw('''select room_id, message, sent_at, writer, MAX(message_num) from message group by room_id''')
         q=Q()
         for user in userlist:
             q.add(Q(member_id = user), q.OR)
