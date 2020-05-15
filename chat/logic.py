@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import *
+from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt,csrf_protect
 from django.conf import settings
 
@@ -39,3 +40,29 @@ class Chat_logic:
         messages = Message.objects.filter(room_id = room_id).order_by("sent_at")
         return messages
  
+    def get_chatlist(request):
+        member_id = request.session['member_id']
+        chatlists = Chat.objects.filter(person1=member_id)|Chat.objects.filter(person2=member_id)
+        rooms = []
+        userlist = []
+        room_filter=""
+        for chatlist in chatlists:
+            rooms.append(chatlist.room_id)
+            if chatlist.person1 != request.session['member_id']:
+                id = chatlist.person1
+            else :
+                id = chatlist.person2
+            userlist.append(id)
+        q=Q()
+        for room in rooms:
+            q.add(Q(room_id=room), q.OR)
+        messages =  Message.objects.filter(q).order_by('-message_num')
+        q=Q()
+        for user in userlist:
+            q.add(Q(member_id = user), q.OR)
+        userlists = User.objects.filter()
+        print("userlist:",userlist)
+        print("userlists:", userlists)
+        print("messages:", messages)
+        print(chatlists)
+        return render(request, 'chat/index.html',{'chatlists':chatlists, 'messages':messages, 'userlists': userlists})
