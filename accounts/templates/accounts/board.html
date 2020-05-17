@@ -15,6 +15,15 @@
             <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
             <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
             <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script>
+
+            <script>
+              {%for member in this_member%}
+                if( {{member.profile}} == 0){
+                  alert("산책 메이트 서비스를 이용하시려면 public 유저로 수정해주셔야 합니다.")
+                  location.replace("/mypage");
+                }
+              {%endfor%}
+            </script>
     </head>
     <body translate="no">
      
@@ -31,7 +40,7 @@
                         <a href="#" class="news__item">
                             <div class="news-date">
                               <span class="news-date__title"> {{user.name}} </span>
-                              <span class="news-date__txt"> {{user.birth}} </span>
+                              <span class="news-date__txt"> {{user.birth |  slice:"4" }}년생 </span>
                             </div>
                             <div class="news__title">
                                 키우는 애완 동물 <span> {{user.animal}} </span>
