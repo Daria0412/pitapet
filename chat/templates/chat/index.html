@@ -49,11 +49,11 @@
                             {%for message in messages%}
                             {%if message.room_id == room.room_id%}
                             <tr>
-                                <td class="text">안녕하세요 연락가능하신가요?</td>
+                                <td class="text">{{message.message}}</td>
                             </tr>
 
                             <tr class="last-tr">
-                                <td class="text-time">오후 04:20</td>
+                                <td class="text-time">{{message.sent_at}}</td>
                             </tr>
                             {%endif%}
                             {%endfor%}
