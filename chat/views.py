@@ -5,7 +5,10 @@ import json
 from .logic import *
 
 def main(request):
-    return render(request, 'chat/index.html', {})
+    if len(request.session.keys()) > 0:
+        return Chat_logic.get_chatlist(request)
+    return redirect('member')
+
 
 def room(request, room_name):
     messages = Chat_logic.show_messages(room_name)
@@ -21,5 +24,3 @@ def dbconnect(request):
     print(room_id)
     return redirect("/chat/"+room_id+"/",{"room_id",room_id})
 
-def test(request):
-    return render(request, 'chat/fail.html', {})

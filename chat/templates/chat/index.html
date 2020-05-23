@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <!--{% load static %} -->
+    <title> Pit A Pet </title>
+    <meta charset="utf-8" />
+    {%load static%}
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- CSS고쳐야대!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <link href="{% static 'css/chat-test.css'%}" rel="stylesheet" media="screen">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Bootstrap 3-->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+    <!-- JAVASCRIPT -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/animatescroll.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/retina.min.js' %}"></script>
+    <!-- CHATBOT -->
+    <script id="embeddedChatbot" data-botId="B238jv" src="https://www.closer.ai/js/webchat.min.js"></script>
+</head>
+
+<body>
+    <!--{% load static %}-->
+    <div id="wrapper">
+        <div class="chat-title">채팅</div>
+        <hr class="bar" />
+        <div class="list">
+            {%for room in chatlists%}
+            {%if room.person1 == request.session.member_id%}
+            <div onclick="sendPerson('{{room.person2}}');">
+                <table>
+                    {%else%}
+                    <div onclick="sendPerson('{{room.person1}}');">
+                        <table>
+                            {%endif%}
+                            {%for user in userlists%}
+                            {%if user.member_id != request.session.member_id%}
+                            {%if user.member_id == room.person1 or user.member_id == room.person2%}
+                            <tr class="first-tr">
+                                <td rowspan="3" width="80px" class="last-tr"><img src={{user.img_url}} class="chat-img">
+                                </td>
+                                <td class="text-title">{{user.name}}</td>
+                            </tr>
+                            {%for message in messages%}
+                            {%if message.room_id == room.room_id%}
+                            <tr>
+                                <td class="text">{{message.message}}</td>
+                            </tr>
+
+                            <tr class="last-tr">
+                                <td class="text-time">{{message.sent_at}}</td>
+                            </tr>
+                            {%endif%}
+                            {%endfor%}
+                            {%endif%}
+                            {%endif%}
+                            {%endfor%}
+                        </table>
+                    </div>
+                    {%endfor%}
+            </div>
+        </div>
+    </div>
+    <form name=f1 action="{% url 'chatroom'%}" method="post">
+        {% csrf_token %}
+        <input type="hidden" id=person name=person>
+    </form>
+</body>
+<script>
+    function sendPerson(member_id) {
+        document.getElementById('person').value = member_id;
+        alert(document.getElementById("person").value);
+        f1.submit();
+    }
+</script>
+</html>

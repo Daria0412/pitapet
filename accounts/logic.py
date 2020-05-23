@@ -61,12 +61,14 @@ class Sign:
         this_member = User.objects.filter(member_id = id)
         addr_gu = None
         addr_city = None
+        profile = None
         if this_member is not None:
             for member in this_member:
+                profile = member.profile
                 addr_city = member.addr_city
                 addr_gu = member.addr_gu
         profile_members = User.objects.filter(profile = 1, addr_gu = addr_gu, addr_city = addr_city)
-        return render(request, "accounts/board.html",{"users":profile_members})
+        return render(request, "accounts/board.html",{"users":profile_members,"this_member":this_member})
     
     def simple_upload(request):
         if request.method == 'POST' and request.FILES['imgFile']:
@@ -104,9 +106,8 @@ class Sign:
         animal = request.POST['animal']
         addr_city = request.POST['addr_city']
         addr_gu = request.POST['addr_gu']
-        profile = request.POST['profile']
         profile = 0
-        if request.POST['profile'] == "공개" :
+        if request.POST['profile']== "공개" :
             profile = 1
         img_url = Sign.simple_upload(request)
         if img_url != None:
