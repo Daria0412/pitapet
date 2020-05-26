@@ -77,7 +77,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [('3.21.207.223', 6379)],
         },
     },
 }
@@ -98,7 +98,7 @@ DATABASES = {
         'NAME': 'pitapet', # DB명
         'USER': 'pitapet', # 데이터베이스 계정
         'PASSWORD': 'mirim2', # 계정 비밀번호
-        'HOST': '127.0.0.1', # 데이테베이스 주소(IP)
+        'HOST': '3.21.207.223', # 데이테베이스 주소(IP)
         'PORT': '3306', # 데이터베이스 포트(보통은 3306)
     }
 }
