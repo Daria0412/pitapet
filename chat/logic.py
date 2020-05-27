@@ -46,6 +46,7 @@ class Chat_logic:
         chatlists = Chat.objects.filter(person1=member_id)|Chat.objects.filter(person2=member_id)
         rooms = []
         userlist = []
+        messages = []
         q=Q()
         for chatlist in chatlists:
             rooms.append(chatlist.room_id)
@@ -54,7 +55,10 @@ class Chat_logic:
             else :
                 id = chatlist.person2
             userlist.append(id)
-        messages = Message.objects.raw('''select message, message_num, sent_at, room_id  from (select message, message_num,sent_at, room_id, row_number() over(partition by room_id order by message_num desc) as rowidx from message) as t1 where rowidx = 1''')
+
+        for room_id in rooms:
+            message = Message.objects.filter(room_id=room_id).order_by('-sent_at')[0]
+            messages.append(message)
         
         q=Q()
         for user in userlist:
