@@ -34,22 +34,24 @@
           <span class="icon-bar"></span>
         </button>
         
-        <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}"></a>
+        <!-- <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}"></a> -->
       </div>
       <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-          <li><a onclick="$('.detail').animatescroll({padding:31});"> 서비스 소개 </a></li>
-          <li><a onclick="$('.contents').animatescroll({padding:31});"> 서비스 내용 </a></li>
-          <li><a onclick="$('.team').animatescroll({padding:31});"> 팀원 소개 </a></li>
-          <li><a onclick="$('.walkmate').animatescroll({padding:31});" href="{% url 'worklist' %}"> 산책 메이트 </a></li> {% csrf_token %}
-          <li><a onclick="$('.mypage').animatescroll({padding:31});" href="{% url 'mypage' %}"> 마이 페이지 </a></li> {% csrf_token %}
-          <li><a onclick = "window.open('chat/','채팅창 목록','toolbar=0,directories=0,status=no,menubar=0,scrollbars=auto,height=500,width=500,left=0,top=0');"><img src="{% static 'img/chat-button.png' %}" onmouseover="this.src='../../static/img/chat-hover.png';" onmouseout="this.src='../../static/img/chat-button.png';"/></a></li>
+
+        <ul class="nav navbar-nav" style="width: 1300px">
+          <li><a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}"></a></li>
+          <li><a onclick="$('.detail').animatescroll({padding:31});" style="margin-top:20px"> 서비스 소개 </a></li>
+          <li><a onclick="$('.contents').animatescroll({padding:31});" style="margin-top:20px"> 서비스 내용 </a></li>
+          <li><a onclick="$('.team').animatescroll({padding:31});" style="margin-top:20px"> 팀원 소개 </a></li>
+          <li><a onclick="$('.walkmate').animatescroll({padding:31});" href="{% url 'worklist' %}" style="margin-top:20px"> 산책 메이트 </a></li> {% csrf_token %}
+          <li><a onclick="$('.mypage').animatescroll({padding:31});" href="{% url 'mypage' %}" style="margin-top:20px"> 마이 페이지 </a></li> {% csrf_token %}
+          <li><a onclick = "window.open('chat/','채팅창 목록','toolbar=0,directories=0,status=no,menubar=0,scrollbars=auto,height=500,width=500,left=0,top=0');"><img src="{% static 'img/chat-button.png' %}" onmouseover="this.src='../../static/img/chat-hover.png';" onmouseout="this.src='../../static/img/chat-button.png';" width="150px" height="45px" style="margin-top:10px"/></a></li>
           {% if request.session.member_id != null %}    
-          <li><img src="{{img_url}}" width="30px" style='padding-top: 10px;'></li>      
-          <li><a href="#"> {{request.session.member_id}} 님 </a></li>
-          <li><a href="{% url 'logout' %}"> 로그아웃 </a></li>
+          <li style="margin-top:20px"><img src="{{img_url}}" width="30px" style='padding-top: 10px;'></li>      
+          <li style="margin-top:20px"><a href="#"> {{request.session.member_id}} 님 </a></li>
+          <li style="margin-top:20px"><a href="{% url 'logout' %}"> 로그아웃 </a></li>
           {% else %}
-          <li><a onclick="$('.social').animatescroll({padding:31});" href="{% url 'member' %}"><img src="{% static 'img/signin-button.png' %}" onmouseover="this.src='../../static/img/signin-hover.png';" onmouseout="this.src='../../static/img/signin-button.png';"/></a></li>{% csrf_token %}
+          <li><a onclick="$('.social').animatescroll({padding:31});" href="{% url 'member' %}"><img src="{% static 'img/signin-button.png' %}" onmouseover="this.src='../../static/img/signin-hover.png';" onmouseout="this.src='../../static/img/signin-button.png';" width="140px" height="45px" style="margin-top:10px"/></a></li>{% csrf_token %}
           {% endif %}
         </ul>
       </div>
