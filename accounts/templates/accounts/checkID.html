@@ -17,14 +17,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link href="{% static 'css/checkID.css' %}" rel="stylesheet" media="screen">
+    <!-- Alert Custom -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script>
         {%if result == 'success'%}
           alert("{{member_id}}는 사용 가능한 아이디입니다.");
           window.close();
-          {%endif%}
-          {%if result == 'fail' %}
+        {%endif%}
+        {%if result == 'fail' %}
           alert("{{member_id}}는 사용 불가한 아이디입니다.");
-          {%endif%}
+        {%endif%}
     </script>
     <script type="text/javascript">
         function sendToParent(){
@@ -44,7 +46,7 @@
               {% csrf_token %}
                 <input id="member_id" name="member_id" type="text" class="search-box"/>
                 <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label><br><br><br>
-                <input class="checkID" name="checkID" id="checkID" type="button" onclick="sendToParent();" value="중복확인">
+                <input class="checkID" name="checkID" id="checkID" type="button" onclick="sendToParent();" value="중복 확인">
             </form>
         </section>
     </body>

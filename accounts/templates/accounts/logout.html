@@ -6,7 +6,7 @@
         <script src="{% static 'js/test.js' %}"></script>
     </head>
     <body>
-        {{request.session.member_id}}님<br>
+        {{request.session.member_id}} 님<br>
         로그인 {{request.session.result}}
         <form action="{% url 'signin' %}">
             <input type = submit value = login>
