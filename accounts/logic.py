@@ -116,3 +116,4 @@ class Sign:
             User.objects.filter(member_id = member_id).update(pwd = pwd, name = name, animal= animal, addr_city = addr_city, addr_gu=addr_gu, profile=profile)
         users = User.objects.filter(member_id = member_id)
         return users
+

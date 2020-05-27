@@ -35,6 +35,92 @@
           // 자식창의 childText라는 id를 가진 태그 요소의 값에 부모창의 값을 넣음
           windowObj.document.getElementById("member_id").value = document.getElementById('member_id').value;
         }
+
+        $(function () {
+            var id = $("#member_id").val();
+
+            if (id === "") {
+                $("#signupBtn").attr("disabled", "disabled");
+            }
+        });
+
+        /* 중복체크! */
+        $(function () {
+            /* 아이디 수정했을 때 */
+            $('#signup_member_id').change(function () {
+                // $('#checkID').show();
+                $("#signupBtn").attr("id_check_result", "fail");
+                $("#signupBtn").attr("disabled", "disabled");
+            });
+
+            // 중복확인 버튼을 눌렀을 때
+            $('#checkID').click(function () {
+                var member_id = $('#signup_member_id').val();
+                console.log("id", member_id);
+                // 공백일 경우
+                if (member_id == '') {
+                    alert('아이디를 입력해주세요.');
+                    $("#signupBtn").attr("id_check_result", "fail");
+                    $("#signupBtn").attr("disabled", "disabled");
+                    return false;
+                }
+                // debugger;
+                $.ajax({
+                    url: 'check_id',
+                    data: {
+                      'member_id' : member_id
+                    },
+                    type: 'get',
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (response) {
+                        if (response.result != 'success') {
+                            console.error(response.data)
+                            return;
+                        }
+                        if (response.data == 'exist') {
+                            alert("존재하는 아이디 입니다!");
+                            $('#signup_member_id').val('').focus();
+                            $("#signupBtn").attr("id_check_result", "fail");
+                            $("#signupBtn").attr("disabled", "disabled");
+                            return;
+                        } else {
+                            alert("사용 가능한 아이디입니다!");
+                            $("#signupBtn").attr("id_check_result", "success");
+                            $("#signupBtn").removeAttr("disabled");
+                            // $('#checkID').hide();
+                            return;
+                        }
+                        // console.log(response)
+                    },
+                    error: function (xhr, error) {
+                        alert("서버와의 통신에서 문제가 발생했습니다.");
+                        $("#signupBtn").attr("id_check_result", "fail");
+                        $("#signupBtn").attr("disabled", "disabled");
+                        console.error("error : " + error);
+                        console.error(response.data)
+                    }
+                });
+
+                return false;
+            });
+
+            // 가입 버튼 눌렀을 때
+            $('#signupBtn').submit(function () {
+                console.log($("#signupBtn").attr("id_check_result"));
+                if ($("#signupBtn").attr("id_check_result") === "fail") {
+                    alert("아이디 중복 확인를 해주시기 바랍니다.");
+                    $("#signupBtn").attr("disabled", "disabled");
+                    $("#signup_member_id").focus();
+                    return false;
+                }
+            });
+
+            $("#signup_member_id").on("propertychange change keyup paste input", function () {
+                // $('#checkID').show();
+                $("#signupBtn").attr("id_check_result", "fail");
+            });
+        });
       </script>
   </head>
   <body translate="no">
@@ -74,9 +160,9 @@
       <form name="signup" class="form" method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
         
         <p class="fieldset">
-          <label class="image-replace id" for="member_id"> ID </label>
-          <input class="has-padding has-border" name = "member_id" id="member_id" type="text" placeholder="ID">
-          <input class="checkID" name="checkID" id="checkID" type="button" value="중복 확인" onclick="javascript:openChildWindow();">
+          <label class="image-replace id" for="signup_member_id"> ID </label>
+          <input class="has-padding has-border" name = "member_id" id="signup_member_id" type="text" placeholder="ID">
+          <input class="checkID" name="checkID" id="checkID" type="button" value="중복 확인">
         </p>
         <p class="fieldset">
           <label class="image-replace password" for="pwd"> Password </label>
@@ -176,9 +262,9 @@
           <label for="imgFile"> 업로드 </label>
           <input type="file" name="imgFile" id="imgFile" class="upload-hidden" accept="image/jpg,image/gif, image/jpeg, image/png">
         </div>
-    <p class="fieldset">
-      <input class="full-width has-padding" type="submit" value="회원가입" onclick="return checkAll();">
-    </p>
+        <p class="fieldset">
+          <input class="full-width has-padding" type="submit" value="회원가입" onclick="return checkAll();" id="signupBtn" id_check_result="success" disabled>
+        </p>
   </form>
 </div>
 <script>
