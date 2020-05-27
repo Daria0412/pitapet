@@ -11,5 +11,5 @@ urlpatterns = [
     path('mypage/',views.mypage, name = 'mypage'),
     path('test/',views.test, name = 'test'),
     path('test2/',views.test2, name = 'test2'),
-    path('member/check/',views.check_id, name = 'check_id'),
+    path('member/check_id/',views.check_id, name = 'check_id'),
 ]

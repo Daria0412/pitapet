@@ -54,8 +54,20 @@ def test2(request):
     return render(request, 'accounts/test2.html')
     
     
-def check_id(request):
-    if request.method=='POST':
-        return render(request,'accounts/checkID.html',{'member_id':request.POST['member_id'],'result':Sign.check_id(request)})
-    return render(request, 'accounts/checkID.html')
+# def check_id(request):
+#     if request.method=='POST':
+#         return render(request,'accounts/checkID.html',{'member_id':request.POST['member_id'],'result':Sign.check_id(request)})
+#     return render(request, 'accounts/checkID.html')
     
+def check_id(request):
+    try:
+        user = User.objects.get(member_id=request.GET['member_id'])
+    except Exception as e:
+        user = None
+
+    result = {
+        'result':'success',
+        # 'data' : model_to_dict(user)  # console에서 확인
+        'data' : "not exist" if user is None else "exist"
+    }
+    return JsonResponse(result)
