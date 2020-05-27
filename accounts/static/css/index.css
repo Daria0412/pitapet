@@ -1,6 +1,8 @@
 @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
 body {
-    font-family: 'Noto Sans KR', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
+	text-align: center;
+	overflow-x: hidden;
 }
 
 p {
@@ -113,8 +115,8 @@ header p.lead{
 header .carousel-iphone{
 	margin-right: auto;
 	margin-left: auto;
-	width: 375px;
-	height: 667px;
+	width: 350px;
+	height: 672px;
 	background: url('../img/iphone-front.png') no-repeat;
 	background-size: 100%;
 }
@@ -147,6 +149,40 @@ header .carousel-indicators li {
 	text-indent: -999px;
 	cursor: pointer;
 }
+
+header .cloud1 {
+	position: absolute;
+	animation-name: cloud1;
+	animation-duration: 3s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	z-index: auto;
+	padding-top: 30%;
+	margin-left: -35%;
+  }
+   
+  header .cloud2 {
+	position: absolute;
+	animation-name: cloud2;
+	animation-duration: 4s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	z-index: auto;
+	padding-top: 50%;
+	margin-left: 90%;
+  }
+
+  @keyframes cloud1 {
+	0%   {left:0px; top:0px;}
+	100%  {left:200px; top:0px;}
+  }
+
+  @keyframes cloud2 {
+	0%   {left:0px; top:0px;}
+	100%  {left:300px; top:0px;}
+  }
 
 /* DETAIL */
 .detail {
