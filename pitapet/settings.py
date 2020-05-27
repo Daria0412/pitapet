@@ -26,7 +26,7 @@ SECRET_KEY = '5_#%_mue1zhq)k0oc0-*7f=ewo@c$9vln%p2@kt73gec7yh3%!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0','18.191.233.154','127.0.0.1']
 
 
 # Application definition
@@ -98,7 +98,7 @@ DATABASES = {
         'NAME': 'pitapet', # DB명
         'USER': 'pitapet', # 데이터베이스 계정
         'PASSWORD': 'mirim2', # 계정 비밀번호
-        'HOST': '127.0.0.1', # 데이테베이스 주소(IP)
+        'HOST': '3.21.207.223', # 데이테베이스 주소(IP)
         'PORT': '3306', # 데이터베이스 포트(보통은 3306)
     }
 }
