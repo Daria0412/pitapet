@@ -16,10 +16,20 @@
         <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
         <!-- SCRIPT -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Alert Custom -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script>
-            if("{{result}}"=="okay"){
-                alert("회원정보 수정이 완료되었습니다.");
-            }
+            $(function() {
+                if("{{result}}"=="okay"){
+                Swal.fire({
+                    icon: 'success',
+                    title: '회원정보 수정 성공',
+                    text: '회원정보 수정에 성공하였습니다.',
+                    confirmButtonColor: '#F7C800',
+                    confirmButtonText: '돌아가기'
+                    });
+                }
+            });
         </script>
     </head>
     <body id="page-top">
@@ -111,7 +121,7 @@
                                 <label class="dropdown">
                                     <select id="add_city" name="addr_city" onchange="addressChange(this)">
                                         <option> {{user.addr_city}} </option>
-                                        <option value="서울특별시"> 서울특별시 </option>
+                                        <option value="서울특별시"> 서울특별시 </option> 
                                         <option value="부산광역시"> 부산광역시 </option>
                                         <option value="대구광역시"> 대구광역시 </option>
                                         <option value="인천광역시"> 인천광역시 </option>
