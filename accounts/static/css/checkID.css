@@ -59,7 +59,7 @@
 }
 
 html, body {
-        height: 100%;
+    height: 100%;
 }
 
 body {
@@ -74,12 +74,13 @@ body {
     margin-left: 6%;
 }
 
-h1 {
-    font-family: 'yg-jalnan';
-    font-weight: normal; 
-    font-style: normal;
-    font-size: 75px;
-    text-transform: uppercase;
+
+h1, .h1,
+h2, .h2 {
+  font-size: 20pt;
+  font-family: 'yg-jalnan';
+  font-weight: normal; font-style: normal;
+  color: #282828;
 }
 
 h1 span {
@@ -94,6 +95,11 @@ h1 span {
     animation-timing-function: ease;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+    font-family: 'yg-jalnan';
+    font-weight: normal; 
+    font-style: normal;
+    font-size: 75px;
+    text-transform: uppercase;
 }
 
 h1 span {
