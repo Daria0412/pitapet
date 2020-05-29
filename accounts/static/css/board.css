@@ -319,3 +319,29 @@ a, a:hover {
   height: 100%;
   width: 100%;
 }
+
+input.checkID {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+    color: #fff;
+  background-color: #FFE375;
+  border-color: #FFE375;
+  font-family: 'yg-jalnan';  
+  font-weight: normal; font-style: normal;
+  font-size: 17pt;
+  border: 0;
+  outline: 0;
+	display: inline-block;
+	line-height: normal;
+	vertical-align: middle;
+	cursor: pointer;
+  border-radius: .25em;
+  padding: 11px 20px 11px 20px;
+}
+
+input.checkID:focus {
+    background-color: #F7C800;
+}
