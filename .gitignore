@@ -3,5 +3,3 @@ __pycache__
 .env
 db.sqlite3
 .DS_Store
-files/**/*.png
-files/**/*.jpg
