@@ -9,7 +9,7 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css">
             <link rel="stylesheet" href="{% static 'css/board.css' %}">
-            <link href="../../static/css/mypage.css" rel="stylesheet" />
+            <link href="{% static 'css/mypage.css' %}" rel="stylesheet" />
             <!-- Fonts -->
             <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
             <!-- JAVASCRIPT -->
@@ -18,12 +18,24 @@
             <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script>
             <!-- Alert Custom -->
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+            <script>
+              if ({{profile}}==0){
+                result = confirm("public 유저만 사용하실 수 있는 서비스입니다.\n회원정보를 수정하시겠습니까?");
+                if (result == true){
+                  location.href = "/mypage/";
+                }
+                else {
+                  location.href= '/'
+                }
+              }
+            </script>
 
     </head>
     <body translate="no">
+      {%load static%}
       <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}"><img  src="../../static/img/logo-after.png"></a>
+            <a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}"><img  src="{% static 'img/logo-after.png' %}"></a>
             <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" font-color="#2B2B2B"> Menu <i class="fas fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
@@ -60,7 +72,7 @@
                                   {% csrf_token %}
                                   <input type = "hidden" name = person value = "{{user.member_id}}">
                                   <input class="button" type = "submit" value = "채팅하기"> &nbsp;&nbsp;
-                                  <input class="button" name="button" type="button" value="전화 걸기">
+                                  <input class="button" type="button" value = "전화걸기" onclick="location.href='tel:{{user.phone}}'">
                                 </form>
                             </p>
                             <div class="news__img">
