@@ -8,6 +8,7 @@ class User(models.Model):
     pwd = models.CharField(db_column='pwd',max_length=200,blank=False)
     name = models.CharField(db_column='name',max_length=200,blank=False)
     phone = models.CharField(db_column='phone',max_length=200,blank=False)
+    birth = models.CharField(db_column='birth',max_length=200,blank=False)
     sex= models.CharField(db_column='sex',max_length=60,blank=False)
     animal = models.CharField(db_column='animal',max_length=300,blank=False)
     addr_city = models.CharField(db_column='addr_city',max_length=150,blank=False)

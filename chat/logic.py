@@ -70,7 +70,8 @@ class Chat_logic:
         print(chatlists)
         return render(request, 'chat/index.html',{'chatlists':chatlists, 'messages':messages, 'userlists': userlists})
     def out(request):
-        room_id = request.POST['room_id']      
+        room_id = request.POST['room_id']    
+        print(room_id)  
         Chat.objects.filter(room_id=room_id).delete()
         Message.objects.filter(room_id=room_id).delete() 
         return "delete"

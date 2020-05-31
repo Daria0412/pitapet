@@ -6,6 +6,6 @@ urlpatterns = [
     path('', views.main, name = "main"),
     path('chatroom/', views.chatroom, name='chatroom'),
     path('dbconnect/', views.dbconnect, name='dbconnect'),
+    path('out/', views.out, name = 'out'),
     url(r'^(?P<room_name>[^/]+)/$', views.room, name='room'),
-    path('delete/', views.out, name = 'out'),
 ]

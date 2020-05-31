@@ -24,9 +24,9 @@
 
 <body>
     <a href='/chat/'>목록보기</a>
-    <form action="/chat/delete" method="post">
+    <form action="/chat/out/" method="post">
     {% csrf_token %}
-    <input type = hidden value="{{room_id}}">
+    <input type = hidden name = room_id value="{{room_id}}">
     <input type = submit value = "나가기">
     </form>
     <textarea id="chat-log" cols="100" rows="20">
