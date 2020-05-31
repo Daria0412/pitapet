@@ -96,6 +96,43 @@ login_selected();
     $form_forgot_password.addClass('is-selected');
   }
 
+  //REMOVE THIS - it's just to show error messages 
+  // $form_login.find('input[name="submit"]').on('click', function (event) {
+  //   event.preventDefault();
+  //   $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+  // });
+
+   if(password != repeatPassword){
+    $form_signup.find("#pwd").on('click', function (event) {
+      event.preventDefault();
+      $form_signup.find("#repeatPwd").toggleClass('has-error').next('span').toggleClass('is-visible');
+      alert(password + " " + repeatPassword);
+    });
+   }
+
+  if (!Modernizr.input.placeholder) {
+    $('[placeholder]').focus(function () {
+      var input = $(this);
+      if (input.val() == input.attr('placeholder')) {
+        input.val('');
+      }
+    }).blur(function () {
+      var input = $(this);
+      if (input.val() == '' || input.val() == input.attr('placeholder')) {
+        input.val(input.attr('placeholder'));
+      }
+    }).blur();
+    $('[placeholder]').parents('form').submit(function () {
+      $(this).find('[placeholder]').each(function () {
+        var input = $(this);
+        if (input.val() == input.attr('placeholder')) {
+          input.val('');
+        }
+      });
+    });
+  }
+});
+
 function appendYear(){
   var date=new Date();
   var year=date.getFullYear();
@@ -113,7 +150,7 @@ var optionIndex=0;
 
 for(var i=1; i<=12; i++){
     selectValue.add(new Option(i + "월", i), optionIndex++);
-  }
+}
 }
 
 function appendDay(){
@@ -310,20 +347,21 @@ function checkAll(){
     return false;
   }
 
-  // 전화번호 유효성 검사
+  /* 전화번호 유효성 */
   // if(sign.phone.value == ""){
-  //   Swal.fire({
-  //     icon: 'error',
-  //     title: '전화번호 오류',
-  //     text: '전화번호를 입력해 주세요.',
-  //     confirmButtonColor: '#F7C800',
-  //     confirmButtonText: '돌아가기'
-  //   });
-  //   setTimeout(function(){
-  //     sign.phone.focus();
-  //   }, 0);
-  //   return false;
-  // }
+    //   Swal.fire({
+    //     icon: 'error',
+    //     title: '전화번호 오류',
+    //     text: '전화번호를 입력해 주세요.',
+    //     confirmButtonColor: '#F7C800',
+    //     confirmButtonText: '돌아가기'
+    //   });
+    //   setTimeout(function(){
+    //     sign.phone.focus();
+    //   }, 0);
+    //   return false;
+    // }
+    
   /* 생년월일 유효성 */
   var yearIdx = $("#year option").index($("#year option:selected"));
   console.log(yearIdx);
@@ -382,8 +420,6 @@ function checkAll(){
   }
 
   /* 셀렉트 박스 유효성 검사 */
-
-    
   var cityIdx = $("#add_city option").index( $("#add_city option:selected") );
   console.log(cityIdx);
 
@@ -412,8 +448,6 @@ function checkAll(){
     return false;
   }
   
- 
-
   /* 이미지 업로드 유효성 검사 */
   var imgFile = $('#imgFile').val();
   var maxSize = 5 * 1024 * 1024;
