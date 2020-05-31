@@ -12,7 +12,7 @@ class Chat_logic:
 
     def chatroom(request):
             person1 = request.session['member_id']
-            person2 = request.POST['person']
+            person2 = request.session['person']
             room_id = None
             if person1 > person2:
                 temp = person1
@@ -57,7 +57,12 @@ class Chat_logic:
             userlist.append(id)
 
         for room_id in rooms:
-            message = Message.objects.filter(room_id=room_id).order_by('-sent_at')[0]
+            result = Message.objects.filter(room_id=room_id).exists()
+            messagess = Message.objects.filter(room_id=room_id).order_by('-sent_at')
+            if result:
+                message = messagess[0]
+            else :
+                message = messagess
             messages.append(message)
         
         q=Q()
