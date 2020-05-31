@@ -5,19 +5,19 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- JAVASCRIPT -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="../../static/js/member.js"></script>
+    <script src="{% static 'js/member.js' %}"></script>
     <script src='https://code.jquery.com/jquery-1.11.3.min.js '></script>
 
     <!-- Alert Custom -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="../../static/css/member.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/member.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link href="../../static/css/mypage.css" rel="stylesheet" />
+    <link href="{% static 'css/mypage.css' %}" rel="stylesheet" />
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
     <!-- FAVICON -->
-    <link rel="shortcut icon" href="../../static/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
     <title> Pit A Pet </title>
     <script>
       $(function() {
@@ -167,7 +167,7 @@
   <body translate="no">
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
       <div class="container">
-          <a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}"><img  src="../../static/img/logo-after.png"></a>
+          <a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}"><img  src="{% static 'img/logo-after.png' %}"></a>
           <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" font-color="#2B2B2B"> Menu <i class="fas fa-bars"></i></button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
