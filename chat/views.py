@@ -34,6 +34,6 @@ def cheatpage(request):
     return render(request,'chat/cheat.html')
 
 def cheat(request):
-    room_id = str((Chat_logic.chatroom(request)))
+    room_id = str((Chat_logic.chatroom1(request)))
     print(room_id)
     return redirect("/chat/"+room_id+"/",{"room_id",room_id})
