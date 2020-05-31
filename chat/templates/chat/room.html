@@ -23,6 +23,12 @@
 </head>
 
 <body>
+    <a href='/chat/'>목록보기</a>
+    <form action="/chat/delete" method="post">
+    {% csrf_token %}
+    <input type = hidden value="{{room_id}}">
+    <input type = submit value = "나가기">
+    </form>
     <textarea id="chat-log" cols="100" rows="20">
         {%for message in messages%}
         {%if message.writer == request.session.member_id%}나 : {{message.message}} 

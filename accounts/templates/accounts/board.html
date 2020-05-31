@@ -60,7 +60,7 @@
                                   {% csrf_token %}
                                   <input type = "hidden" name = person value = "{{user.member_id}}">
                                   <input class="button" type = "submit" value = "채팅하기"> &nbsp;&nbsp;
-                                  <input class="button" name="button" type="button" value="전화 걸기">
+                                  <input class="button" name="button" type="button" onclick="location.href='tel:{{user.phone}}'">
                                 </form>
                             </p>
                             <div class="news__img">

@@ -19,8 +19,9 @@ def chatroom(request):
     return redirect("/chat/"+room_id+"/",{"room_id",room_id})
 
 def dbconnect(request):
-    print("--------------------------------------------------------")
     room_id = Chat_logic.dbconnect(request)
-    print(room_id)
     return redirect("/chat/"+room_id+"/",{"room_id",room_id})
 
+def out(request):
+    print(Chat_logic.out(request))
+    return redirect("/chat/")
