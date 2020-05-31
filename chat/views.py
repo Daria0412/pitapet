@@ -18,6 +18,10 @@ def chatroom(request):
     request.session['person'] = request.POST['person']
     return redirect("/chat/cheatpage/")
 
+def chatroom1(request):
+    room_id = str((Chat_logic.chatroom(request)))
+    return redirect("/chat/"+room_id+"/",{"room_id",room_id})
+
 def dbconnect(request):
     room_id = Chat_logic.dbconnect(request)
     return redirect("/chat/"+room_id+"/",{"room_id",room_id})

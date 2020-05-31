@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     path('', views.main, name = "main"),
     path('chatroom/', views.chatroom, name='chatroom'),
+    path('chatroom1/', views.chatroom1, name='chatroom1'),
     path('dbconnect/', views.dbconnect, name='dbconnect'),
     path('out/', views.out, name = 'out'),
     path('cheat/', views.cheat, name = 'cheat'),

@@ -24,4 +24,4 @@ class User(models.Model):
         self.save()
 
     def __str__(self):
-        return self.id
+        return self.member_id

@@ -69,7 +69,8 @@ class Sign:
                 addr_city = member.addr_city
                 addr_gu = member.addr_gu
         profile_members = User.objects.filter(profile = 1, addr_gu = addr_gu, addr_city = addr_city)
-        return render(request, "accounts/board.html",{"users":profile_members,"profile":profile})
+        print(profile_members)
+        return render(request, "accounts/board.html",{"users":profile_members,"this_member":this_member,"profile":profile})
     
     def simple_upload(request):
         if request.method == 'POST' and request.FILES['imgFile']:
