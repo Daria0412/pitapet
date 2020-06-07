@@ -129,8 +129,9 @@ body {
   border-radius: 5px;
   resize: none;
   overflow-y: hidden;
-  overflow:visible;
+  overflow: visible;
 }
+
 textarea.autosize { min-height: 100px; }
 .chat .chat-message .fa-file-o, .chat .chat-message .fa-file-image-o {
   font-size: 16px;
@@ -265,15 +266,11 @@ textarea.autosize { min-height: 100px; }
   }
 
   .container {
-    max-width: 90%;
+    max-width: 80%;
   }
 
   .chat {
     max-width: 100%;
-  }
-
-  .people-list {
-    max-width: 110%;
   }
 }
 

@@ -34,12 +34,13 @@
     <div class="container clearfix">
             <div class="chat">
                 <div class="chat-header clearfix">
-                    <div class="image round">
+                    <div class="image round" style="margin-right: 5%;">
                         <img src="{{person.img_url}}" alt="avatar" />
-                    </div>
-                    <br>
+                    </div><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    
                     <div class="chat-about">
-                      <div class="chat-with" style="font-size: 20pt;"> {{person.member_id}} </div>
+                      <div class="chat-with" style="font-size: 20pt;"> {{person.name}} </div>
                     </div><br>
                     <form action="/chat/out/" method="post">
                         <input type = hidden name = room_id value="{{room_id}}">
@@ -50,7 +51,7 @@
                         <i style="float: right; cursor: pointer;" class= "fas fa-stream fa-2x" aria-hidden="true" onclick="location.href='/chat/'"></i>
                 </div>
                 <div class="chat-history">
-                    <textarea class="message my-message" id="chat-log" style="width:300px; height:100px; overflow-y:hidden">
+                    <textarea class="message my-message" id="chat-log" cols="10" rows="10" style="overflow-y:hidden">
                         {%for message in messages%}
                         {%if message.writer == request.session.member_id%} 나 : {{message.message}} 
                         {%else%}{{message.writer}} : {{message.message}} 
@@ -74,7 +75,6 @@
 <script>
     function xSize(e){
         var t;
-
         e.onfocus = function(){
             t = setInterval(
                 function(){ 
@@ -88,6 +88,10 @@
         }
     }
     xSize(document.getElementById('chat-log'));
+    $(document).ready(function(){
+        $("#container").scrollTop($("#container")[0].scrollHeight);
+    });
+    $("#chat-log").scrollTop($("#chat-log")[0].scrollHeight);
   </script>
 <script>
     var roomName = {{ room_name_json }};
