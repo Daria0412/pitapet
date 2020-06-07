@@ -39,8 +39,7 @@
                     <img src="{{person.imgurl}}" alt="avatar" />
                     <img src={{person.imgurl}}>
                     <div class="chat-about">
-                      <div class="chat-with">Chat with Vincent Porter</div>
-                      <div class="chat-num-messages">already 1 902 messages</div>
+                      <div class="chat-with"> {{person.member_id}} </div>
                     </div>
                 </div>
                 <div class="chat-history">
@@ -48,7 +47,7 @@
                         <li>
                             <textarea class="message my-message" id="chat-log" cols="100" rows="20">
                                 {%for message in messages%}
-                                {%if message.writer == request.session.member_id%}나 : {{message.message}} 
+                                {%if message.writer == request.session.member_id%} 나 : {{message.message}} 
                                 {%else%}{{message.writer}} : {{message.message}} 
                                 {%endif%}
                                 {%endfor%}
