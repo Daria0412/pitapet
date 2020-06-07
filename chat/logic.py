@@ -89,3 +89,17 @@ class Chat_logic:
         Chat.objects.filter(room_id=room_id).delete()
         Message.objects.filter(room_id=room_id).delete() 
         return "delete"
+
+    def get_profile(request, room_id):
+        id = request.session["member_id"]
+        member_id = None
+        chat = get_object_or_404(Chat, pk=room_id)        
+        if chat.person1 == id:
+            member_id = chat.person2
+        else :
+            member_id = chat.person1
+        person = get_object_or_404(User, pk=member_id) 
+        return person
+        
+
+

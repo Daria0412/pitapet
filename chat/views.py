@@ -12,7 +12,9 @@ def main(request):
 
 def room(request, room_name):
     messages = Chat_logic.show_messages(room_name)
-    return render(request, 'chat/room.html', {'room_name_json': mark_safe(json.dumps(room_name)),'messages':messages,"room_id":room_name})
+    person = Chat_logic.get_profile(request, room_name)
+    print(person)
+    return render(request, 'chat/room.html', {'room_name_json': mark_safe(json.dumps(room_name)),'messages':messages,"room_id":room_name,"person":person})
 
 def chatroom(request):
     request.session['person'] = request.POST['person']

@@ -36,8 +36,8 @@
             
             <div class="chat">
                 <div class="chat-header clearfix">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
-                    
+                    <img src="{{person.imgurl}}" alt="avatar" />
+                    <img src={{person.imgurl}}>
                     <div class="chat-about">
                       <div class="chat-with">Chat with Vincent Porter</div>
                       <div class="chat-num-messages">already 1 902 messages</div>
@@ -97,12 +97,14 @@
         document.getElementById('message').value = document.getElementById('chat-message-input').value 
         var messageInputDom = document.querySelector('#chat-message-input');
         var message = messageInputDom.value;
-        chatSocket.send(JSON.stringify({
-            'message':message
-        }));
+        if (message != ''){
+            chatSocket.send(JSON.stringify({
+                'message':message
+            }));
 
-        messageInputDom.value = '';
-        f1.submit();
+            messageInputDom.value = '';
+            f1.submit();
+        }
     };
 </script>
 
