@@ -25,7 +25,7 @@
 <body>
     {%load static%}
 
-    <a href='/chat/'>목록보기</a>
+    <a href='/chat/'> 목록 보기 </a>
     <form action="/chat/out/" method="post">
     {% csrf_token %}
     <input type = hidden name = room_id value="{{room_id}}">
