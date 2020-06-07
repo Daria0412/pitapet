@@ -12,7 +12,7 @@
             <link href="{% static 'css/mypage.css' %}" rel="stylesheet" />
             <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
             <!-- Fonts -->
-            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
             <!-- JAVASCRIPT -->
             <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
             <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
@@ -49,9 +49,9 @@
             </div>
         </div>
       </nav>
-        <div class="wrapper" style="margin-top: 180px;">
+        <div class="wrapper" style="margin-top: 250px;">
             <div class="background">
-                <img src="{% static 'img/background-member.png' %}" alt="">
+                <img src="{% static 'img/background-app.jpg' %}" alt="">
             </div>
             <div class="item-bg"></div>
             <div class="news-slider">
@@ -59,24 +59,26 @@
                   {%for user in users%}
                   {%if request.session.member_id != user.member_id%}
                     <div class="news-slider__item swiper-slide">
-                        <a href="#" class="news__item">
+                        <a href="#" class="news__item" style="text-decoration: none;">
                             <div class="news-date">
                               <span class="news-date__title"> {{user.name}} </span>
-                              <span class="news-date__txt"> {{user.birth |  slice:"4" }}년생 </span>
+                              <span class="news-date__txt" style="font-weight: 400; font-size: 15pt;"> {{user.birth |  slice:"4" }} 년생 </span>
                             </div>
                             <div class="news__title">
-                                키우는 애완 동물 <span> {{user.animal}} </span>
+                                키우는 애완 동물 
+                                <span style="margin-left: 3%; font-weight: 300; font-size: 17pt"> {{user.animal}} </span>
                             </div>
+                            <br>
                             <p class="news__txt">
-                                {{user.name}}
+
                                 <form action = "{% url 'chatroom'%}" method="post">
                                   {% csrf_token %}
                                   <input type = "hidden" name = person value = "{{user.member_id}}">
                                   <input class="button" type = "submit" value = "채팅하기"> &nbsp;&nbsp;
-                                  <input class="button" type="button" value = "전화걸기" onclick="location.href='tel:{{user.phone}}'">
+                                  <input class="button" type="button" value = "전화 걸기" onclick="location.href='tel:{{user.phone}}'">
                                 </form>
                             </p>
-                            <div class="news__img">
+                            <div class="news__img" style="margin-bottom: 5%;">
                                 <img src="{{user.img_url}}" alt="news">
                             </div>
                         </a>
@@ -84,7 +86,7 @@
                     {%endif%}
                     {%endfor%}
                 </div>
-                <div class="news-slider__ctr">
+                <div class="news-slider__ctr" style="margin-bottom: 5%;">
                     <div class="news-slider__arrows">
                         <button class="news-slider__arrow news-slider-prev">
                             <span class="icon-font">
@@ -239,5 +241,9 @@ swiper.on('slideChangeTransitionEnd', function () {
 });
         
         </script>
+         <!-- BOOTSTRAP -->
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+         <!-- JAVASCRIPT -->
+         <script src="{% static 'js/jqBootstrapValidation.js'%}"></script>
     </body>
 </html>

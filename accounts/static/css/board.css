@@ -130,6 +130,7 @@ a, a:hover {
 
 .news-slider__arrow:focus {
   outline: none !important;
+  background-color: #F7C800 ;
 }
 
 .news-slider__arrow .icon-font {
@@ -194,6 +195,7 @@ a, a:hover {
     opacity: 1;
     transition-delay: .1s;
     color: #fff;
+    text-decoration: none;
   }
 
   .news__item:hover .news__img {
@@ -263,7 +265,8 @@ a, a:hover {
 .news-date__txt {
   font-size: 16px;
   color: #3D3D3D;
-	font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
 }
 
 .news__title {

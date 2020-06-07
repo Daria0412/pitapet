@@ -137,13 +137,14 @@ header .cloud1 {
   }
 
 /* DETAIL */
+
 .detail {
 	overflow: hidden;
 	padding: 100px 0px 100px 0px;
     min-height: 1080px;
     background: url("../img/background-detail.png");
     max-width: 100%;
-    height: auto !important;
+	height: auto !important;
 }
 
 .detail h1 {

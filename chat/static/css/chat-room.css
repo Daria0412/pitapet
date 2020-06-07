@@ -13,7 +13,7 @@ body {
 .container {
   margin: 0 auto;
   width: 750px;
-  background: #92959E;
+  background: #F2F5F8;
   border-radius: 5px;
 }
 
@@ -102,6 +102,7 @@ body {
   background: #86BB71;
   font-family: 'Noto Sans KR', sans-serif; 
   font-weight: 100;
+  height: auto;
 }
 
 .chat .chat-history .other-message {
@@ -127,8 +128,10 @@ body {
   margin-bottom: 10px;
   border-radius: 5px;
   resize: none;
+  overflow-y: hidden;
+  overflow:visible;
 }
-
+textarea.autosize { min-height: 100px; }
 .chat .chat-message .fa-file-o, .chat .chat-message .fa-file-image-o {
   font-size: 16px;
   color: gray;
@@ -203,11 +206,12 @@ body {
 
 .image img {
 	border-radius: 0;
-	display: block;
+  display: block;
+  width: 40%;
 }
 
 .image.left, .image.right {
-	max-width: 80%;
+	max-width: 50%;
 }
 
 .image.left img, .image.right img {
