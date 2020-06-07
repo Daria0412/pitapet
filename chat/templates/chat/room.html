@@ -7,7 +7,7 @@
     {%load static%}
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
     <!-- FAVICON -->
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
     <!-- JAVASCRIPT -->
@@ -20,46 +20,50 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
     <!-- CSS -->
     <link href="{% static 'css/chat-room.css' %}" rel="stylesheet" media="screen">
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 </head>
 <body translate="no">
     {%load static%}
-
-    <a href='/chat/'> 목록 보기 </a>
-    <form action="/chat/out/" method="post">
-    {% csrf_token %}
-    <input type = hidden name = room_id value="{{room_id}}">
-    <input type = submit value = "나가기">
-    </form>
-
+            <!-- <a href='/chat/'> 목록 보기 </a>
+            <form action="/chat/out/" method="post"> -->
+                {% csrf_token %}
+                <!-- <input type = hidden name = room_id value="{{room_id}}">
+                <input type = submit value = "나가기">
+            </form> -->
     <div class="container clearfix">
-        <div class="people-list" id="people-list">
-            
             <div class="chat">
                 <div class="chat-header clearfix">
-                    <img src="{{person.img_url}}" alt="avatar" />
+                    <div class="image round">
+                        <img src="{{person.img_url}}" alt="avatar" />
+                    </div>
                     <div class="chat-about">
                       <div class="chat-with"> {{person.member_id}} </div>
-                    </div>
+                    </div><br>
+                    <form action="/chat/out/" method="post">
+                        <input type = hidden name = room_id value="{{room_id}}">
+                        <button type="submit" class="exit" style="float: right; margin-left: 2%;" >
+                            <i class="fas fa-sign-out-alt fa-2x" aria-hidden="true" ></i>
+                        </button>
+                    </form>
+                        <i style="float: right; cursor: pointer;" class= "fas fa-stream fa-2x" aria-hidden="true" onclick="location.href='/chat/'"></i>
                 </div>
                 <div class="chat-history">
-                    <ul>
-                        <li>
-                            <textarea class="message my-message" id="chat-log" cols="100" rows="20">
-                                {%for message in messages%}
-                                {%if message.writer == request.session.member_id%} 나 : {{message.message}} 
-                                {%else%}{{message.writer}} : {{message.message}} 
-                                {%endif%}
-                                {%endfor%}
-                            </textarea>
-                        </li>
+                    <textarea class="message my-message" id="chat-log" cols="100" rows="20">
+                        {%for message in messages%}
+                        {%if message.writer == request.session.member_id%} 나 : {{message.message}} 
+                        {%else%}{{message.writer}} : {{message.message}} 
+                        {%endif%}
+                        {%endfor%}
+                    </textarea>
                 </div>
                         <div class="chat-message clearfix">
-                            <form name = f1 id=f1 action="{%url 'dbconnect'%}" method = POST>
+                            <form name = f1 id = f1 action="{%url 'dbconnect'%}" method = POST>
                                 {% csrf_token %}
                                 <textarea id="message-to-send" placeholder="Type your message" rows="3"></textarea>
                                 <input id = message name = message type = hidden>
                                 <input id = room_id name = room_id type = hidden value = {{room_id}}>
-                                <input  class="full-width has-padding checkID" id="chat-message-submit" type="button" value="Send"/>
+                                <button id="chat-message-submit"> Send </button>
                             </form>
                         </div>
             </div>

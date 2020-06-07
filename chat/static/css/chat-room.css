@@ -4,7 +4,8 @@
 
 body {
   background: #ffffff;
-  font-family: 'Noto Sans KR', sans-serif; 
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
   padding: 40px 0;
   color: white;
 }
@@ -12,7 +13,7 @@ body {
 .container {
   margin: 0 auto;
   width: 750px;
-  background: #282828;
+  background: #92959E;
   border-radius: 5px;
 }
 
@@ -99,6 +100,8 @@ body {
 
 .chat .chat-history .my-message {
   background: #86BB71;
+  font-family: 'Noto Sans KR', sans-serif; 
+  font-weight: 100;
 }
 
 .chat .chat-history .other-message {
@@ -120,6 +123,7 @@ body {
   padding: 10px 20px;
   font: 14px/22px;
   font-family: 'Noto Sans KR', sans-serif; 
+  font-weight: 300;
   margin-bottom: 10px;
   border-radius: 5px;
   resize: none;
@@ -130,18 +134,24 @@ body {
   color: gray;
   cursor: pointer;
 }
+
 .chat .chat-message button {
   float: right;
-  color: #94C2ED;
-  font-size: 16px;
+  color: #ffffff;
+  font-size: 20px;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
-  font-weight: bold;
-  background: #F2F5F8;
+  font-family: 'Noto Sans KR', sans-serif; 
+  font-weight: 400;
+  padding: 11px 20px 11px 20px;
+  background-color: #86BB71;
+  border-radius: .25em;
+  
 }
+
 .chat .chat-message button:hover {
-  color: #75b1e8;
+  color: rgb(67, 110, 52)
 }
 
 .online, .offline, .me {
@@ -182,36 +192,97 @@ body {
   height: 0;
 }
 
-.full-width {
-  width: 100%;
-}
+/* 동그란 프로필 */
 
-.has-padding {
-  padding: 12px 20px 12px 50px;
-}
-
-.checkID {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-    color: #fff;
-  background-color: #FFE375;
-  border-color: #FFE375;
-  font-family: 'Noto Sans KR', sans-serif;  
-  font-weight: 300; 
-  font-size: 20pt;
-  border: 0;
-  outline: 0;
+.image {
+	border-radius: 0;
+	border: 0;
 	display: inline-block;
-	line-height: normal;
-	vertical-align: middle;
-	cursor: pointer;
-  border-radius: .25em;
-  padding: 11px 20px 11px 20px;
+	position: relative;
 }
 
-.checkID:focus {
-    background-color: #F7C800;
+.image img {
+	border-radius: 0;
+	display: block;
+}
+
+.image.left, .image.right {
+	max-width: 80%;
+}
+
+.image.left img, .image.right img {
+	width: 100%;
+}
+
+.image.round img {
+	border-radius: 100%;
+}
+
+.image.left {
+	float: left;
+	padding: 0 1.5em 1em 0;
+	top: 0.25em;
+}
+
+.image.right {
+	float: right;
+	padding: 0 0 1em 1.5em;
+	top: 0.25em;
+}
+
+.image.fit {
+	display: block;
+	margin: 0 0 2em 0;
+	width: 100%;
+}
+
+.image.fit img {
+	width: 100%;
+}
+
+.image.main {
+	display: block;
+	margin: 0 0 3em 0;
+	width: 100%;
+}
+
+.image.main img {
+	width: 100%;
+}
+
+.inner {
+	max-width: 75em;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 1280px) {
+	.inner {
+		max-width: 90%;
+  }
+
+  .container {
+    max-width: 90%;
+  }
+
+  .chat {
+    max-width: 100%;
+  }
+
+  .people-list {
+    max-width: 110%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+	.inner {
+		max-width: 85%;
+  }
+}
+
+.exit {
+  background-color: #F2F5F8;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  color: #434651;
 }
