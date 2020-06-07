@@ -14,6 +14,7 @@ def room(request, room_name):
     messages = Chat_logic.show_messages(room_name)
     person = Chat_logic.get_profile(request, room_name)
     print(person)
+    print(person.img_url)
     return render(request, 'chat/room.html', {'room_name_json': mark_safe(json.dumps(room_name)),'messages':messages,"room_id":room_name,"person":person})
 
 def chatroom(request):
