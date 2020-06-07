@@ -168,6 +168,33 @@ header .cloud1 {
 	line-height: 40pt;
 }
 
+@media screen and (max-width: 980px) {
+	section.detail {
+		padding: 2em 0;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	section.detail h1 {
+		margin-bottom: 2em;
+	}
+	section.detail h1 {
+		font-size: 2em;
+	}
+	section.detail h1{
+		font-size: .9em;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	section.detail {
+		text-align: center;
+	}
+	section.detail {
+		text-align: center;
+	}
+}
+
 /* CONTENTS */
 .contents {
 	overflow: hidden;
@@ -516,4 +543,39 @@ header1 h6 + p {
 	.inner {
 		max-width: 85%;
 	}
+}
+
+/* Footer */
+.get-it{
+	padding: 50px 0px 50px 0px;
+	text-align: center;
+	background-color: #FFD014;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 300;
+}
+
+.get-it h1 {
+	font-family: 'yg-jalnan';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 40pt;
+	color: #282828;
+}
+
+.get-it .lead {
+	font-size: 20pt;
+	margin-bottom: 3%;
+}
+
+.get-it button.app-store{
+	width: 152px;
+	height: 62px;
+	background: url(../img/github.png) #373737 no-repeat 6px 4px;
+	color: white;
+}
+
+.get-it hr {
+	margin-top: 3em;
+	margin-bottom: 3em;
+	color: #fff;
 }

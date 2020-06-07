@@ -73,23 +73,22 @@
     </div>
 </body>
 <script>
-    function xSize(e){
-        var t;
-        e.onfocus = function(){
-            t = setInterval(
-                function(){ 
-                    e.style.height = '100px';
-                    e.style.height = (e.scrollHeight + 12) + 'px';
-                }, 100);
-        }
-
-        e.onblur = function(){
-            clearInterval(t);
-        }
-    }
-    xSize(document.getElementById('chat-log'));
     $(document).ready(function(){
         $("#container").scrollTop($("#container")[0].scrollHeight);
+        xSize(document.getElementById('chat-log'));
+        function xSize(e){
+            alert("xsize함");
+            var t;
+                t = setInterval(
+                    function(){ 
+                        e.style.height = '100px';
+                        e.style.height = (e.scrollHeight + 12) + 'px';
+                    }, 100);
+            }
+
+            e.onblur = function(){
+                clearInterval(t);
+            }
     });
     $("#chat-log").scrollTop($("#chat-log")[0].scrollHeight);
   </script>

@@ -4,7 +4,9 @@
     {% load static %}
     <title> Pit A Pet </title>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no" name="viewport" />
     <!-- CSS -->
     <link href="{% static 'css/index.css' %}" rel="stylesheet" media="screen">
     <link href="{% static 'css/nav.css' %}" rel="stylesheet" media="screen">
@@ -91,12 +93,12 @@
   <!-- Detail -->
   <section class="detail">
     <div class="inner1" style="margin-top: 10%; margin-left: 15%; text-align: left;">
-          <h1> About </h1>
-          <h2> ; 핏어팻이란? </h2>
-          <h3> 반려동물을 기르는 사람들에게 도움이 되는 정보와  
-            산책 메이트를 구할 수 있는 서비스를 <br> 제공하는 
-            챗봇 프로그램으로, 장소에 구애받지 않고 언제 어디서나 
-            반려동물에 관한 <br> 정보를  쉽게 얻고자 하였습니다. </h3>
+      <h1> About </h1>
+      <h2> ; 핏어팻이란? </h2>
+      <h3> 반려동물을 기르는 사람들에게 도움이 되는 정보와  
+        산책 메이트를 구할 수 있는 서비스를 <br> 제공하는 
+        챗봇 프로그램으로, 장소에 구애받지 않고 언제 어디서나 
+        반려동물에 관한 <br> 정보를  쉽게 얻고자 하였습니다. </h3>
     </div>
   </section>
 
@@ -181,6 +183,18 @@
           <p> 핏어팻을 위해 도움을 주신, 미림여자정보과학고등학교 선생님들께 감사 인사를 전합니다. </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="get-it">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1> 핏어팻 </h1>
+          <p class="lead"> ; 당신과 당신의 반려동물을 위한 서비스 </p>
+          <button type="button" class="app-store" onclick="location.href='https://github.com/Daria0412/pitapet'"></button>
+        </div>
     </div>
   </section>
   </body>

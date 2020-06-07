@@ -1,3 +1,9 @@
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+}
+
 .chat-title {
     padding-bottom: 7px;
     padding-left: 25px;
