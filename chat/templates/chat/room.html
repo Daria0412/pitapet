@@ -81,7 +81,7 @@
     chatSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
         var message = data['message'];
-        document.querySelector('#chat-log').value += (message + '\n');
+        document.querySelector('#chat-log').value += ("나 : "+message + '\n');
     };
 
     chatSocket.onclose = function(e) {
