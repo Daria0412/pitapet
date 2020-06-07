@@ -21,8 +21,7 @@
     <!-- CSS -->
     <link href="{% static 'css/chat-room.css' %}" rel="stylesheet" media="screen">
 </head>
-
-<body>
+<body translate="no">
     {%load static%}
 
     <a href='/chat/'> 목록 보기 </a>
@@ -31,21 +30,43 @@
     <input type = hidden name = room_id value="{{room_id}}">
     <input type = submit value = "나가기">
     </form>
-    <textarea id="chat-log" cols="100" rows="20">
-        {%for message in messages%}
-        {%if message.writer == request.session.member_id%}나 : {{message.message}} 
-        {%else%}{{message.writer}} : {{message.message}} 
-        {%endif%}
-        {%endfor%}
-    </textarea><br/>
-    
-    <form name = f1 id=f1 action="{%url 'dbconnect'%}" method = POST>
-        {% csrf_token %}
-        <input id="chat-message-input" name = "chat-message-input" type="text" size="100"/><br/>
-        <input id = message name = message type = hidden>
-        <input id = room_id name = room_id type = hidden value = {{room_id}}>
-        <input class="send" id="chat-message-submit" type="button" value="Send"/>
-    </form>
+
+    <div class="container clearfix">
+        <div class="people-list" id="people-list">
+            
+            <div class="chat">
+                <div class="chat-header clearfix">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
+                    
+                    <div class="chat-about">
+                      <div class="chat-with">Chat with Vincent Porter</div>
+                      <div class="chat-num-messages">already 1 902 messages</div>
+                    </div>
+                </div>
+                <div class="chat-history">
+                    <ul>
+                        <li>
+                            <textarea class="message my-message" id="chat-log" cols="100" rows="20">
+                                {%for message in messages%}
+                                {%if message.writer == request.session.member_id%}나 : {{message.message}} 
+                                {%else%}{{message.writer}} : {{message.message}} 
+                                {%endif%}
+                                {%endfor%}
+                            </textarea>
+                        </li>
+                </div>
+                        <div class="chat-message clearfix">
+                            <form name = f1 id=f1 action="{%url 'dbconnect'%}" method = POST>
+                                {% csrf_token %}
+                                <textarea id="message-to-send" placeholder="Type your message" rows="3"></textarea>
+                                <input id = message name = message type = hidden>
+                                <input id = room_id name = room_id type = hidden value = {{room_id}}>
+                                <input  class="full-width has-padding checkID" id="chat-message-submit" type="button" value="Send"/>
+                            </form>
+                        </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script>
