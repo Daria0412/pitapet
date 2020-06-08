@@ -48,6 +48,7 @@ header {
 	background-size: cover;
 	background-repeat: no-repeat;
 	color: white;
+	overflow-x: hidden;
 }
 
 header h1 {
@@ -292,6 +293,7 @@ header .cloud1 {
 /* TEAM */
 section.special {
 	text-align: center;
+	overflow-x: hidden;
 }
 
 section.special article {
@@ -300,6 +302,7 @@ section.special article {
 
 section.team {
 	padding: 6em 0;
+	overflow-x: hidden;
 }
 
 section.team header1 {
@@ -417,6 +420,7 @@ header1 h6 + p {
 	-webkit-justify-content: space-between;
 	-ms-justify-content: space-between;
 	justify-content: space-between;
+
 }
 
 .flex.flex-4 .box {
@@ -552,6 +556,7 @@ header1 h6 + p {
 	background-color: #FFD014;
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 300;
+	overflow-x: hidden;
 }
 
 .get-it h1 {
