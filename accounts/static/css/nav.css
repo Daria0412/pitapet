@@ -9,9 +9,9 @@ nav.navbar{
 	transition: all 0.2s;
 }
 
-.navbar-nav{
+/* .navbar-nav{
 	float: right;
-}
+} */
 
 nav.navbar.fixed-to-top{
 	top: 0px;
