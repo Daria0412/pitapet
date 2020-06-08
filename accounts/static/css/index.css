@@ -48,7 +48,6 @@ header {
 	background-size: cover;
 	background-repeat: no-repeat;
 	color: white;
-	overflow-x: hidden;
 }
 
 header h1 {
@@ -113,6 +112,7 @@ header .cloud1 {
 	z-index: auto;
 	padding-top: 30%;
 	margin-left: -35%;
+	overflow: hidden;
   }
    
   header .cloud2 {
@@ -123,8 +123,9 @@ header .cloud1 {
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
 	z-index: auto;
-	padding-top: 50%;
+	padding-top: 40%;
 	margin-left: 90%;
+	overflow: hidden;
   }
 
   @keyframes cloud1 {

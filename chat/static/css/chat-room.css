@@ -3,11 +3,11 @@
 }
 
 body {
-  background: #ffffff;
+  background: rgb(203, 219, 196);
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 300;
   padding: 40px 0;
-  color: rgb(153, 187, 140);
+  color: #ffffff;
 }
 
 .container {
@@ -60,8 +60,8 @@ body {
 .chat .chat-history {
   padding: 30px 30px 20px;
   border-bottom: 2px solid white;
-  overflow-y: scroll;
   height: 575px;
+  overflow-y: scroll;
 }
 
 .chat .chat-history .message-data {
@@ -103,6 +103,7 @@ body {
   font-family: 'Noto Sans KR', sans-serif; 
   font-weight: 100;
   height: auto;
+  overflow-y: hidden;
 }
 
 .chat .chat-history .other-message {
@@ -129,7 +130,6 @@ body {
   border-radius: 5px;
   resize: none;
   overflow-y: hidden;
-  overflow: visible;
 }
 
 textarea.autosize { min-height: 100px; }

@@ -13,9 +13,6 @@
     <!-- JAVASCRIPT -->
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js'%}"></script>
-    <script src="{% static 'js/animatescroll.js' %}"></script>
-    <script src="{% static 'js/index.js' %}"></script>
-    <script src="{% static 'js/retina.min.js' %}"></script>
     <!-- Bootstrap 3-->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
     <!-- CSS -->
@@ -25,21 +22,16 @@
 </head>
 <body translate="no">
     {%load static%}
-            <!-- <a href='/chat/'> 목록 보기 </a>
-            <form action="/chat/out/" method="post"> -->
-                {% csrf_token %}
-                <!-- <input type = hidden name = room_id value="{{room_id}}">
-                <input type = submit value = "나가기">
-            </form> -->
+    {% csrf_token %}
     <div class="container clearfix">
             <div class="chat">
                 <div class="chat-header clearfix">
                     <div class="image round" style="margin-right: 5%;">
                         <img src="{{person.img_url}}" alt="avatar" />
                     </div><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp; 
                     
-                    <div class="chat-about">
+                    
+                    <div class="chat-about" style="padding-left: 7%;">
                       <div class="chat-with" style="font-size: 20pt;"> {{person.name}} </div>
                     </div><br>
                     <form action="/chat/out/" method="post">
@@ -50,8 +42,8 @@
                     </form>
                         <i style="float: right; cursor: pointer;" class= "fas fa-stream fa-2x" aria-hidden="true" onclick="location.href='/chat/'"></i>
                 </div>
-                <div class="chat-history">
-                    <textarea class="message my-message" id="chat-log" cols="10" rows="10" style="overflow-y:hidden">
+                <div class="chat-history" id="chat-history">
+                    <textarea class="message my-message" id="chat-log" cols="10" rows="10" >
                         {%for message in messages%}
                         {%if message.writer == request.session.member_id%} 나 : {{message.message}} 
                         {%else%}{{message.writer}} : {{message.message}} 
@@ -62,7 +54,7 @@
                         <div class="chat-message clearfix">
                             <form name = f1 id = f1 action="{%url 'dbconnect'%}" method = POST>
                                 {% csrf_token %}
-                                <textarea id="message-to-send" placeholder="Type your message" rows="3"></textarea>
+                                <textarea id="message-to-send" placeholder="Type your message" cols="10" rows="3"></textarea>
                                 <input id = message name = message type = hidden>
                                 <input id = room_id name = room_id type = hidden value = {{room_id}}>
                                 <button id="chat-message-submit"> Send </button>
@@ -74,23 +66,10 @@
 </body>
 <script>
     $(document).ready(function(){
-        $("#container").scrollTop($("#container")[0].scrollHeight);
-    //     xSize(document.getElementById('chat-log'));
-    //     function xSize(e){
-    //         alert("xsize함");
-    //         var t;
-    //             t = setInterval(
-    //                 function(){ 
-    //                     e.style.height = '100px';
-    //                     e.style.height = (e.scrollHeight + 12) + 'px';
-    //                 }, 100);
-    //         }
-
-    //         e.onblur = function(){
-    //             clearInterval(t);
-    //         }
-    // });
-    $("#chat-log").scrollTop($("#chat-log")[0].scrollHeight);
+        $(".container").scrollTop($(".container")[0].scrollHeight);
+        autosize($("textarea"));
+        $(".chat-history").scrollTop($(".chat-history")[0].scrollHeight);
+    });
   </script>
 <script>
     var roomName = {{ room_name_json }};
@@ -130,5 +109,5 @@
         messageInputDom.value = '';
     };
 </script>
-
+<script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
 </html>
