@@ -35,6 +35,7 @@
                       <div class="chat-with" style="font-size: 20pt;"> {{person.name}} </div>
                     </div><br>
                     <form action="/chat/out/" method="post">
+                        {% csrf_token %}
                         <input type = hidden name = room_id value="{{room_id}}">
                         <button type="submit" class="exit" style="float: right; margin-left: 2%;" >
                             <i class="fas fa-sign-out-alt fa-2x" aria-hidden="true" ></i>
