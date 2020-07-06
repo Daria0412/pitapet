@@ -43,5 +43,5 @@ nav.navbar.fixed-to-top{
 	-ms-transition: all 300ms ease-in-out;
 	-o-transition: all 300ms ease-in-out;
 	transition: all 300ms ease-in-out;
-	display: inline;
+	display: inline-block;
 }
