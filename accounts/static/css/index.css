@@ -138,6 +138,12 @@ header .cloud1 {
 	100%  {left:300px; top:0px;}
   }
 
+  @media (min-width: 320px) and (max-width: 480px) {
+    header .cloud2, header .cloud1 {
+		display: none;
+	}
+  }
+
 /* DETAIL */
 
 .detail {
