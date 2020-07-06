@@ -1,0 +1,223 @@
+
+<html>
+    <head>
+      {% load static %}
+      <title> Pit A Pet </title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+      <meta content="yes" name="apple-mobile-web-app-capable" />
+      <meta content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no" name="viewport" />
+      <!-- CSS -->
+      <link href="{% static 'css/index.css' %}" rel="stylesheet" media="screen">
+      <link href="{% static 'css/nav.css' %}" rel="stylesheet" media="screen">
+      <!-- Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+      <!-- Bootstrap 3-->
+      <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+        <!-- FAVICON -->
+      <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+      <!-- JAVASCRIPT -->
+      <script src="{% static 'js/jquery.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js'%}"></script>
+      <script src="{% static 'js/animatescroll.js' %}"></script>
+      <script src="{% static 'js/index.js' %}"></script>
+      <script src="{% static 'js/retina.min.js' %}"></script>
+     
+    </head>
+    <body>
+    {% load static %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-default fixed-to-top" role="navigation" style="display: block;">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only"> Toggle navigation </span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+          <!-- <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}"></a> -->
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+  
+          <ul class="nav navbar-nav">
+            <li style="height:60px;"><a  href="#"><img src="{% static 'img/logo.png' %}"></a></li><!--class="navbar-brand"-->
+            <li><a onclick="$('.detail').animatescroll({padding:31});" style="margin-top:20px"> 서비스 소개 </a></li>
+            <li><a onclick="$('.contents').animatescroll({padding:31});" style="margin-top:20px"> 서비스 내용 </a></li>
+            <li><a onclick="$('.team').animatescroll({padding:31});" style="margin-top:20px"> 팀원 소개 </a></li>
+            <li><a onclick="$('.walkmate').animatescroll({padding:31});" href="{% url 'worklist' %}" style="margin-top:20px"> 산책 메이트 </a></li> {% csrf_token %}
+            <li><a onclick="$('.mypage').animatescroll({padding:31});" href="{% url 'mypage' %}" style="margin-top:20px"> 마이 페이지 </a></li> {% csrf_token %}
+            <li><a onclick = "window.open('chat/','채팅창 목록','toolbar=0,directories=0,status=no,menubar=0,scrollbars=auto,height=750,width=750,left=0,top=0');"><img src="{% static 'img/chat-button.png' %}" onmouseover="this.src='../../static/img/chat-hover.png';" onmouseout="this.src='../../static/img/chat-button.png';" width="150px" height="45px" style="margin-top:10px"/></a></li>
+            {% if request.session.member_id != null %}    
+            <li style="margin-top:20px"><img src="{{img_url}}" width="30px" style='padding-top: 10px;'></li>      
+            <li style="margin-top:20px"><a href="#"> {{request.session.member_id}} 님 </a></li>
+            <li style="margin-top:20px"><a href="{% url 'logout' %}"> 로그아웃 </a></li>
+            {% else %}
+            <li><a onclick="$('.social').animatescroll({padding:31});" href="{% url 'member' %}"><img src="{% static 'img/signin-button.png' %}" onmouseover="this.src='../../static/img/signin-hover.png';" onmouseout="this.src='../../static/img/signin-button.png';" width="140px" height="45px" style="margin-top:10px"/></a></li>{% csrf_token %}
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <img class="cloud1" src="{% static 'img/cloud1.png' %}">
+            <img class="cloud2" src="{% static 'img/cloud2.png' %}">
+             <p class="lead" style="text-align: center; color: #282828; font-weight: 300; margin-top: -5%;"> 당신과 당신의 반려동물을 위한, </p>
+             <h1> 반려동물 </h1>
+             <h1> 챗봇 및 산책 메이트! </h1>
+             <div style="display: flex; flex-direction: column; width: 100%; margin-top: 4%;">
+              <div class="carousel-iphone slide" data-ride="carousel">
+                <div id="carousel-example-generic" class="carousel slide" style="margin-top: -40px;">
+  
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <img src="{% static 'img/screen/app-1.png' %}" alt="App Screen 1">
+                  </div>
+                  <div class="item">
+                    <img src="{% static 'img/screen/app-2.png' %}" alt="App Screen 2">
+                  </div>
+               </div>
+             </div>
+           </div>
+         </div>	  
+       </div>    
+     </div>
+    </header>
+  
+    <!-- Detail -->
+    <section class="ftco-about img ftco-section" id="about-section">
+    	<div class="container">
+    		<div class="row d-flex no-gutters">
+    			<div class="col-md-6 col-lg-6 d-flex">
+    				<div class="img-about img d-flex align-items-stretch">
+    					<div class="overlay"></div>
+	    				<div class="img d-flex align-self-stretch align-items-center" style="background-image:url('/images/about.svg');">
+	    				</div>
+    				</div>
+    			</div>
+    			<div class="col-md-6 col-lg-6 pl-md-5">
+    				<div class="row justify-content-start pb-3">
+		          <div class="col-md-12 heading-section ftco-animate">
+		            <h2 class="mb-4" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 600; font-size: 50px;"> HIP 이란? </h2>
+		            <p style="font-family: 'Noto Sans KR', sans-serif; font-weight: 300; font-size: 20px;"> Help me Introduce me for our Perfect class 의 약자로, 교내 지도와 실습실 컴퓨터 배치도를 사용하여 기존의 글로 쓰는 신고 방식 
+						대신 클릭으로 간단하게 신고하고 알고 있는 해결 방법을 공유할 수 있는 사이트입니다.</p>
+		            <div class="text-about">
+		            	<h4> 쉽게 할 수 있는 고장 신고 </h4>
+			            <p> 실습실 위치와 컴퓨터 번호, 신고할 내용만 있으면 고장 신고를 할 수 있습니다! </p>
+			            <h4> 쉽게 확인할 수 있는 고장 현황 </h4>
+			            <p> 문제가 있는 컴퓨터가 있는 실습실은 색으로 고장의 존재를 확실하게 알아 볼 수 있습니다! </p>
+			            <h4> 쉽게 나눌 수 있는 공유하기 </h4>
+			            <p> 문제가 난 이유와 해결 방법에 대해서 알고 있다면 친구들에게 댓글로 자신만의 방법을 공유해 주세요! </p>
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+        </div>
+    	</div>
+    </section>
+  
+    <!-- Contents -->
+    <section class="contents">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div id="carousel-example-generic-2" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner slide">
+              <div class="item active">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-offset-1 col-md-6">
+                      <h1> 핏어팻을 통해 <b>반려동물</b>에 관한 정보를 쉽고 간편하게 얻어 보세요! </h1><br>
+                      <p> 반려동물에 관한 궁금증을 핏어팻과 대화하며<br> 해결할 수 있습니다.  </p>
+                    </div>
+                    <div class="col-sm-12 col-md-5">
+                      <div class="app-screenshot">
+                          <img src="{% static 'img/screen/app-1.png' %}" class="img-responsive" alt="App Screen 1">
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="item">
+                <div class="row">
+                  <div class="col-sm-12 col-md-offset-1 col-md-6">
+                    <h1> 핏어팻을 통해 24 시간 운영하는 <b>동물병원</b>을 알아 보세요! </h1><br>
+                    <p> 집 근처에서 24 시간 운영하는 동물병원의 <br> 위치를 핏어팻 하나로 알 수 있습니다. </p>
+                  </div>
+                  <div class="col-sm-12 col-md-5">
+                    <div class="app-screenshot">
+                      <img src="{% static 'img/screen/app-2.png' %}" class="img-responsive" alt="App Screen 2">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic-2" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-example-generic-2" data-slide-to="1"></li>
+              </ol>		
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Team -->
+    <section class="team style1 special">
+      <div class="inner">
+        <header1>
+          <h1> Pit A Pet </h1>
+          <p> 핏어팻을 이끌어 준 팀원들을 소개합니다. </p>
+        </header1>
+        <div class="flex flex-4">
+          <div class="box person">
+            <div class="image round">
+              <img src="{% static 'img/person1.jpg' %}" alt="Person 1" />
+            </div>
+            <h3> 양수빈 </h3><br>
+            <p> 기획 및 웹 프론트 <br> 및 디자인 </p>
+          </div>
+          <div class="box person">
+            <div class="image round">
+              <img src="{% static 'img/person2.jpg' %}" alt="Person 2" />
+            </div>
+            <h3> 황다영 </h3><br>
+            <p> 웹 프론트 및 <br> 챗봇 개발 </p>
+          </div>
+          <div class="box person">
+            <div class="image round">
+              <img src="{% static 'img/person3.jpg' %}"alt="Person 3" />
+            </div>
+            <h3> 남정윤 </h3><br>
+            <p> 백엔드 개발 </p>
+          </div>
+          <div class="box person">
+            <div class="image round">
+              <img src="{% static 'img/person4.png' %}" alt="Person 4" />
+            </div>
+            <h3> 선생님들 </h3><br>
+            <p> 핏어팻을 위해 도움을 주신, 미림여자정보과학고등학교 선생님들께 감사 인사를 전합니다. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- FOOTER -->
+    <section class="get-it">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1> 핏어팻 </h1>
+            <p class="lead"> ; 당신과 당신의 반려동물을 위한 서비스 </p>
+            <button type="button" class="app-store" onclick="location.href='https://github.com/Daria0412/pitapet'"></button>
+          </div>
+      </div>
+    </section>
+    </body>
+     <!-- CHATBOT -->
+     <script id="embeddedChatbot" data-botId="B238jv" src="https://www.closer.ai/js/webchat.min.js"></script>
+  </html>

@@ -10,11 +10,17 @@
     <!-- CSS -->
     <link href="{% static 'css/index.css' %}" rel="stylesheet" media="screen">
     <link href="{% static 'css/nav.css' %}" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="./css/magnific-popup.css">
+    <link rel="stylesheet" href="./css/flaticon.css">
+	  <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
     <!-- Bootstrap 3-->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
-	  <!-- FAVICON -->
+      <!-- FAVICON -->
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
     <!-- JAVASCRIPT -->
     <script src="{% static 'js/jquery.js' %}"></script>
@@ -43,7 +49,7 @@
 
         <ul class="nav navbar-nav">
           <li style="height:60px;"><a  href="#"><img src="{% static 'img/logo.png' %}"></a></li><!--class="navbar-brand"-->
-          <li><a onclick="$('.detail').animatescroll({padding:31});" style="margin-top:20px"> 서비스 소개 </a></li>
+          <li><a onclick="$('#detail').animatescroll({padding:31});" style="margin-top:20px"> 서비스 소개 </a></li>
           <li><a onclick="$('.contents').animatescroll({padding:31});" style="margin-top:20px"> 서비스 내용 </a></li>
           <li><a onclick="$('.team').animatescroll({padding:31});" style="margin-top:20px"> 팀원 소개 </a></li>
           <li><a onclick="$('.walkmate').animatescroll({padding:31});" href="{% url 'worklist' %}" style="margin-top:20px"> 산책 메이트 </a></li> {% csrf_token %}
@@ -91,14 +97,34 @@
   </header>
 
   <!-- Detail -->
-  <section class="detail">
-    <div class="inner1" style="margin-top: 10%; margin-left: 15%; text-align: left;">
-      <h1> About </h1>
-      <h2> ; 핏어팻이란? </h2>
-      <h3> 반려동물을 기르는 사람들에게 도움이 되는 정보와  
-        산책 메이트를 구할 수 있는 서비스를 <br> 제공하는 
-        챗봇 프로그램으로, 장소에 구애받지 않고 언제 어디서나 
-        반려동물에 관한 <br> 정보를  쉽게 얻고자 하였습니다. </h3>
+  <section class="ftco-about img ftco-section" id="detail">
+    <div class="container">
+      <div class="row d-flex no-gutters">
+        <div class="col-md-6 col-lg-6 d-flex">
+          <div class="img-about img d-flex align-items-stretch">
+            <div class="overlay"></div>
+            <div class="img d-flex align-self-stretch align-items-center" style="background-image:url('/images/about.svg');">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 pl-md-5">
+          <div class="row justify-content-start pb-3">
+            <div class="col-md-12 heading-section ftco-animate">
+              <h2 class="mb-4" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 600; font-size: 50px;"> HIP 이란? </h2>
+              <p style="font-family: 'Noto Sans KR', sans-serif; font-weight: 300; font-size: 20px;"> Help me Introduce me for our Perfect class 의 약자로, 교내 지도와 실습실 컴퓨터 배치도를 사용하여 기존의 글로 쓰는 신고 방식 
+          대신 클릭으로 간단하게 신고하고 알고 있는 해결 방법을 공유할 수 있는 사이트입니다.</p>
+              <div class="text-about">
+                <h4> 쉽게 할 수 있는 고장 신고 </h4>
+                <p> 실습실 위치와 컴퓨터 번호, 신고할 내용만 있으면 고장 신고를 할 수 있습니다! </p>
+                <h4> 쉽게 확인할 수 있는 고장 현황 </h4>
+                <p> 문제가 있는 컴퓨터가 있는 실습실은 색으로 고장의 존재를 확실하게 알아 볼 수 있습니다! </p>
+                <h4> 쉽게 나눌 수 있는 공유하기 </h4>
+                <p> 문제가 난 이유와 해결 방법에 대해서 알고 있다면 친구들에게 댓글로 자신만의 방법을 공유해 주세요! </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
