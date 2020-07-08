@@ -7,6 +7,7 @@
     {%load static%}
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Fonts -->
+    <META HTTP-EQUIV="refresh" CONTENT="5">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
     <!-- FAVICON -->
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
@@ -44,13 +45,6 @@
                         <i style="float: right; cursor: pointer;" class= "fas fa-stream fa-2x" aria-hidden="true" onclick="location.href='/chat/'"></i>
                 </div>
                 <div class="chat-history" id="chat-history">
-                    <textarea class="message my-message" id="chat-log" cols="10" rows="10" >
-                        {%for message in messages%}
-                        {%if message.writer == request.session.member_id%} 나 : {{message.message}} 
-                        {%else%}{{message.writer}} : {{message.message}} 
-                        {%endif%}
-                        {%endfor%}
-                    </textarea>
                     {%for message in messages%}
                     {%if message.writer == request.session.member_id%}<div id =me style='margin-right: 0px;'>{{message.message}} </div>
                     {%else%}<div id =me style='margin-left: 0px;'>{{message.writer}} : {{message.message}} </div>
@@ -74,23 +68,26 @@
 </body>
 <script>
     $(document).ready(function(){
+
         $(".container").scrollTop($(".container")[0].scrollHeight);
         autosize($("textarea"));
         $(".chat-history").scrollTop($(".chat-history")[0].scrollHeight);
     });
   </script>
 <script>
+
+
     var roomName = {{ room_name_json }};
 
     var chatSocket = new WebSocket(
         'ws://' + window.location.host +
         '/ws/chat/' + roomName + '/');
 
+
     chatSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
         var message = data['message'];
         document.find("div.last").prepend(message);
-        document.querySelector('#chat-log').value += ("나 : "+message + '\n');
     };
 
     chatSocket.onclose = function(e) {
