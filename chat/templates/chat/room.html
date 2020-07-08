@@ -28,11 +28,13 @@
             <div class="chat">
                 <div class="chat-header clearfix">
                     <div class="image round" style="margin-right: 5%;">
-                        <img src="{{person.img_url}}" alt="avatar" />
+                        <img src="{{person.img_url}}" alt="avatar" style="border-color: #f7c800;
+                        border-width: 0.05cm;
+                        border-style: solid;"/>
                     </div><br>
                     
                     
-                    <div class="chat-about" style="padding-left: 7%;">
+                    <div class="chat-about">
                       <div class="chat-with" style="font-size: 20pt;"> {{person.name}} </div>
                     </div><br>
                     <form action="/chat/out/" method="post">
@@ -46,8 +48,11 @@
                 </div>
                 <div class="chat-history" id="chat-history">
                     {%for message in messages%}
-                    {%if message.writer == request.session.member_id%}<div id =me style='margin-right: 0px;'>{{message.message}} </div>
-                    {%else%}<div id =me style='margin-left: 0px;'>{{message.writer}} : {{message.message}} </div>
+                    {%if message.writer == request.session.member_id%}
+                    <div id = me class="message other-message float-right"> {{message.message}}  </div>
+                    <!-- <div id =me style='margin-right: 0px;'></div> -->
+                    {%else%}
+                    <div class="message my-message"> {{message.writer}} : {{message.message}} </div>
                     {%endif%}
                     {%endfor%}
                 </div>

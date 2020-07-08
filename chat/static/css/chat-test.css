@@ -1,4 +1,4 @@
-
+@font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
 body {
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 300;
@@ -27,20 +27,27 @@ table {
 .chat-img {
     width: 65px;
     border-radius: 50%;
+    border-color: #f7c800;
+    border-width: 0.05cm;
+    border-style: solid;
 }
 
 .text-title {
-    font-weight: bold;
-    padding-top: 20px;
+    padding-top: 23px;
+    font-family: 'yg-jalnan';
+    font-weight: normal;
+    font-style: normal;
 }
 
 .text {
-    font-size: 13px;
+    font-size: 18px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
 }
 
 .text-time {
     color: gray;
-    font-size: 12px;
+    font-size: 15px;
     padding-bottom: 20px;
 }
 

@@ -42,18 +42,17 @@
                             {%if user.member_id != request.session.member_id%}
                             {%if user.member_id == room.person1 or user.member_id == room.person2%}
                             <tr class="first-tr">
-                                <td rowspan="3" width="80px" class="last-tr"><img src={{user.img_url}} class="chat-img">
-                                </td>
-                                <td class="text-title">{{user.name}}</td>
+                                <td rowspan="3" width="80px" class="last-tr"><img src={{user.img_url}} class="chat-img"></td>
+                                <td class="text-title" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 400;">{{user.name}}</td>
                             </tr>
                             {%for message in messages%}
                             {%if message.room_id == room.room_id%}
                             <tr>
-                                <td class="text">{{message.message}}</td>
+                                <td class="text" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 300;">{{message.message}}</td>
                             </tr>
 
                             <tr class="last-tr">
-                                <td class="text-time">{{message.sent_at}}</td>
+                                <td class="text-time" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 300;">{{message.sent_at}}</td>
                             </tr>
                             {%endif%}
                             {%endfor%}
@@ -64,7 +63,7 @@
                     </div>
                     {% empty %}
                     <script>
-                        alert("채팅하고 있는 사람이 없어요! 산책메이트에서 채팅을 걸어보세요!");
+                        alert("채팅하고 있는 사람이 없어요! 산책 메이트에서 채팅을 걸어 보세요!");
                         window.close();
                     </script>
                     {%endfor%}
