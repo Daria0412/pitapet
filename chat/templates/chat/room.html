@@ -55,7 +55,8 @@
                         <div class="chat-message clearfix">
                             <form name = f1 id = f1 action="{%url 'dbconnect'%}" method = POST>
                                 {% csrf_token %}
-                                <textarea id="message-to-send" placeholder="Type your message" cols="10" rows="3"></textarea>
+                                <input hidden="hidden" />
+                                <input type = text id="message-to-send" placeholder="Type your message" cols="10" rows="3">
                                 <input id = message name = message type = hidden>
                                 <input id = room_id name = room_id type = hidden value = {{room_id}}>
                                 <button id="chat-message-submit"> Send </button>
@@ -97,16 +98,16 @@
     };
 
     document.querySelector('#chat-message-submit').onclick = function(e) {
+        if($.trim($("#message-to-send").val())==''){
+        return false;
+        } 
         document.getElementById('message').value = document.getElementById('message-to-send').value 
         var messageInputDom = document.querySelector('#message-to-send');
         var message = messageInputDom.value;
-        if(message == ''){
-            return 0;
-        }
         chatSocket.send(JSON.stringify({
         'message':message
         }));
-        f1.submit();
+        f1.submit(); 
         messageInputDom.value = '';
     };
 </script>
