@@ -51,7 +51,13 @@
                         {%endif%}
                         {%endfor%}
                     </textarea>
+                    {%for message in messages%}
+                    {%if message.writer == request.session.member_id%}<div id =me style='margin-right: 0px;'>{{message.message}} </div>
+                    {%else%}<div id =me style='margin-left: 0px;'>{{message.writer}} : {{message.message}} </div>
+                    {%endif%}
+                    {%endfor%}
                 </div>
+                <div id = last class=last></div>
                         <div class="chat-message clearfix">
                             <form name = f1 id = f1 action="{%url 'dbconnect'%}" method = POST>
                                 {% csrf_token %}
@@ -83,6 +89,7 @@
     chatSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
         var message = data['message'];
+        document.find("div.last").prepend(message);
         document.querySelector('#chat-log').value += ("나 : "+message + '\n');
     };
 
