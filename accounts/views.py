@@ -14,11 +14,13 @@ def index(request):
 
 @csrf_exempt
 def signup(request):
-    if request.method == "POST":
-        print(Sign.signup(request))
+    try:
+        if request.method == "POST":
+            print(Sign.signup(request))
+            return render(request, 'accounts/member.html')
         return render(request, 'accounts/member.html')
-    return render(request, 'accounts/member.html')
-
+    except:
+        return HttpResponse("<html><script>alert('잘못된 접근입니다. 처음부터 시도해주세요');location.href='/member/';</script></html>")
 #@login_required
 @csrf_exempt
 def signin(request):
