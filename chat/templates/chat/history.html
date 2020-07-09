@@ -4,7 +4,7 @@
     {%load static%}
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Fonts -->
-    <META HTTP-EQUIV="refresh" CONTENT="1">
+    <!-- <META HTTP-EQUIV="refresh" CONTENT="1"> -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
     <!-- FAVICON -->
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
@@ -44,10 +44,12 @@
         type : "GET",
         url : "",
         error : function() {
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error)
         },
         success : function(data) {
             $('#blankdiv').html(data);
         }
+        
  
     });
     $(document).ready(function(){
