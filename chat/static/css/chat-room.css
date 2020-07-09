@@ -12,6 +12,10 @@ body {
   color: #ffffff;
 }
 
+body::-webkit-scrollbar { 
+  display: none; 
+}
+
 .container {
   margin: 0 auto;
   width: 750px;
