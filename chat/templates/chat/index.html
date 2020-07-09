@@ -82,12 +82,16 @@
     }
 </script>
 <script>
-    window.onload = function() {  
+    $( document ).ready(function() {
     {%for room in chatlists%}
     {% empty %}
     alert("채팅하고 있는 사람이 없어요! 산책 메이트에서 채팅을 걸어 보세요!");
     window.close();
     {%endfor%}
+    });
+    
+    window.onload = function() {  
+    
     document.body.style.overflow='hidden';  
     resizer();  
     }  
