@@ -29,13 +29,15 @@
     <div class='blankdiv' id='blankdiv'>
         <div class="chat-history" id="chat-history">
             {%for message in messages%}
+            <div>
             {%if message.writer == request.session.member_id%}
-            <div id = me class="message other-message float-right"> {{message.message}}  </div>
+            <div id = me class="message other-message float-right"> {{message.message}}</div>
             <!-- <div id =me style='margin-right: 0px;'></div> -->
             {%else%}
-            <div class="message my-message">{{person.name}} : {{message.message}} </div>
+            <div class="message my-message">{{message.message}} </div>
             {%endif%}
             {%endfor%}
+            </div>
         </div>
     </div>
 </body>

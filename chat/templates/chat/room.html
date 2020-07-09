@@ -105,5 +105,71 @@
     };
 
 </script>
+<script>
+    window.onload = function() {  
+  document.body.style.overflow='hidden';  
+  resizer();  
+}  
+function resizer()  
+{  
+  //원하는 크기  
+  var contentW = 500;  
+  var contentH = 850;  
+  
+  /* 
+  //이런식으로 컨텐츠의 값을 가져와서 동적으로 피팅을 목적으로 한다. 
+  //이렇게 
+  var contentW = document.getElementById('image').width; 
+  var contentH = document.getElementById('image').height; 
+  //또는 이렇게 
+  var contentW = document.getElementsByTagName('img').width; 
+  var contentH = document.getElementsByTagName('img').height; 
+  */  
+  
+  //모니터 해상도  
+  var maxW = screen.availWidth;  
+  var maxH = screen.availHeight;  
+  //창을 화면 중앙에 위치 시키기 위한 좌표  
+  var windowX = (maxW/2)-(contentW/2);  
+  var windowY = (maxH/2)-(contentH/2);  
+  //최초 최소값으로 피팅  
+  window.moveTo(windowX,windowY);  
+  window.resizeTo(contentW, contentH);  
+  //현재 크기가져오기  
+  if (window.innerWidth)  
+  {  
+    var innerW = window.innerWidth;  
+    var innerH = window.innerHeight;  
+  }  
+  else  
+  {  
+    var innerW = document.body.clientWidth;  
+    var innerH = document.body.clientHeight;  
+  }  
+  //창의 전체 크기 얻기  
+  var winW = contentW - (innerW - contentW);  
+  var winH = contentH - (innerH - contentH);  
+  
+  //모니터보다 큰경우 처리  
+  if(winW > maxW)  
+  {  
+    winW = maxW;  
+    windowX = 0;  
+  }  
+  
+  if(winH > maxH)  
+  {  
+    winH = maxH;  
+    windowY = 0;  
+  }  
+  window.moveTo(windowX,windowY);  
+  //최종 사이즈 조절, 크롬은 동적처리가 안된다.  
+  if (navigator.userAgent.indexOf('Chrome')>-1)  
+    //경우에 따라서 더하는 수치가 바뀔수 있으나 경험상  아래의 수치가 적당했다.  
+    window.resizeTo(contentW+10, contentH+58);   
+  else  
+    window.resizeTo(winW, winH);  
+}  
+</script>
 <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
 </html>
