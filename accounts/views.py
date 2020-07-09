@@ -11,7 +11,7 @@ def index(request):
             return render(request, 'accounts/index.html',{'img_url':Sign.get_img(request)})
         return render(request, 'accounts/index.html')
     except:
-        return HttpResponse("<html><script>alert('잘못된 접근입니다. 처음부터 시도해주세요');location.href='/member/';</script></html>")   
+        return HttpResponse("<html><script>alert('잘못된 접근입니다. 처음부터 시도해주세요');location.href='/logout';</script></html>")   
     
 
 @csrf_exempt
