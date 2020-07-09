@@ -13,6 +13,7 @@ def main(request):
 def room(request, room_name):
     messages = Chat_logic.show_messages(room_name)
     person = Chat_logic.get_profile(request, room_name)
+    request.session['room_name']=room_name
     print(person)
     print(person.img_url)
     return render(request, 'chat/room.html', {'room_name_json': mark_safe(json.dumps(room_name)),'messages':messages,"room_id":room_name,"person":person})
@@ -40,3 +41,9 @@ def cheat(request):
     room_id = str((Chat_logic.chatroom1(request)))
     print(room_id)
     return redirect("/chat/"+room_id+"/",{"room_id",room_id})
+
+def history(request):
+    room_name = request.session['room_name']
+    messages = Chat_logic.show_messages(room_name)
+    person = Chat_logic.get_profile(request, room_name)
+    return render(request, 'chat/history.html', {'room_name_json': mark_safe(json.dumps(room_name)),'messages':messages,"room_id":room_name,"person":person})

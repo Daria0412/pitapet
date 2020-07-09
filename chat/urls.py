@@ -9,6 +9,7 @@ urlpatterns = [
     path('dbconnect/', views.dbconnect, name='dbconnect'),
     path('out/', views.out, name = 'out'),
     path('cheat/', views.cheat, name = 'cheat'),
+    path('history/',views.history, name='history'),
     path('cheatpage/', views.cheatpage, name = "cheatpage"),
     url(r'^(?P<room_name>[^/]+)/$', views.room, name='room'),
 ]

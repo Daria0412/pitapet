@@ -7,7 +7,6 @@
     {%load static%}
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Fonts -->
-    <META HTTP-EQUIV="refresh" CONTENT="5">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
     <!-- FAVICON -->
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
@@ -46,16 +45,7 @@
                     </form>
                         <i style="float: right; cursor: pointer;" class= "fas fa-stream fa-2x" aria-hidden="true" onclick="location.href='/chat/'"></i>
                 </div>
-                <div class="chat-history" id="chat-history">
-                    {%for message in messages%}
-                    {%if message.writer == request.session.member_id%}
-                    <div id = me class="message other-message float-right"> {{message.message}}  </div>
-                    <!-- <div id =me style='margin-right: 0px;'></div> -->
-                    {%else%}
-                    <div class="message my-message"> {{message.writer}} : {{message.message}} </div>
-                    {%endif%}
-                    {%endfor%}
-                </div>
+                <center><iframe src="{%url 'history'%}" width="90%" height="500px" style="margin-top: 40px;"></iframe></center>
                 <div id = last class=last></div>
                         <div class="chat-message clearfix">
                             <form name = f1 id = f1 action="{%url 'dbconnect'%}" method = POST>
@@ -119,6 +109,7 @@
         f1.submit(); 
         messageInputDom.value = '';
     };
+
 </script>
 <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
 </html>

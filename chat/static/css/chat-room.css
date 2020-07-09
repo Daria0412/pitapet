@@ -70,16 +70,16 @@ body {
   overflow-y: scroll;
 }
 
-.chat .chat-history .message-data {
+.chat-history .message-data {
   margin-bottom: 15px;
 }
 
-.chat .chat-history .message-data-time {
+.chat-history .message-data-time {
   color: #a8aab1;
   padding-left: 6px;
 }
 
-.chat .chat-history .message {
+.chat-history .message {
   color: white;
   padding: 18px 20px;
   line-height: 26px;
@@ -90,7 +90,7 @@ body {
   position: relative;
 }
 
-.chat .chat-history .message:after {
+.chat-history .message:after {
   bottom: 100%;
   left: 7%;
   border: solid transparent;
@@ -104,7 +104,7 @@ body {
   margin-left: -10px;
 }
 
-.chat .chat-history .my-message {
+.chat-history .my-message {
   background: #d3f0ff;
   font-family: 'Noto Sans KR', sans-serif; 
   font-weight: 300;
@@ -113,13 +113,13 @@ body {
   color: #282828;
 }
 
-.chat .chat-history .other-message {
+.chat-history .other-message {
   font-family: 'Noto Sans KR', sans-serif; 
   font-weight: 300;
   background: #ffe375;
 }
 
-.chat .chat-history .other-message:after {
+.chat-history .other-message:after {
   border-bottom-color: #ffe375;
   left: 93%;
 }
