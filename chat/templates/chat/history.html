@@ -1,13 +1,4 @@
 <head>
-    <script>
-    $.ajax({
-        type: "GET",
-        url: '',
-        success: function (data) {
-            $("#chat-history").html(data);
-        }
-    });
-    </script>
     <meta charset="utf-8"/>
     <title> Chat Room </title>
     {%load static%}
@@ -35,19 +26,31 @@
 </head>
 
 <body>
-    <div class="chat-history" id="chat-history">
-        {%for message in messages%}
-        {%if message.writer == request.session.member_id%}
-        <div id = me class="message other-message float-right"> {{message.message}}  </div>
-        <!-- <div id =me style='margin-right: 0px;'></div> -->
-        {%else%}
-        <div class="message my-message"> {{message.writer}} : {{message.message}} </div>
-        {%endif%}
-        {%endfor%}
+    <div class='blankdiv' id='blankdiv'>
+        <div class="chat-history" id="chat-history">
+            {%for message in messages%}
+            {%if message.writer == request.session.member_id%}
+            <div id = me class="message other-message float-right"> {{message.message}}  </div>
+            <!-- <div id =me style='margin-right: 0px;'></div> -->
+            {%else%}
+            <div class="message my-message"> {{message.writer}} : {{message.message}} </div>
+            {%endif%}
+            {%endfor%}
+        </div>
     </div>
 </body>
 <script>
-    
+    $.ajax({
+        type : "GET",
+        url : "",
+        error : function() {
+            alert('통신실패!!');
+        },
+        success : function(data) {
+            $('#blankdiv').html(data);
+        }
+ 
+    });
     $(document).ready(function(){
         $('body').animate({scrollTop:$('body').height()},-1);
     });
