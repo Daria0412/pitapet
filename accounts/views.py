@@ -6,10 +6,12 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
 def index(request):
-    if len(request.session.keys()) > 0:
-        return render(request, 'accounts/index.html',{'img_url':Sign.get_img(request)})
-    return render(request, 'accounts/index.html')
-    
+    try:
+        if len(request.session.keys()) > 0:
+            return render(request, 'accounts/index.html',{'img_url':Sign.get_img(request)})
+        return render(request, 'accounts/index.html')
+    except:
+        return HttpResponse("<html><script>alert('잘못된 접근입니다. 처음부터 시도해주세요');location.href='/member/';</script></html>")   
     
 
 @csrf_exempt
