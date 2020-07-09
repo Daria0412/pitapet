@@ -17,7 +17,6 @@
     <link href="{% static 'css/chat-room.css' %}" rel="stylesheet" media="screen">
     <!-- ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-
     <style>
         body {
           background-color: #F2F5F8;
@@ -33,13 +32,16 @@
             <div id = me class="message other-message float-right"> {{message.message}}  </div>
             <!-- <div id =me style='margin-right: 0px;'></div> -->
             {%else%}
-            <div class="message my-message"> {{message.writer}} : {{message.message}} </div>
+            <div class="message my-message">{{person.name}} : {{message.message}} </div>
             {%endif%}
             {%endfor%}
         </div>
     </div>
 </body>
 <script>
+    $(window).load(function(){
+        $('body').animate({scrollTop:$('body').height()},-1);
+    });
     $.ajax({
         type : "GET",
         url : "",
@@ -51,8 +53,5 @@
         }
         
  
-    });
-    $(document).ready(function(){
-        $('body').animate({scrollTop:$('body').height()},-1);
     });
 </script>

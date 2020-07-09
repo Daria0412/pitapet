@@ -3,9 +3,8 @@
 *, *:before, *:after {
   box-sizing: border-box;
 }
-
 body {
-  background: #ffe375;
+    background: #ffe375;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 300;
   padding: 40px 0;
@@ -17,6 +16,7 @@ body {
   width: 750px;
   background: #F2F5F8;
   border-radius: 5px;
+  height:750px;
 }
 
 .chat {
@@ -26,15 +26,19 @@ body {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   color: #434651;
+  height: 750px;
 }
 
 .chat .chat-header {
   padding: 20px;
   border-bottom: 2px solid white;
+  height: 120px;
 }
 
 .chat .chat-header img {
   float: left;
+  height: 80px;
+  width: 80px;
 }
 
 .chat .chat-header .chat-about {
@@ -44,12 +48,7 @@ body {
 }
 
 .chat .chat-header .chat-with {
-  font-size: 16px;
   font-family: 'yg-jalnan';
-  font-weight: normal;
-  font-style: normal;
-  padding-left: 8%;
-  padding-top: 5%;
 }
 
 .chat .chat-header .chat-num-messages {
@@ -202,7 +201,7 @@ textarea.autosize { min-height: 100px; }
   font-size: 0;
   content: " ";
   clear: both;
-  height: 0;
+  height: 100%;
 }
 
 /* 동그란 프로필 */
