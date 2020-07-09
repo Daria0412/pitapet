@@ -45,7 +45,7 @@
                     </form>
                         <i style="float: right; cursor: pointer;" class= "fas fa-stream fa-2x" aria-hidden="true" onclick="location.href='/chat/'"></i>
                 </div>
-                <center><iframe src="{%url 'history'%}" width="90%" height="500px" style="margin-top: 40px;"></iframe></center>
+                <center><iframe src="{%url 'history'%}" width="90%" height="500px" style="margin-top: 40px; border: none;"></iframe></center>
                 <div id = last class=last></div>
                         <div class="chat-message clearfix">
                             <form name = f1 id = f1 action="{%url 'dbconnect'%}" method = POST>
