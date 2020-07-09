@@ -83,11 +83,16 @@
 </script>
 <script>
     window.onload = function() {  
-  document.body.style.overflow='hidden';  
-  resizer();  
-}  
-function resizer()  
-{  
+    {%for room in chatlists%}
+    {% empty %}
+    alert("채팅하고 있는 사람이 없어요! 산책 메이트에서 채팅을 걸어 보세요!");
+    window.close();
+    {%endfor%}
+    document.body.style.overflow='hidden';  
+    resizer();  
+    }  
+    function resizer()  
+    {  
   //원하는 크기  
   var contentW = 500;  
   var contentH = 850;  
