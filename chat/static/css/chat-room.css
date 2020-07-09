@@ -41,6 +41,12 @@ body {
   float: left;
   padding-left: 10px;
   margin-top: 6px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.chat .chat-header .chat-about::-webkit-scrollbar{
+  display: none;
 }
 
 .chat .chat-header .chat-with {
