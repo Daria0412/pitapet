@@ -22,9 +22,12 @@ def signup(request):
 #@login_required
 @csrf_exempt
 def signin(request):
-    if request.method == "POST":
-        return Sign.signin(request)#session
-    return render(request, 'accounts/signin.html')
+    try:
+        if request.method == "POST":
+            return Sign.signin(request)#session
+        return render(request, 'accounts/signin.html')
+    except:
+        return HttpResponse("<html><script>alert('잘못된 접근입니다. 처음부터 시도해주세요');location.href='/member/';</script></html>")
 
 def logout(request):
     request.session.clear()
